@@ -11,7 +11,8 @@ namespace MvcYazGelProje.Controllers
     public class YoneticiLoginController : Controller
     {
         // GET: YoneticiLogin
-        DBYazgelProjeEntities db = new DBYazgelProjeEntities();
+        Models.Entity.DBYazgelProjeEntities db = new Models.Entity.DBYazgelProjeEntities();
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
@@ -22,13 +23,13 @@ namespace MvcYazGelProje.Controllers
             var bilgiler = db.yonetici.FirstOrDefault(x => x.yonetici_kullaniciAdi==p.yonetici_kullaniciAdi && x.yonetici_sifre == p.yonetici_sifre);
             if (bilgiler!=null)
             {
-                FormsAuthentication.SetAuthCookie(bilgiler.yonetici_kullaniciAdi, false);
                 return RedirectToAction("Index", "YoneticiPanali");
             }
             else
             {
-                return View();
+                return RedirectToAction("Index");
             }
+            
         }
 
     }

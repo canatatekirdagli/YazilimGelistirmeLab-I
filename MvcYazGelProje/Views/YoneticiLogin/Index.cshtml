@@ -23,12 +23,13 @@
         <h1>Yönetici Girişi</h1>
         @using (Html.BeginForm("Index", "YoneticiPaneli", FormMethod.Post))
         {
-            <p>Sicil Numarası</p>
-            <input type="text" name="yonetici_kullaniciAdi" placeholder="Kullanıcı Adı">
+            <p>Kullanıcı Adı</p>
+            <input type="text" class="form-control" required="required" placeholder="Kullanıcı Adı" name="yonetici_kullaniciAdi">
             <p>Şifre</p>
-            <input type="password" name="yonetici_sifre" placeholder="Şifre">
+            <input type="password" class="form-control" required="required" name="yonetici_sifre" placeholder="Şifre">
             <input type="submit" name="" value="Giriş">
         }
+
     </div>
 </body>
 </html>
