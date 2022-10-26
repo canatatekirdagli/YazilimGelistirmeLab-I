@@ -131,6 +131,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UyeLoginController.cs" />
     <Compile Include="Controllers\YoneticiLoginController.cs" />
+    <Compile Include="Controllers\YoneticiPaneliController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -247,6 +248,7 @@
     <Content Include="Views\UyeLogin\OgrenciGiris.cshtml" />
     <Content Include="Views\UyeLogin\OgretmenGiris.cshtml" />
     <Content Include="Views\UyeLogin\SifremiUnuttum.cshtml" />
+    <Content Include="Views\YoneticiPaneli\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
