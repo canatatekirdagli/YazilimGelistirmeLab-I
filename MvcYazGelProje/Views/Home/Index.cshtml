@@ -1,0 +1,49 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kocaeli Üniversitesi Staj/İME Takip ve Değerlendirme Sistemi</title>
+    <link href="~/css/giris.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <div class="header">
+        <img src="https://www.freelogovectors.net/wp-content/uploads/2018/03/kocaeli-universitesi-logo.png">
+        <h2>Kocaeli Üniversitesi</h2>
+        <h3>Staj/İme Takip ve Değerlendirme Sistemi</h3>
+    </div>
+    <br>
+
+    <p>
+        Kocaeli Üniversitesi Staj Ve İşyeri Mesleki Eğitimi Takip Ve Değerlendirme Sistemine
+        Hoşgeldiniz
+    </p>
+
+    <div class="buttongroup">
+        <form action="~/UyeLogin/OgrenciGiris">
+            <!-- action özelliği tıklandığında yazılan adres sayfasına gitmesini sağlar -->
+            <input type="submit" name="" value="Öğrenci Girişi">
+        </form>
+        <br>
+        <form action="~/UyeLogin/OgretmenGiris">
+            <input type="submit" name="" value="Öğretmen Girişi">
+        </form>
+        <br>
+        <form action="~/YoneticiLogin/Index">
+            <input type="submit" name="" value="Yönetici Girişi">
+        </form>
+    </div>
+
+
+</body>
+
+</html>
+

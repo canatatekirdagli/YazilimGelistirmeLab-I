@@ -1,0 +1,1086 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DBYazgelProjeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="basvuruDurumu">
+          <Key>
+            <PropertyRef Name="basvuruDurumuId" />
+          </Key>
+          <Property Name="basvuruDurumuId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ogrNo" Type="int" />
+          <Property Name="basvuruDurumu" Type="varchar" MaxLength="20" />
+          <Property Name="kabulEdilenGun" Type="int" />
+          <Property Name="kabulEdilmeyenGun" Type="int" />
+        </EntityType>
+        <EntityType Name="bolum">
+          <Key>
+            <PropertyRef Name="bolum_id" />
+          </Key>
+          <Property Name="bolum_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bolum_adi" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="gorev">
+          <Key>
+            <PropertyRef Name="gorev_no" />
+          </Key>
+          <Property Name="gorev_no" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="gorev_adi" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IME_bilgileri">
+          <Key>
+            <PropertyRef Name="IME_id" />
+          </Key>
+          <Property Name="IME_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ogr_no" Type="int" />
+          <Property Name="stajYeri_id" Type="int" />
+          <Property Name="unvan_id" Type="int" />
+          <Property Name="soru1" Type="bit" />
+          <Property Name="soru2" Type="bit" />
+          <Property Name="soru3" Type="bit" />
+          <Property Name="is_gunu" Type="int" />
+          <Property Name="IME_baslangic" Type="date" />
+          <Property Name="IME_bitis" Type="date" />
+          <Property Name="iban" Type="varchar" MaxLength="30" />
+          <Property Name="ogr_adres" Type="varchar" MaxLength="20" />
+          <Property Name="il_id" Type="int" />
+          <Property Name="posta_kodu" Type="int" />
+          <Property Name="stajNotu" Type="int" />
+          <Property Name="stajDonemiYıl" Type="char" MaxLength="4" />
+          <Property Name="stajDonemiDonem" Type="varchar" MaxLength="10" />
+          <Property Name="basvuruDurumuId" Type="int" />
+        </EntityType>
+        <EntityType Name="il">
+          <Key>
+            <PropertyRef Name="il_id" />
+          </Key>
+          <Property Name="il_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="il_adi" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="ilce">
+          <Key>
+            <PropertyRef Name="posta_kodu" />
+          </Key>
+          <Property Name="posta_kodu" Type="int" Nullable="false" />
+          <Property Name="ilce_adi" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="staj_formu">
+          <Key>
+            <PropertyRef Name="staj_id" />
+          </Key>
+          <Property Name="staj_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ogr_no" Type="int" />
+          <Property Name="stajYeri_id" Type="int" />
+          <Property Name="unvan_id" Type="int" />
+          <Property Name="soru1" Type="bit" />
+          <Property Name="soru2" Type="bit" />
+          <Property Name="soru3" Type="bit" />
+          <Property Name="soru4" Type="bit" />
+          <Property Name="cumartesi" Type="bit" />
+          <Property Name="is_gunu" Type="int" />
+          <Property Name="staj_baslangic" Type="date" />
+          <Property Name="staj_bitis" Type="date" />
+          <Property Name="staj_say" Type="bit" />
+          <Property Name="ogr_adres" Type="varchar" MaxLength="20" />
+          <Property Name="il_id" Type="int" />
+          <Property Name="posta_kodu" Type="int" />
+          <Property Name="stajNotu" Type="int" />
+          <Property Name="stajDonemiYıl" Type="char" MaxLength="4" />
+          <Property Name="stajDonemiDonem" Type="varchar" MaxLength="10" />
+          <Property Name="basvuruDurumuId" Type="int" />
+        </EntityType>
+        <EntityType Name="staj_yeri">
+          <Key>
+            <PropertyRef Name="stajYeri_id" />
+          </Key>
+          <Property Name="stajYeri_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="S_adi" Type="varchar" MaxLength="20" />
+          <Property Name="S_faaliyet_alani" Type="varchar" MaxLength="50" />
+          <Property Name="S_telefon" Type="varchar" MaxLength="20" />
+          <Property Name="S_fax" Type="varchar" MaxLength="20" />
+          <Property Name="S_eposta" Type="varchar" MaxLength="20" />
+          <Property Name="S_adres" Type="varchar" MaxLength="20" />
+          <Property Name="il_id" Type="int" />
+          <Property Name="posta_kodu" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="unvan">
+          <Key>
+            <PropertyRef Name="unvan_id" />
+          </Key>
+          <Property Name="unvan_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="unvan_adi" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="uye">
+          <Key>
+            <PropertyRef Name="uye_no" />
+          </Key>
+          <Property Name="uye_no" Type="int" Nullable="false" />
+          <Property Name="uyeAd" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="uyeSoyad" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="uyeEposta" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="uye_gsm" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="uye_tc" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="uye_sifre" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="uye_gorevi" Type="int" Nullable="false" />
+          <Property Name="uye_bolumID" Type="int" />
+          <Property Name="IME_durumu" Type="bit" />
+        </EntityType>
+        <EntityType Name="yonetici">
+          <Key>
+            <PropertyRef Name="yoneticiID" />
+          </Key>
+          <Property Name="yoneticiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="yonetici_kullaniciAdi" Type="varchar" MaxLength="10" />
+          <Property Name="yonetici_Ad" Type="varchar" MaxLength="10" />
+          <Property Name="yonetici_Soyad" Type="varchar" MaxLength="10" />
+          <Property Name="yonetici_sifre" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK__basvuruDu__ogrNo__35BCFE0A">
+          <End Role="uye" Type="Self.uye" Multiplicity="0..1" />
+          <End Role="basvuruDurumu" Type="Self.basvuruDurumu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="uye">
+              <PropertyRef Name="uye_no" />
+            </Principal>
+            <Dependent Role="basvuruDurumu">
+              <PropertyRef Name="ogrNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__IME_bilgi__basvu__44FF419A">
+          <End Role="basvuruDurumu" Type="Self.basvuruDurumu" Multiplicity="0..1" />
+          <End Role="IME_bilgileri" Type="Self.IME_bilgileri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="basvuruDurumu">
+              <PropertyRef Name="basvuruDurumuId" />
+            </Principal>
+            <Dependent Role="IME_bilgileri">
+              <PropertyRef Name="basvuruDurumuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__IME_bilgi__il_id__4222D4EF">
+          <End Role="il" Type="Self.il" Multiplicity="0..1" />
+          <End Role="IME_bilgileri" Type="Self.IME_bilgileri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="il">
+              <PropertyRef Name="il_id" />
+            </Principal>
+            <Dependent Role="IME_bilgileri">
+              <PropertyRef Name="il_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__IME_bilgi__ogr_n__440B1D61">
+          <End Role="uye" Type="Self.uye" Multiplicity="0..1" />
+          <End Role="IME_bilgileri" Type="Self.IME_bilgileri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="uye">
+              <PropertyRef Name="uye_no" />
+            </Principal>
+            <Dependent Role="IME_bilgileri">
+              <PropertyRef Name="ogr_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__IME_bilgi__posta__4316F928">
+          <End Role="ilce" Type="Self.ilce" Multiplicity="0..1" />
+          <End Role="IME_bilgileri" Type="Self.IME_bilgileri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ilce">
+              <PropertyRef Name="posta_kodu" />
+            </Principal>
+            <Dependent Role="IME_bilgileri">
+              <PropertyRef Name="posta_kodu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__IME_bilgi__stajY__403A8C7D">
+          <End Role="staj_yeri" Type="Self.staj_yeri" Multiplicity="0..1" />
+          <End Role="IME_bilgileri" Type="Self.IME_bilgileri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="staj_yeri">
+              <PropertyRef Name="stajYeri_id" />
+            </Principal>
+            <Dependent Role="IME_bilgileri">
+              <PropertyRef Name="stajYeri_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__IME_bilgi__unvan__412EB0B6">
+          <End Role="unvan" Type="Self.unvan" Multiplicity="0..1" />
+          <End Role="IME_bilgileri" Type="Self.IME_bilgileri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="unvan">
+              <PropertyRef Name="unvan_id" />
+            </Principal>
+            <Dependent Role="IME_bilgileri">
+              <PropertyRef Name="unvan_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__staj_form__basvu__3D5E1FD2">
+          <End Role="basvuruDurumu" Type="Self.basvuruDurumu" Multiplicity="0..1" />
+          <End Role="staj_formu" Type="Self.staj_formu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="basvuruDurumu">
+              <PropertyRef Name="basvuruDurumuId" />
+            </Principal>
+            <Dependent Role="staj_formu">
+              <PropertyRef Name="basvuruDurumuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__staj_form__il_id__3A81B327">
+          <End Role="il" Type="Self.il" Multiplicity="0..1" />
+          <End Role="staj_formu" Type="Self.staj_formu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="il">
+              <PropertyRef Name="il_id" />
+            </Principal>
+            <Dependent Role="staj_formu">
+              <PropertyRef Name="il_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__staj_form__ogr_n__3C69FB99">
+          <End Role="uye" Type="Self.uye" Multiplicity="0..1" />
+          <End Role="staj_formu" Type="Self.staj_formu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="uye">
+              <PropertyRef Name="uye_no" />
+            </Principal>
+            <Dependent Role="staj_formu">
+              <PropertyRef Name="ogr_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__staj_form__posta__3B75D760">
+          <End Role="ilce" Type="Self.ilce" Multiplicity="0..1" />
+          <End Role="staj_formu" Type="Self.staj_formu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ilce">
+              <PropertyRef Name="posta_kodu" />
+            </Principal>
+            <Dependent Role="staj_formu">
+              <PropertyRef Name="posta_kodu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__staj_form__stajY__38996AB5">
+          <End Role="staj_yeri" Type="Self.staj_yeri" Multiplicity="0..1" />
+          <End Role="staj_formu" Type="Self.staj_formu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="staj_yeri">
+              <PropertyRef Name="stajYeri_id" />
+            </Principal>
+            <Dependent Role="staj_formu">
+              <PropertyRef Name="stajYeri_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__staj_form__unvan__398D8EEE">
+          <End Role="unvan" Type="Self.unvan" Multiplicity="0..1" />
+          <End Role="staj_formu" Type="Self.staj_formu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="unvan">
+              <PropertyRef Name="unvan_id" />
+            </Principal>
+            <Dependent Role="staj_formu">
+              <PropertyRef Name="unvan_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__staj_yeri__il_id__300424B4">
+          <End Role="il" Type="Self.il" Multiplicity="0..1" />
+          <End Role="staj_yeri" Type="Self.staj_yeri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="il">
+              <PropertyRef Name="il_id" />
+            </Principal>
+            <Dependent Role="staj_yeri">
+              <PropertyRef Name="il_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__staj_yeri__posta__30F848ED">
+          <End Role="ilce" Type="Self.ilce" Multiplicity="0..1" />
+          <End Role="staj_yeri" Type="Self.staj_yeri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ilce">
+              <PropertyRef Name="posta_kodu" />
+            </Principal>
+            <Dependent Role="staj_yeri">
+              <PropertyRef Name="posta_kodu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__uye__uye_bolumID__2D27B809">
+          <End Role="bolum" Type="Self.bolum" Multiplicity="0..1" />
+          <End Role="uye" Type="Self.uye" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bolum">
+              <PropertyRef Name="bolum_id" />
+            </Principal>
+            <Dependent Role="uye">
+              <PropertyRef Name="uye_bolumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__uye__uye_gorevi__2C3393D0">
+          <End Role="gorev" Type="Self.gorev" Multiplicity="1" />
+          <End Role="uye" Type="Self.uye" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gorev">
+              <PropertyRef Name="gorev_no" />
+            </Principal>
+            <Dependent Role="uye">
+              <PropertyRef Name="uye_gorevi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBYazgelProjeModelStoreContainer">
+          <EntitySet Name="basvuruDurumu" EntityType="Self.basvuruDurumu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bolum" EntityType="Self.bolum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="gorev" EntityType="Self.gorev" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IME_bilgileri" EntityType="Self.IME_bilgileri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="il" EntityType="Self.il" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ilce" EntityType="Self.ilce" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="staj_formu" EntityType="Self.staj_formu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="staj_yeri" EntityType="Self.staj_yeri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="unvan" EntityType="Self.unvan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="uye" EntityType="Self.uye" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="yonetici" EntityType="Self.yonetici" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__basvuruDu__ogrNo__35BCFE0A" Association="Self.FK__basvuruDu__ogrNo__35BCFE0A">
+            <End Role="uye" EntitySet="uye" />
+            <End Role="basvuruDurumu" EntitySet="basvuruDurumu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__IME_bilgi__basvu__44FF419A" Association="Self.FK__IME_bilgi__basvu__44FF419A">
+            <End Role="basvuruDurumu" EntitySet="basvuruDurumu" />
+            <End Role="IME_bilgileri" EntitySet="IME_bilgileri" />
+          </AssociationSet>
+          <AssociationSet Name="FK__IME_bilgi__il_id__4222D4EF" Association="Self.FK__IME_bilgi__il_id__4222D4EF">
+            <End Role="il" EntitySet="il" />
+            <End Role="IME_bilgileri" EntitySet="IME_bilgileri" />
+          </AssociationSet>
+          <AssociationSet Name="FK__IME_bilgi__ogr_n__440B1D61" Association="Self.FK__IME_bilgi__ogr_n__440B1D61">
+            <End Role="uye" EntitySet="uye" />
+            <End Role="IME_bilgileri" EntitySet="IME_bilgileri" />
+          </AssociationSet>
+          <AssociationSet Name="FK__IME_bilgi__posta__4316F928" Association="Self.FK__IME_bilgi__posta__4316F928">
+            <End Role="ilce" EntitySet="ilce" />
+            <End Role="IME_bilgileri" EntitySet="IME_bilgileri" />
+          </AssociationSet>
+          <AssociationSet Name="FK__IME_bilgi__stajY__403A8C7D" Association="Self.FK__IME_bilgi__stajY__403A8C7D">
+            <End Role="staj_yeri" EntitySet="staj_yeri" />
+            <End Role="IME_bilgileri" EntitySet="IME_bilgileri" />
+          </AssociationSet>
+          <AssociationSet Name="FK__IME_bilgi__unvan__412EB0B6" Association="Self.FK__IME_bilgi__unvan__412EB0B6">
+            <End Role="unvan" EntitySet="unvan" />
+            <End Role="IME_bilgileri" EntitySet="IME_bilgileri" />
+          </AssociationSet>
+          <AssociationSet Name="FK__staj_form__basvu__3D5E1FD2" Association="Self.FK__staj_form__basvu__3D5E1FD2">
+            <End Role="basvuruDurumu" EntitySet="basvuruDurumu" />
+            <End Role="staj_formu" EntitySet="staj_formu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__staj_form__il_id__3A81B327" Association="Self.FK__staj_form__il_id__3A81B327">
+            <End Role="il" EntitySet="il" />
+            <End Role="staj_formu" EntitySet="staj_formu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__staj_form__ogr_n__3C69FB99" Association="Self.FK__staj_form__ogr_n__3C69FB99">
+            <End Role="uye" EntitySet="uye" />
+            <End Role="staj_formu" EntitySet="staj_formu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__staj_form__posta__3B75D760" Association="Self.FK__staj_form__posta__3B75D760">
+            <End Role="ilce" EntitySet="ilce" />
+            <End Role="staj_formu" EntitySet="staj_formu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__staj_form__stajY__38996AB5" Association="Self.FK__staj_form__stajY__38996AB5">
+            <End Role="staj_yeri" EntitySet="staj_yeri" />
+            <End Role="staj_formu" EntitySet="staj_formu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__staj_form__unvan__398D8EEE" Association="Self.FK__staj_form__unvan__398D8EEE">
+            <End Role="unvan" EntitySet="unvan" />
+            <End Role="staj_formu" EntitySet="staj_formu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__staj_yeri__il_id__300424B4" Association="Self.FK__staj_yeri__il_id__300424B4">
+            <End Role="il" EntitySet="il" />
+            <End Role="staj_yeri" EntitySet="staj_yeri" />
+          </AssociationSet>
+          <AssociationSet Name="FK__staj_yeri__posta__30F848ED" Association="Self.FK__staj_yeri__posta__30F848ED">
+            <End Role="ilce" EntitySet="ilce" />
+            <End Role="staj_yeri" EntitySet="staj_yeri" />
+          </AssociationSet>
+          <AssociationSet Name="FK__uye__uye_bolumID__2D27B809" Association="Self.FK__uye__uye_bolumID__2D27B809">
+            <End Role="bolum" EntitySet="bolum" />
+            <End Role="uye" EntitySet="uye" />
+          </AssociationSet>
+          <AssociationSet Name="FK__uye__uye_gorevi__2C3393D0" Association="Self.FK__uye__uye_gorevi__2C3393D0">
+            <End Role="gorev" EntitySet="gorev" />
+            <End Role="uye" EntitySet="uye" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBYazgelProjeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="basvuruDurumu">
+          <Key>
+            <PropertyRef Name="basvuruDurumuId" />
+          </Key>
+          <Property Name="basvuruDurumuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ogrNo" Type="Int32" />
+          <Property Name="basvuruDurumu1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="kabulEdilenGun" Type="Int32" />
+          <Property Name="kabulEdilmeyenGun" Type="Int32" />
+          <NavigationProperty Name="uye" Relationship="Self.FK__basvuruDu__ogrNo__35BCFE0A" FromRole="basvuruDurumu" ToRole="uye" />
+          <NavigationProperty Name="IME_bilgileri" Relationship="Self.FK__IME_bilgi__basvu__44FF419A" FromRole="basvuruDurumu" ToRole="IME_bilgileri" />
+          <NavigationProperty Name="staj_formu" Relationship="Self.FK__staj_form__basvu__3D5E1FD2" FromRole="basvuruDurumu" ToRole="staj_formu" />
+        </EntityType>
+        <EntityType Name="bolum">
+          <Key>
+            <PropertyRef Name="bolum_id" />
+          </Key>
+          <Property Name="bolum_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bolum_adi" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="uye" Relationship="Self.FK__uye__uye_bolumID__2D27B809" FromRole="bolum" ToRole="uye" />
+        </EntityType>
+        <EntityType Name="gorev">
+          <Key>
+            <PropertyRef Name="gorev_no" />
+          </Key>
+          <Property Name="gorev_no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="gorev_adi" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="uye" Relationship="Self.FK__uye__uye_gorevi__2C3393D0" FromRole="gorev" ToRole="uye" />
+        </EntityType>
+        <EntityType Name="IME_bilgileri">
+          <Key>
+            <PropertyRef Name="IME_id" />
+          </Key>
+          <Property Name="IME_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ogr_no" Type="Int32" />
+          <Property Name="stajYeri_id" Type="Int32" />
+          <Property Name="unvan_id" Type="Int32" />
+          <Property Name="soru1" Type="Boolean" />
+          <Property Name="soru2" Type="Boolean" />
+          <Property Name="soru3" Type="Boolean" />
+          <Property Name="is_gunu" Type="Int32" />
+          <Property Name="IME_baslangic" Type="DateTime" Precision="0" />
+          <Property Name="IME_bitis" Type="DateTime" Precision="0" />
+          <Property Name="iban" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ogr_adres" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="il_id" Type="Int32" />
+          <Property Name="posta_kodu" Type="Int32" />
+          <Property Name="stajNotu" Type="Int32" />
+          <Property Name="stajDonemiYıl" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="stajDonemiDonem" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="basvuruDurumuId" Type="Int32" />
+          <NavigationProperty Name="basvuruDurumu" Relationship="Self.FK__IME_bilgi__basvu__44FF419A" FromRole="IME_bilgileri" ToRole="basvuruDurumu" />
+          <NavigationProperty Name="il" Relationship="Self.FK__IME_bilgi__il_id__4222D4EF" FromRole="IME_bilgileri" ToRole="il" />
+          <NavigationProperty Name="uye" Relationship="Self.FK__IME_bilgi__ogr_n__440B1D61" FromRole="IME_bilgileri" ToRole="uye" />
+          <NavigationProperty Name="ilce" Relationship="Self.FK__IME_bilgi__posta__4316F928" FromRole="IME_bilgileri" ToRole="ilce" />
+          <NavigationProperty Name="staj_yeri" Relationship="Self.FK__IME_bilgi__stajY__403A8C7D" FromRole="IME_bilgileri" ToRole="staj_yeri" />
+          <NavigationProperty Name="unvan" Relationship="Self.FK__IME_bilgi__unvan__412EB0B6" FromRole="IME_bilgileri" ToRole="unvan" />
+        </EntityType>
+        <EntityType Name="il">
+          <Key>
+            <PropertyRef Name="il_id" />
+          </Key>
+          <Property Name="il_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="il_adi" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="IME_bilgileri" Relationship="Self.FK__IME_bilgi__il_id__4222D4EF" FromRole="il" ToRole="IME_bilgileri" />
+          <NavigationProperty Name="staj_formu" Relationship="Self.FK__staj_form__il_id__3A81B327" FromRole="il" ToRole="staj_formu" />
+          <NavigationProperty Name="staj_yeri" Relationship="Self.FK__staj_yeri__il_id__300424B4" FromRole="il" ToRole="staj_yeri" />
+        </EntityType>
+        <EntityType Name="ilce">
+          <Key>
+            <PropertyRef Name="posta_kodu" />
+          </Key>
+          <Property Name="posta_kodu" Type="Int32" Nullable="false" />
+          <Property Name="ilce_adi" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="IME_bilgileri" Relationship="Self.FK__IME_bilgi__posta__4316F928" FromRole="ilce" ToRole="IME_bilgileri" />
+          <NavigationProperty Name="staj_formu" Relationship="Self.FK__staj_form__posta__3B75D760" FromRole="ilce" ToRole="staj_formu" />
+          <NavigationProperty Name="staj_yeri" Relationship="Self.FK__staj_yeri__posta__30F848ED" FromRole="ilce" ToRole="staj_yeri" />
+        </EntityType>
+        <EntityType Name="staj_formu">
+          <Key>
+            <PropertyRef Name="staj_id" />
+          </Key>
+          <Property Name="staj_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ogr_no" Type="Int32" />
+          <Property Name="stajYeri_id" Type="Int32" />
+          <Property Name="unvan_id" Type="Int32" />
+          <Property Name="soru1" Type="Boolean" />
+          <Property Name="soru2" Type="Boolean" />
+          <Property Name="soru3" Type="Boolean" />
+          <Property Name="soru4" Type="Boolean" />
+          <Property Name="cumartesi" Type="Boolean" />
+          <Property Name="is_gunu" Type="Int32" />
+          <Property Name="staj_baslangic" Type="DateTime" Precision="0" />
+          <Property Name="staj_bitis" Type="DateTime" Precision="0" />
+          <Property Name="staj_say" Type="Boolean" />
+          <Property Name="ogr_adres" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="il_id" Type="Int32" />
+          <Property Name="posta_kodu" Type="Int32" />
+          <Property Name="stajNotu" Type="Int32" />
+          <Property Name="stajDonemiYıl" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="stajDonemiDonem" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="basvuruDurumuId" Type="Int32" />
+          <NavigationProperty Name="basvuruDurumu" Relationship="Self.FK__staj_form__basvu__3D5E1FD2" FromRole="staj_formu" ToRole="basvuruDurumu" />
+          <NavigationProperty Name="il" Relationship="Self.FK__staj_form__il_id__3A81B327" FromRole="staj_formu" ToRole="il" />
+          <NavigationProperty Name="ilce" Relationship="Self.FK__staj_form__posta__3B75D760" FromRole="staj_formu" ToRole="ilce" />
+          <NavigationProperty Name="uye" Relationship="Self.FK__staj_form__ogr_n__3C69FB99" FromRole="staj_formu" ToRole="uye" />
+          <NavigationProperty Name="staj_yeri" Relationship="Self.FK__staj_form__stajY__38996AB5" FromRole="staj_formu" ToRole="staj_yeri" />
+          <NavigationProperty Name="unvan" Relationship="Self.FK__staj_form__unvan__398D8EEE" FromRole="staj_formu" ToRole="unvan" />
+        </EntityType>
+        <EntityType Name="staj_yeri">
+          <Key>
+            <PropertyRef Name="stajYeri_id" />
+          </Key>
+          <Property Name="stajYeri_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="S_adi" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="S_faaliyet_alani" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="S_telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="S_fax" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="S_eposta" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="S_adres" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="il_id" Type="Int32" />
+          <Property Name="posta_kodu" Type="Int32" />
+          <NavigationProperty Name="IME_bilgileri" Relationship="Self.FK__IME_bilgi__stajY__403A8C7D" FromRole="staj_yeri" ToRole="IME_bilgileri" />
+          <NavigationProperty Name="il" Relationship="Self.FK__staj_yeri__il_id__300424B4" FromRole="staj_yeri" ToRole="il" />
+          <NavigationProperty Name="ilce" Relationship="Self.FK__staj_yeri__posta__30F848ED" FromRole="staj_yeri" ToRole="ilce" />
+          <NavigationProperty Name="staj_formu" Relationship="Self.FK__staj_form__stajY__38996AB5" FromRole="staj_yeri" ToRole="staj_formu" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="unvan">
+          <Key>
+            <PropertyRef Name="unvan_id" />
+          </Key>
+          <Property Name="unvan_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="unvan_adi" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="IME_bilgileri" Relationship="Self.FK__IME_bilgi__unvan__412EB0B6" FromRole="unvan" ToRole="IME_bilgileri" />
+          <NavigationProperty Name="staj_formu" Relationship="Self.FK__staj_form__unvan__398D8EEE" FromRole="unvan" ToRole="staj_formu" />
+        </EntityType>
+        <EntityType Name="uye">
+          <Key>
+            <PropertyRef Name="uye_no" />
+          </Key>
+          <Property Name="uye_no" Type="Int32" Nullable="false" />
+          <Property Name="uyeAd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="uyeSoyad" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="uyeEposta" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="uye_gsm" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="uye_tc" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="uye_sifre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="uye_gorevi" Type="Int32" Nullable="false" />
+          <Property Name="uye_bolumID" Type="Int32" />
+          <Property Name="IME_durumu" Type="Boolean" />
+          <NavigationProperty Name="basvuruDurumu" Relationship="Self.FK__basvuruDu__ogrNo__35BCFE0A" FromRole="uye" ToRole="basvuruDurumu" />
+          <NavigationProperty Name="bolum" Relationship="Self.FK__uye__uye_bolumID__2D27B809" FromRole="uye" ToRole="bolum" />
+          <NavigationProperty Name="gorev" Relationship="Self.FK__uye__uye_gorevi__2C3393D0" FromRole="uye" ToRole="gorev" />
+          <NavigationProperty Name="IME_bilgileri" Relationship="Self.FK__IME_bilgi__ogr_n__440B1D61" FromRole="uye" ToRole="IME_bilgileri" />
+          <NavigationProperty Name="staj_formu" Relationship="Self.FK__staj_form__ogr_n__3C69FB99" FromRole="uye" ToRole="staj_formu" />
+        </EntityType>
+        <EntityType Name="yonetici">
+          <Key>
+            <PropertyRef Name="yoneticiID" />
+          </Key>
+          <Property Name="yoneticiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="yonetici_kullaniciAdi" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="yonetici_Ad" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="yonetici_Soyad" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="yonetici_sifre" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK__basvuruDu__ogrNo__35BCFE0A">
+          <End Role="uye" Type="Self.uye" Multiplicity="0..1" />
+          <End Role="basvuruDurumu" Type="Self.basvuruDurumu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="uye">
+              <PropertyRef Name="uye_no" />
+            </Principal>
+            <Dependent Role="basvuruDurumu">
+              <PropertyRef Name="ogrNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__IME_bilgi__basvu__44FF419A">
+          <End Role="basvuruDurumu" Type="Self.basvuruDurumu" Multiplicity="0..1" />
+          <End Role="IME_bilgileri" Type="Self.IME_bilgileri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="basvuruDurumu">
+              <PropertyRef Name="basvuruDurumuId" />
+            </Principal>
+            <Dependent Role="IME_bilgileri">
+              <PropertyRef Name="basvuruDurumuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__staj_form__basvu__3D5E1FD2">
+          <End Role="basvuruDurumu" Type="Self.basvuruDurumu" Multiplicity="0..1" />
+          <End Role="staj_formu" Type="Self.staj_formu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="basvuruDurumu">
+              <PropertyRef Name="basvuruDurumuId" />
+            </Principal>
+            <Dependent Role="staj_formu">
+              <PropertyRef Name="basvuruDurumuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__uye__uye_bolumID__2D27B809">
+          <End Role="bolum" Type="Self.bolum" Multiplicity="0..1" />
+          <End Role="uye" Type="Self.uye" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bolum">
+              <PropertyRef Name="bolum_id" />
+            </Principal>
+            <Dependent Role="uye">
+              <PropertyRef Name="uye_bolumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__uye__uye_gorevi__2C3393D0">
+          <End Role="gorev" Type="Self.gorev" Multiplicity="1" />
+          <End Role="uye" Type="Self.uye" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gorev">
+              <PropertyRef Name="gorev_no" />
+            </Principal>
+            <Dependent Role="uye">
+              <PropertyRef Name="uye_gorevi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__IME_bilgi__il_id__4222D4EF">
+          <End Role="il" Type="Self.il" Multiplicity="0..1" />
+          <End Role="IME_bilgileri" Type="Self.IME_bilgileri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="il">
+              <PropertyRef Name="il_id" />
+            </Principal>
+            <Dependent Role="IME_bilgileri">
+              <PropertyRef Name="il_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__IME_bilgi__ogr_n__440B1D61">
+          <End Role="uye" Type="Self.uye" Multiplicity="0..1" />
+          <End Role="IME_bilgileri" Type="Self.IME_bilgileri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="uye">
+              <PropertyRef Name="uye_no" />
+            </Principal>
+            <Dependent Role="IME_bilgileri">
+              <PropertyRef Name="ogr_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__IME_bilgi__posta__4316F928">
+          <End Role="ilce" Type="Self.ilce" Multiplicity="0..1" />
+          <End Role="IME_bilgileri" Type="Self.IME_bilgileri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ilce">
+              <PropertyRef Name="posta_kodu" />
+            </Principal>
+            <Dependent Role="IME_bilgileri">
+              <PropertyRef Name="posta_kodu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__IME_bilgi__stajY__403A8C7D">
+          <End Role="staj_yeri" Type="Self.staj_yeri" Multiplicity="0..1" />
+          <End Role="IME_bilgileri" Type="Self.IME_bilgileri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="staj_yeri">
+              <PropertyRef Name="stajYeri_id" />
+            </Principal>
+            <Dependent Role="IME_bilgileri">
+              <PropertyRef Name="stajYeri_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__IME_bilgi__unvan__412EB0B6">
+          <End Role="unvan" Type="Self.unvan" Multiplicity="0..1" />
+          <End Role="IME_bilgileri" Type="Self.IME_bilgileri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="unvan">
+              <PropertyRef Name="unvan_id" />
+            </Principal>
+            <Dependent Role="IME_bilgileri">
+              <PropertyRef Name="unvan_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__staj_form__il_id__3A81B327">
+          <End Role="il" Type="Self.il" Multiplicity="0..1" />
+          <End Role="staj_formu" Type="Self.staj_formu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="il">
+              <PropertyRef Name="il_id" />
+            </Principal>
+            <Dependent Role="staj_formu">
+              <PropertyRef Name="il_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__staj_yeri__il_id__300424B4">
+          <End Role="il" Type="Self.il" Multiplicity="0..1" />
+          <End Role="staj_yeri" Type="Self.staj_yeri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="il">
+              <PropertyRef Name="il_id" />
+            </Principal>
+            <Dependent Role="staj_yeri">
+              <PropertyRef Name="il_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__staj_form__posta__3B75D760">
+          <End Role="ilce" Type="Self.ilce" Multiplicity="0..1" />
+          <End Role="staj_formu" Type="Self.staj_formu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ilce">
+              <PropertyRef Name="posta_kodu" />
+            </Principal>
+            <Dependent Role="staj_formu">
+              <PropertyRef Name="posta_kodu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__staj_yeri__posta__30F848ED">
+          <End Role="ilce" Type="Self.ilce" Multiplicity="0..1" />
+          <End Role="staj_yeri" Type="Self.staj_yeri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ilce">
+              <PropertyRef Name="posta_kodu" />
+            </Principal>
+            <Dependent Role="staj_yeri">
+              <PropertyRef Name="posta_kodu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__staj_form__ogr_n__3C69FB99">
+          <End Role="uye" Type="Self.uye" Multiplicity="0..1" />
+          <End Role="staj_formu" Type="Self.staj_formu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="uye">
+              <PropertyRef Name="uye_no" />
+            </Principal>
+            <Dependent Role="staj_formu">
+              <PropertyRef Name="ogr_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__staj_form__stajY__38996AB5">
+          <End Role="staj_yeri" Type="Self.staj_yeri" Multiplicity="0..1" />
+          <End Role="staj_formu" Type="Self.staj_formu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="staj_yeri">
+              <PropertyRef Name="stajYeri_id" />
+            </Principal>
+            <Dependent Role="staj_formu">
+              <PropertyRef Name="stajYeri_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__staj_form__unvan__398D8EEE">
+          <End Role="unvan" Type="Self.unvan" Multiplicity="0..1" />
+          <End Role="staj_formu" Type="Self.staj_formu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="unvan">
+              <PropertyRef Name="unvan_id" />
+            </Principal>
+            <Dependent Role="staj_formu">
+              <PropertyRef Name="unvan_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBYazgelProjeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="basvuruDurumu" EntityType="Self.basvuruDurumu" />
+          <EntitySet Name="bolum" EntityType="Self.bolum" />
+          <EntitySet Name="gorev" EntityType="Self.gorev" />
+          <EntitySet Name="IME_bilgileri" EntityType="Self.IME_bilgileri" />
+          <EntitySet Name="il" EntityType="Self.il" />
+          <EntitySet Name="ilce" EntityType="Self.ilce" />
+          <EntitySet Name="staj_formu" EntityType="Self.staj_formu" />
+          <EntitySet Name="staj_yeri" EntityType="Self.staj_yeri" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="unvan" EntityType="Self.unvan" />
+          <EntitySet Name="uye" EntityType="Self.uye" />
+          <EntitySet Name="yonetici" EntityType="Self.yonetici" />
+          <AssociationSet Name="FK__basvuruDu__ogrNo__35BCFE0A" Association="Self.FK__basvuruDu__ogrNo__35BCFE0A">
+            <End Role="uye" EntitySet="uye" />
+            <End Role="basvuruDurumu" EntitySet="basvuruDurumu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__IME_bilgi__basvu__44FF419A" Association="Self.FK__IME_bilgi__basvu__44FF419A">
+            <End Role="basvuruDurumu" EntitySet="basvuruDurumu" />
+            <End Role="IME_bilgileri" EntitySet="IME_bilgileri" />
+          </AssociationSet>
+          <AssociationSet Name="FK__staj_form__basvu__3D5E1FD2" Association="Self.FK__staj_form__basvu__3D5E1FD2">
+            <End Role="basvuruDurumu" EntitySet="basvuruDurumu" />
+            <End Role="staj_formu" EntitySet="staj_formu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__uye__uye_bolumID__2D27B809" Association="Self.FK__uye__uye_bolumID__2D27B809">
+            <End Role="bolum" EntitySet="bolum" />
+            <End Role="uye" EntitySet="uye" />
+          </AssociationSet>
+          <AssociationSet Name="FK__uye__uye_gorevi__2C3393D0" Association="Self.FK__uye__uye_gorevi__2C3393D0">
+            <End Role="gorev" EntitySet="gorev" />
+            <End Role="uye" EntitySet="uye" />
+          </AssociationSet>
+          <AssociationSet Name="FK__IME_bilgi__il_id__4222D4EF" Association="Self.FK__IME_bilgi__il_id__4222D4EF">
+            <End Role="il" EntitySet="il" />
+            <End Role="IME_bilgileri" EntitySet="IME_bilgileri" />
+          </AssociationSet>
+          <AssociationSet Name="FK__IME_bilgi__ogr_n__440B1D61" Association="Self.FK__IME_bilgi__ogr_n__440B1D61">
+            <End Role="uye" EntitySet="uye" />
+            <End Role="IME_bilgileri" EntitySet="IME_bilgileri" />
+          </AssociationSet>
+          <AssociationSet Name="FK__IME_bilgi__posta__4316F928" Association="Self.FK__IME_bilgi__posta__4316F928">
+            <End Role="ilce" EntitySet="ilce" />
+            <End Role="IME_bilgileri" EntitySet="IME_bilgileri" />
+          </AssociationSet>
+          <AssociationSet Name="FK__IME_bilgi__stajY__403A8C7D" Association="Self.FK__IME_bilgi__stajY__403A8C7D">
+            <End Role="staj_yeri" EntitySet="staj_yeri" />
+            <End Role="IME_bilgileri" EntitySet="IME_bilgileri" />
+          </AssociationSet>
+          <AssociationSet Name="FK__IME_bilgi__unvan__412EB0B6" Association="Self.FK__IME_bilgi__unvan__412EB0B6">
+            <End Role="unvan" EntitySet="unvan" />
+            <End Role="IME_bilgileri" EntitySet="IME_bilgileri" />
+          </AssociationSet>
+          <AssociationSet Name="FK__staj_form__il_id__3A81B327" Association="Self.FK__staj_form__il_id__3A81B327">
+            <End Role="il" EntitySet="il" />
+            <End Role="staj_formu" EntitySet="staj_formu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__staj_yeri__il_id__300424B4" Association="Self.FK__staj_yeri__il_id__300424B4">
+            <End Role="il" EntitySet="il" />
+            <End Role="staj_yeri" EntitySet="staj_yeri" />
+          </AssociationSet>
+          <AssociationSet Name="FK__staj_form__posta__3B75D760" Association="Self.FK__staj_form__posta__3B75D760">
+            <End Role="ilce" EntitySet="ilce" />
+            <End Role="staj_formu" EntitySet="staj_formu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__staj_yeri__posta__30F848ED" Association="Self.FK__staj_yeri__posta__30F848ED">
+            <End Role="ilce" EntitySet="ilce" />
+            <End Role="staj_yeri" EntitySet="staj_yeri" />
+          </AssociationSet>
+          <AssociationSet Name="FK__staj_form__ogr_n__3C69FB99" Association="Self.FK__staj_form__ogr_n__3C69FB99">
+            <End Role="uye" EntitySet="uye" />
+            <End Role="staj_formu" EntitySet="staj_formu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__staj_form__stajY__38996AB5" Association="Self.FK__staj_form__stajY__38996AB5">
+            <End Role="staj_yeri" EntitySet="staj_yeri" />
+            <End Role="staj_formu" EntitySet="staj_formu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__staj_form__unvan__398D8EEE" Association="Self.FK__staj_form__unvan__398D8EEE">
+            <End Role="unvan" EntitySet="unvan" />
+            <End Role="staj_formu" EntitySet="staj_formu" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBYazgelProjeModelStoreContainer" CdmEntityContainer="DBYazgelProjeEntities">
+          <EntitySetMapping Name="basvuruDurumu">
+            <EntityTypeMapping TypeName="DBYazgelProjeModel.basvuruDurumu">
+              <MappingFragment StoreEntitySet="basvuruDurumu">
+                <ScalarProperty Name="basvuruDurumuId" ColumnName="basvuruDurumuId" />
+                <ScalarProperty Name="ogrNo" ColumnName="ogrNo" />
+                <ScalarProperty Name="basvuruDurumu1" ColumnName="basvuruDurumu" />
+                <ScalarProperty Name="kabulEdilenGun" ColumnName="kabulEdilenGun" />
+                <ScalarProperty Name="kabulEdilmeyenGun" ColumnName="kabulEdilmeyenGun" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bolum">
+            <EntityTypeMapping TypeName="DBYazgelProjeModel.bolum">
+              <MappingFragment StoreEntitySet="bolum">
+                <ScalarProperty Name="bolum_id" ColumnName="bolum_id" />
+                <ScalarProperty Name="bolum_adi" ColumnName="bolum_adi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gorev">
+            <EntityTypeMapping TypeName="DBYazgelProjeModel.gorev">
+              <MappingFragment StoreEntitySet="gorev">
+                <ScalarProperty Name="gorev_no" ColumnName="gorev_no" />
+                <ScalarProperty Name="gorev_adi" ColumnName="gorev_adi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IME_bilgileri">
+            <EntityTypeMapping TypeName="DBYazgelProjeModel.IME_bilgileri">
+              <MappingFragment StoreEntitySet="IME_bilgileri">
+                <ScalarProperty Name="IME_id" ColumnName="IME_id" />
+                <ScalarProperty Name="ogr_no" ColumnName="ogr_no" />
+                <ScalarProperty Name="stajYeri_id" ColumnName="stajYeri_id" />
+                <ScalarProperty Name="unvan_id" ColumnName="unvan_id" />
+                <ScalarProperty Name="soru1" ColumnName="soru1" />
+                <ScalarProperty Name="soru2" ColumnName="soru2" />
+                <ScalarProperty Name="soru3" ColumnName="soru3" />
+                <ScalarProperty Name="is_gunu" ColumnName="is_gunu" />
+                <ScalarProperty Name="IME_baslangic" ColumnName="IME_baslangic" />
+                <ScalarProperty Name="IME_bitis" ColumnName="IME_bitis" />
+                <ScalarProperty Name="iban" ColumnName="iban" />
+                <ScalarProperty Name="ogr_adres" ColumnName="ogr_adres" />
+                <ScalarProperty Name="il_id" ColumnName="il_id" />
+                <ScalarProperty Name="posta_kodu" ColumnName="posta_kodu" />
+                <ScalarProperty Name="stajNotu" ColumnName="stajNotu" />
+                <ScalarProperty Name="stajDonemiYıl" ColumnName="stajDonemiYıl" />
+                <ScalarProperty Name="stajDonemiDonem" ColumnName="stajDonemiDonem" />
+                <ScalarProperty Name="basvuruDurumuId" ColumnName="basvuruDurumuId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="il">
+            <EntityTypeMapping TypeName="DBYazgelProjeModel.il">
+              <MappingFragment StoreEntitySet="il">
+                <ScalarProperty Name="il_id" ColumnName="il_id" />
+                <ScalarProperty Name="il_adi" ColumnName="il_adi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ilce">
+            <EntityTypeMapping TypeName="DBYazgelProjeModel.ilce">
+              <MappingFragment StoreEntitySet="ilce">
+                <ScalarProperty Name="posta_kodu" ColumnName="posta_kodu" />
+                <ScalarProperty Name="ilce_adi" ColumnName="ilce_adi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="staj_formu">
+            <EntityTypeMapping TypeName="DBYazgelProjeModel.staj_formu">
+              <MappingFragment StoreEntitySet="staj_formu">
+                <ScalarProperty Name="staj_id" ColumnName="staj_id" />
+                <ScalarProperty Name="ogr_no" ColumnName="ogr_no" />
+                <ScalarProperty Name="stajYeri_id" ColumnName="stajYeri_id" />
+                <ScalarProperty Name="unvan_id" ColumnName="unvan_id" />
+                <ScalarProperty Name="soru1" ColumnName="soru1" />
+                <ScalarProperty Name="soru2" ColumnName="soru2" />
+                <ScalarProperty Name="soru3" ColumnName="soru3" />
+                <ScalarProperty Name="soru4" ColumnName="soru4" />
+                <ScalarProperty Name="cumartesi" ColumnName="cumartesi" />
+                <ScalarProperty Name="is_gunu" ColumnName="is_gunu" />
+                <ScalarProperty Name="staj_baslangic" ColumnName="staj_baslangic" />
+                <ScalarProperty Name="staj_bitis" ColumnName="staj_bitis" />
+                <ScalarProperty Name="staj_say" ColumnName="staj_say" />
+                <ScalarProperty Name="ogr_adres" ColumnName="ogr_adres" />
+                <ScalarProperty Name="il_id" ColumnName="il_id" />
+                <ScalarProperty Name="posta_kodu" ColumnName="posta_kodu" />
+                <ScalarProperty Name="stajNotu" ColumnName="stajNotu" />
+                <ScalarProperty Name="stajDonemiYıl" ColumnName="stajDonemiYıl" />
+                <ScalarProperty Name="stajDonemiDonem" ColumnName="stajDonemiDonem" />
+                <ScalarProperty Name="basvuruDurumuId" ColumnName="basvuruDurumuId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="staj_yeri">
+            <EntityTypeMapping TypeName="DBYazgelProjeModel.staj_yeri">
+              <MappingFragment StoreEntitySet="staj_yeri">
+                <ScalarProperty Name="stajYeri_id" ColumnName="stajYeri_id" />
+                <ScalarProperty Name="S_adi" ColumnName="S_adi" />
+                <ScalarProperty Name="S_faaliyet_alani" ColumnName="S_faaliyet_alani" />
+                <ScalarProperty Name="S_telefon" ColumnName="S_telefon" />
+                <ScalarProperty Name="S_fax" ColumnName="S_fax" />
+                <ScalarProperty Name="S_eposta" ColumnName="S_eposta" />
+                <ScalarProperty Name="S_adres" ColumnName="S_adres" />
+                <ScalarProperty Name="il_id" ColumnName="il_id" />
+                <ScalarProperty Name="posta_kodu" ColumnName="posta_kodu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DBYazgelProjeModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="unvan">
+            <EntityTypeMapping TypeName="DBYazgelProjeModel.unvan">
+              <MappingFragment StoreEntitySet="unvan">
+                <ScalarProperty Name="unvan_id" ColumnName="unvan_id" />
+                <ScalarProperty Name="unvan_adi" ColumnName="unvan_adi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="uye">
+            <EntityTypeMapping TypeName="DBYazgelProjeModel.uye">
+              <MappingFragment StoreEntitySet="uye">
+                <ScalarProperty Name="uye_no" ColumnName="uye_no" />
+                <ScalarProperty Name="uyeAd" ColumnName="uyeAd" />
+                <ScalarProperty Name="uyeSoyad" ColumnName="uyeSoyad" />
+                <ScalarProperty Name="uyeEposta" ColumnName="uyeEposta" />
+                <ScalarProperty Name="uye_gsm" ColumnName="uye_gsm" />
+                <ScalarProperty Name="uye_tc" ColumnName="uye_tc" />
+                <ScalarProperty Name="uye_sifre" ColumnName="uye_sifre" />
+                <ScalarProperty Name="uye_gorevi" ColumnName="uye_gorevi" />
+                <ScalarProperty Name="uye_bolumID" ColumnName="uye_bolumID" />
+                <ScalarProperty Name="IME_durumu" ColumnName="IME_durumu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="yonetici">
+            <EntityTypeMapping TypeName="DBYazgelProjeModel.yonetici">
+              <MappingFragment StoreEntitySet="yonetici">
+                <ScalarProperty Name="yoneticiID" ColumnName="yoneticiID" />
+                <ScalarProperty Name="yonetici_kullaniciAdi" ColumnName="yonetici_kullaniciAdi" />
+                <ScalarProperty Name="yonetici_Ad" ColumnName="yonetici_Ad" />
+                <ScalarProperty Name="yonetici_Soyad" ColumnName="yonetici_Soyad" />
+                <ScalarProperty Name="yonetici_sifre" ColumnName="yonetici_sifre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

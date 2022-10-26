@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0c6393d93ea54f648c426878c2700589" Name="Diagram1">
+        <EntityTypeShape EntityType="DBYazgelProjeModel.basvuruDurumu" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBYazgelProjeModel.bolum" Width="1.5" PointX="1.5" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBYazgelProjeModel.gorev" Width="1.5" PointX="1.5" PointY="23.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBYazgelProjeModel.IME_bilgileri" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBYazgelProjeModel.il" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBYazgelProjeModel.ilce" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBYazgelProjeModel.staj_formu" Width="1.5" PointX="6" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBYazgelProjeModel.staj_yeri" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBYazgelProjeModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBYazgelProjeModel.unvan" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBYazgelProjeModel.uye" Width="1.5" PointX="1.5" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBYazgelProjeModel.yonetici" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="DBYazgelProjeModel.FK__basvuruDu__ogrNo__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="DBYazgelProjeModel.FK__IME_bilgi__basvu__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="DBYazgelProjeModel.FK__staj_form__basvu__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="DBYazgelProjeModel.FK__uye__uye_bolumID__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="DBYazgelProjeModel.FK__uye__uye_gorevi__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="DBYazgelProjeModel.FK__IME_bilgi__il_id__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="DBYazgelProjeModel.FK__IME_bilgi__ogr_n__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="DBYazgelProjeModel.FK__IME_bilgi__posta__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="DBYazgelProjeModel.FK__IME_bilgi__stajY__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="DBYazgelProjeModel.FK__IME_bilgi__unvan__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="DBYazgelProjeModel.FK__staj_form__il_id__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="DBYazgelProjeModel.FK__staj_yeri__il_id__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="DBYazgelProjeModel.FK__staj_form__posta__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="DBYazgelProjeModel.FK__staj_yeri__posta__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="DBYazgelProjeModel.FK__staj_form__ogr_n__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="DBYazgelProjeModel.FK__staj_form__stajY__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="DBYazgelProjeModel.FK__staj_form__unvan__398D8EEE" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
