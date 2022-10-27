@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
@@ -10,10 +9,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kocaeli Üniversitesi Staj/İME Takip ve Değerlendirme Sistemi</title>
-    <link href="~/css/ogretmengiris.css" rel="stylesheet" />
-
+    <link href="~/css/yoneticigiris.css" rel="stylesheet" />
 </head>
 <body>
+
+
     <div class="header">
         <img src="https://www.freelogovectors.net/wp-content/uploads/2018/03/kocaeli-universitesi-logo.png">
         <h2>Kocaeli Üniversitesi</h2>
@@ -22,19 +22,19 @@
 
     <div class="giriskutusu">
         <img src="https://w7.pngwing.com/pngs/505/761/png-transparent-login-computer-icons-avatar-icon-monochrome-black-silhouette.png" class="avatar">
-        <h1>Öğretmen Girişi</h1>
-
-        @using (Html.BeginForm("Index", "OgretmenPanel", FormMethod.Post))
+        <h1>Yönetici Girişi</h1>
+        @using (Html.BeginForm("GirisYap", "YoneticiLogin", FormMethod.Post))
         {
-            <p>Sicil Numarası</p>
-            <input type="text" name="" placeholder="Sicil Numarası">
+            <p>Kullanıcı Adı</p>
+            <input type="text" class="form-control" required="required" placeholder="Kullanıcı Adı" name="yonetici_kullaniciAdi">
             <p>Şifre</p>
-            <input type="password" name="" placeholder="Şifre">
-            <input type="submit" name="" value="Giriş">
+            <input type="password" class="form-control" required="required" name="yonetici_sifre" placeholder="Şifre">
+            <input type="submit" class="form-control" required="required" name="" value="Giriş">
+            @ViewBag.Mesaj
         }
-        <a href="SifremiUnuttum">Şifremi Unuttum</a>
 
     </div>
+
 
 </body>
 </html>

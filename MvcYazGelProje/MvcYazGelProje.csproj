@@ -246,13 +246,13 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\YoneticiLogin\Index.cshtml" />
+    <Content Include="Views\YoneticiLogin\GirisYap.cshtml" />
     <Content Include="Views\YoneticiPaneli\Index.cshtml" />
     <Content Include="Views\OgrenciLogin\SifremiUnuttum.cshtml" />
     <Content Include="Views\OgretmenLogin\SifremiUnuttum.cshtml" />
     <Content Include="Views\OgrenciPanel\Index.cshtml" />
-    <Content Include="Views\OgrenciLogin\Index.cshtml" />
-    <Content Include="Views\OgretmenLogin\Index.cshtml" />
+    <Content Include="Views\OgrenciLogin\GirisYap.cshtml" />
+    <Content Include="Views\OgretmenLogin\GirisYap.cshtml" />
     <Content Include="Views\OgretmenPanel\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

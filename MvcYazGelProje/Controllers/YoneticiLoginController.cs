@@ -13,7 +13,7 @@ namespace MvcYazGelProje.Controllers
         // GET: YoneticiLogin
         Models.Entity.DBYazgelProjeEntities db = new Models.Entity.DBYazgelProjeEntities();
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult GirisYap()
         {
             return View();
         }
@@ -23,11 +23,13 @@ namespace MvcYazGelProje.Controllers
             var bilgiler = db.yonetici.FirstOrDefault(x => x.yonetici_kullaniciAdi==p.yonetici_kullaniciAdi && x.yonetici_sifre == p.yonetici_sifre);
             if (bilgiler!=null)
             {
+                FormsAuthentication.SetAuthCookie(bilgiler.yonetici_kullaniciAdi, false);
                 return RedirectToAction("Index", "YoneticiPaneli");
             }
             else
             {
-                return RedirectToAction("Index");
+                ViewBag.Mesaj = "Geçersiz Kullanıcı Adı yada Şifre";
+                return View();
             }
             
         }
