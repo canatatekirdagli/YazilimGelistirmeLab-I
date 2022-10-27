@@ -11,77 +11,159 @@ body {
     background-image: linear-gradient(45deg, rgb(139, 129, 129), rgb(123, 189, 93));
 }
 
+html {
+    font-size: 20px;
+}
+
 .header {
     background-color: #000;
-    height: 88px;
+    height: 4.4rem;
 }
 
-.header img {
-    padding-top: 1mm;
-    float: left;
-    margin-left: 20mm;
-    width: 80px;
-    height: 80px;
-}
+    .header img {
+        padding-top: 1mm;
+        float: left;
+        margin-left: 20mm;
+        width: 4rem;
+        height: 4rem;
+    }
 
-.header h2 {
-    padding-top: 2.9mm;
-    padding-left: 150px;
-    color: #fff;
-    position: absolute;
-    top: 18px;
-    left: 10px;
-}
+    .header h2 {
+        padding-bottom: 0;
+        float: left;
+        color: #fff;
+        position: relative;
+        top: 18px;
+        left: 10px;
+        font-size: 1.2rem;
+    }
 
-.header h3 {
-    padding-top: 2rem;
-    color: #fff;
-    position: relative;
-    padding-right: 60px;
-    text-align: right;
-}
+    .header h3 {
+        padding-top: 1.16rem;
+        padding-bottom: 0½;
+        color: #fff;
+        padding-right: 3rem;
+        font-size: 0.95rem;
+        float: right;
+    }
 
-.buttongroup{
-    width: 600px;
-    height: 350px;
+.buttongroup {
+    width: 30rem;
+    height: 16rem;
     background: #000;
     color: #fff;
-    top: 50%;
-    left: 50%;
+    margin-top: 3rem;
+    margin-left: 21rem;
     position: absolute;
-    transform: translate(-50%, -50%);
     box-sizing: border-box;
     border-radius: 30px;
     /* Köşelerin yuvarlak olması için*/
-    padding: 63px 20px;
+    padding: 1rem 1rem;
 }
 
-.buttongroup input {
-    width: 100%;
-    margin-bottom: 20px;
-}
+    .buttongroup input {
+        width: 100%;
+        margin-bottom: 1.8rem;
+    }
 
-.buttongroup input[type="submit"] {
-    border: none;
-    outline: none;
-    height: 50px;
-    background: green;
+        .buttongroup input[type="submit"] {
+            border: none;
+            outline: none;
+            height: 2.6rem;
+            background: green;
+            color: #fff;
+            font-size: 1rem;
+            border-radius: 30px;
+        }
+
+
+            .buttongroup input[type="submit"]:hover {
+                /*Fare üzerine geldiğinde olacak değişklikler için hover özelliğini kullanıyoruz.*/
+                cursor: pointer;
+                background: #fff;
+                color: #000;
+            }
+
+p {
+    text-align: center;
     color: #fff;
-    font-size: 18px;
+    font-size: 1.12rem;
+}
+
+@media screen and (max-width:1000px) {
+    html {
+        font-size: 17px;
+    }
+
+    .header h2 {
+        display: inline-block;
+    }
+
+    .header h3 {
+        display: inline-block;
+    }
+}
+
+@media screen and (max-width:400px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+.stajbutton {
+    width: 13rem;
+    height: 6rem;
+    background: #000;
+    color: #fff;
+    margin-top: 23rem;
+    margin-left: 30rem;
+    position: absolute;
+    box-sizing: border-box;
     border-radius: 30px;
+    /* Köşelerin yuvarlak olması için*/
+    padding: 1rem 1rem;
 }
 
+    .stajbutton input {
+        width: 100%;
+        margin-bottom: 0rem;
+    }
 
-.buttongroup input[type="submit"]:hover {
-    /*Fare üzerine geldiğinde olacak değişklikler için hover özelliğini kullanıyoruz.*/
-    cursor: pointer;
-    background: #fff;
+        .stajbutton input[type="submit"] {
+            border: none;
+            outline: none;
+            height: 4.2rem;
+            background: green;
+            color: #fff;
+            font-size: 0.6 rem;
+            border-radius: 30px;
+        }
+
+            .stajbutton input[type="submit"]:hover {
+                cursor: pointer;
+                background: #fff;
+                color: #000;
+            }
+
+.stajizlence img {
+    float: left;
+    width: 100%;
+    height: 40rem;
+    margin-left: 0%;
+}
+
+.stajizlence h2 {
+    padding-bottom: 0;
+    float: left;
     color: #000;
+    position: relative;
+    top: 18px;
+    left: 40%;
+    font-size: 1.2rem;
 }
 
-p{
-text-align: center;
-color: #fff;
-font-size: 20px;
-
+.pstaj {
+    text-align: justify;
+    font-size: 0.8rem;
+    color: #000;
 }

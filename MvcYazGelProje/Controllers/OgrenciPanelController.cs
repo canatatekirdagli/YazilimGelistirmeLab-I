@@ -13,5 +13,7 @@ namespace MvcYazGelProje.Controllers
         {
             return View();
         }
+
+
     }
 }

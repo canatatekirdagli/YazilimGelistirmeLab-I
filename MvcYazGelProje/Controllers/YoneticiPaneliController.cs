@@ -13,5 +13,27 @@ namespace MvcYazGelProje.Controllers
         {
             return View();
         }
+        public ActionResult BilgiGoruntuleme()
+        {
+            return View();
+        }
+        public ActionResult KullaniciIslemleri()
+        {
+            return View();
+        }
+        public ActionResult KullaniciGuncelleme()
+        {
+            return View();
+        }
+        public ActionResult RolTanimlama()
+        {
+            return View();
+        }
+        public ActionResult StajYapanOgrenciler()
+        {
+            return View();
+        }
+
+
     }
 }

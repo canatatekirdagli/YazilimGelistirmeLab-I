@@ -1,0 +1,41 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kocaeli Üniversitesi Staj/İME Takip ve Değerlendirme Sistemi</title>
+    <link href="~/css/yoneticianasayfa.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <img src="https://www.freelogovectors.net/wp-content/uploads/2018/03/kocaeli-universitesi-logo.png">
+            <h2>Kocaeli Üniversitesi / Yönetici Paneli</h2>
+            <h3>Staj/İme Takip ve Değerlendirme Sistemi</h3>
+        </div>
+
+        <section style="background: #2f3542; color: #fff;">
+            <nav class="stroke">
+                <ul>
+                    <li><a href="~/YoneticiPaneli/Index">Anasayfa</a></li>
+                    <li><a href="~/YoneticiPaneli/BilgiGoruntuleme">Bilgi Görüntüleme</a></li>
+                    <li><a href="~/YoneticiPaneli/KullaniciIslemleri">Kullanıcı Ekleme / Silme</a></li>
+                    <li><a href="~/YoneticiPaneli/KullaniciGuncelleme">Kullanıcı Güncelleme</a></li>
+                    <li><a href="~/YoneticiPaneli/RolTanimlama">Rol Tanımlama</a></li>
+                    <li><a href="~/YoneticiLogin/GirisYap">Çıkış Yap</a></li>
+                </ul>
+            </nav>
+        </section>
+    </header>
+    @RenderBody()
+</body>
+</html>

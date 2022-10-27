@@ -1,6 +1,50 @@
 ﻿
 @{
-    Layout = null;
+    ViewBag.Title = "Index";
+    Layout = "~/Views/YoneticiLayout.cshtml";
 }
 
-<h1>YÖNETİCİ PANELİ ANA SAYFA</h1>
+<main>
+    <div class="duyurukutusu">
+        <h2>Yönetici Paneline Hoşgeldiniz</h2><br><br>
+        <div class="bilgiler">
+            <form action="http://teknoloji.kocaeli.edu.tr/duyurular.php">
+                <!-- action özelliği tıklandığında yazılan adres sayfasına gitmesini sağlar -->
+                <input type="submit" name="" value="Duyurular">
+            </form>
+            <br>
+
+        </div>
+
+    </div>
+
+    <div class="bilgikutusu">
+        <h2>Diğer Bilgiler</h2><br><br>
+        <div class="bilgiler">
+            <form action="">
+                <!-- action özelliği tıklandığında yazılan adres sayfasına gitmesini sağlar -->
+                <input type="submit" name="" value="Yönetmelikler">
+            </form>
+            <br>
+            <form action="">
+                <input type="submit" name="" value="Akademik Takvim">
+            </form>
+            <br>
+            <form action="">
+                <input type="submit" name="" value="Amaç, Vizyon, Misyon">
+            </form>
+
+        </div>
+    </div>
+
+    <div class="sosyalmedyakutusu">
+        <h2>Sosyal Medya</h2><br>
+        <div class="social-links">
+            <a href="https://www.facebook.com/kou92official"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/kou92official/"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com/kou92official"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.youtube.com/c/kocaeliüniversitesi"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+</main>
+
