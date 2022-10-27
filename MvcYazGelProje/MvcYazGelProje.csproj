@@ -128,8 +128,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\UyeLoginController.cs" />
-    <Compile Include="Controllers\UyePanelController.cs" />
+    <Compile Include="Controllers\OgrenciLoginController.cs" />
+    <Compile Include="Controllers\OgrenciPanelController.cs" />
+    <Compile Include="Controllers\OgretmenLoginController.cs" />
+    <Compile Include="Controllers\OgretmenPanelController.cs" />
     <Compile Include="Controllers\YoneticiLoginController.cs" />
     <Compile Include="Controllers\YoneticiPaneliController.cs" />
     <Compile Include="Global.asax.cs">
@@ -245,12 +247,13 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\YoneticiLogin\Index.cshtml" />
-    <Content Include="Views\UyeLogin\OgrenciGiris.cshtml" />
-    <Content Include="Views\UyeLogin\OgretmenGiris.cshtml" />
-    <Content Include="Views\UyeLogin\SifremiUnuttum.cshtml" />
     <Content Include="Views\YoneticiPaneli\Index.cshtml" />
-    <Content Include="Views\UyePanel\OgretmenPanel.cshtml" />
-    <Content Include="Views\UyePanel\OgrenciPanel.cshtml" />
+    <Content Include="Views\OgrenciLogin\SifremiUnuttum.cshtml" />
+    <Content Include="Views\OgretmenLogin\SifremiUnuttum.cshtml" />
+    <Content Include="Views\OgrenciPanel\Index.cshtml" />
+    <Content Include="Views\OgrenciLogin\Index.cshtml" />
+    <Content Include="Views\OgretmenLogin\Index.cshtml" />
+    <Content Include="Views\OgretmenPanel\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

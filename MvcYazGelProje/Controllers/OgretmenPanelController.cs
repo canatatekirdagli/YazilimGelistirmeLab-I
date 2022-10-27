@@ -6,18 +6,12 @@ using System.Web.Mvc;
 
 namespace MvcYazGelProje.Controllers
 {
-    public class UyePanelController : Controller
+    public class OgretmenPanelController : Controller
     {
-        // GET: UyePanel
-        public ActionResult OgrenciPanel()
+        // GET: OgretmenPanel
+        public ActionResult Index()
         {
             return View();
         }
-
-        public ActionResult OgretmenPanel()
-        {
-            return View();
-        }
-
     }
 }
