@@ -23,7 +23,7 @@ namespace MvcYazGelProje.Controllers
             var bilgiler = db.yonetici.FirstOrDefault(x => x.yonetici_kullaniciAdi==p.yonetici_kullaniciAdi && x.yonetici_sifre == p.yonetici_sifre);
             if (bilgiler!=null)
             {
-                return RedirectToAction("Index", "YoneticiPanali");
+                return RedirectToAction("Index", "YoneticiPaneli");
             }
             else
             {

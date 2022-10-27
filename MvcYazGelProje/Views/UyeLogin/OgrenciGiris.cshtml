@@ -21,14 +21,16 @@
     <div class="giriskutusu">
         <img src="https://w7.pngwing.com/pngs/505/761/png-transparent-login-computer-icons-avatar-icon-monochrome-black-silhouette.png" class="avatar">
         <h1>Öğrenci Girişi</h1>
-        <form>
+
+        @using (Html.BeginForm("OgrenciPanel", "UyePanel", FormMethod.Post))
+        {
             <p>Öğrenci Numarası</p>
-            <input type="text" name="" placeholder="Öğrenci Numarası">
+            <input type="text" class="form-control" required="required" placeholder="Öğrenci Numarası" name="uye_no">
             <p>Şifre</p>
-            <input type="password" name="" placeholder="Şifre">
+            <input type="password" class="form-control" required="required" placeholder="Şifre" name="uye_sifre">
             <input type="submit" name="" value="Giriş">
-            <a href="SifremiUnuttum">Şifremi Unuttum</a>
-        </form>
+        }
+        <a href="SifremiUnuttum">Şifremi Unuttum</a>
     </div>
 </body>
 </html>
