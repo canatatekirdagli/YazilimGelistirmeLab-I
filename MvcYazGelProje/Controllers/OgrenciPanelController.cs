@@ -13,7 +13,21 @@ namespace MvcYazGelProje.Controllers
         {
             return View();
         }
-
-
+        public ActionResult BilgiGoruntule()
+        {
+            return View();
+        }
+        public ActionResult Stajİsleri()
+        {
+            return View();
+        }
+        public ActionResult IMEIsleri()
+        {
+            return View();
+        }
+        public ActionResult SurecTakip()
+        {
+            return View();
+        }
     }
 }

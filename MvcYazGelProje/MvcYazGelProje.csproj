@@ -257,7 +257,6 @@
     <Content Include="Views\OgretmenLogin\SifremiUnuttum.cshtml" />
     <Content Include="Views\OgrenciLogin\GirisYap.cshtml" />
     <Content Include="Views\OgretmenLogin\GirisYap.cshtml" />
-    <Content Include="Views\OgretmenPanel\Index.cshtml" />
     <Content Include="Views\YoneticiLayout.cshtml" />
     <Content Include="Views\YoneticiPaneli\BilgiGoruntuleme.cshtml" />
     <Content Include="Views\YoneticiPaneli\KullaniciIslemleri.cshtml" />
@@ -268,6 +267,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\OgrenciPanel\" />
+    <Folder Include="Views\OgretmenPanel\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

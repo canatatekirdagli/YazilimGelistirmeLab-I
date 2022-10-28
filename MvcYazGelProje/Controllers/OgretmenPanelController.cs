@@ -13,5 +13,17 @@ namespace MvcYazGelProje.Controllers
         {
             return View();
         }
+        public ActionResult BilgiGoruntule()
+        {
+            return View();
+        }
+        public ActionResult DosyaGoruntule()
+        {
+            return View();
+        }
+        public ActionResult DosyaDegerlendir()
+        {
+            return View();
+        }
     }
 }
