@@ -28,7 +28,7 @@ namespace MvcYazGelProje.Controllers
             }
             else
             {
-                ViewBag.Mesaj = "Geçersiz Öğrenci No yada Şifre";
+                ViewBag.Mesaj = "Geçersiz Öğrenci No ya da Şifre";
                 return View();
             }
         }

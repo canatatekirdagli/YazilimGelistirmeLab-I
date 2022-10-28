@@ -26,7 +26,7 @@ namespace MvcYazGelProje.Controllers
             }
             else
             {
-                ViewBag.Mesaj = "Geçersiz Scil No yada Şifre";
+                ViewBag.Mesaj = "Geçersiz Sicil No ya da Şifre";
                 return View();
             }
         }
