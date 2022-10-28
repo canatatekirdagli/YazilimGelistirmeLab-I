@@ -263,11 +263,12 @@
     <Content Include="Views\YoneticiPaneli\KullaniciGuncelleme.cshtml" />
     <Content Include="Views\YoneticiPaneli\RolTanimlama.cshtml" />
     <Content Include="Views\YoneticiPaneli\StajYapanOgrenciler.cshtml" />
+    <Content Include="Views\OgretmenLayout.cshtml" />
+    <Content Include="Views\OgretmenPanel\BilgiGoruntule.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\OgrenciPanel\" />
-    <Folder Include="Views\OgretmenPanel\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
