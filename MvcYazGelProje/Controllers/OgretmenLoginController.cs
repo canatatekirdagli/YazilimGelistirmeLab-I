@@ -35,9 +35,6 @@ namespace MvcYazGelProje.Controllers
                     ViewBag.Mesaj = "Geçersiz Sicil No ya da Şifre";
                     return View();
                 }
-                
-               
-
                
             }
             else
