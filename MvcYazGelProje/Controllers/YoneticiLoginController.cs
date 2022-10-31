@@ -11,7 +11,7 @@ namespace MvcYazGelProje.Controllers
     public class YoneticiLoginController : Controller
     {
         // GET: YoneticiLogin
-        Models.Entity.DBYazgelProjeEntities1 db = new Models.Entity.DBYazgelProjeEntities1();
+        Models.Entity.DBYazgelProjeEntities2 db = new Models.Entity.DBYazgelProjeEntities2();
         [HttpGet]
         public ActionResult GirisYap()
         {

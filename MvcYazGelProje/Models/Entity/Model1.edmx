@@ -68,8 +68,8 @@
           <Property Name="uyeAd" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="uyeSoyad" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="uyeEposta" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="uye_gsm" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="uye_tc" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="uye_gsm" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="uye_tc" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="uye_sifre" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="uye_gorevi" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="uye_bolumAd" Type="varchar" MaxLength="20" />
@@ -87,7 +87,7 @@
           <Property Name="yonetici_sifre" Type="varchar" MaxLength="10" />
           <Property Name="yonetici_mail" Type="varchar" MaxLength="30" />
         </EntityType>
-        <Association Name="FK__IME_bilgi__ogr_n__2F10007B">
+        <Association Name="FK__IME_bilgi__ogr_n__48CFD27E">
           <End Role="uye" Type="Self.uye" Multiplicity="0..1" />
           <End Role="IME_bilgileri" Type="Self.IME_bilgileri" Multiplicity="*" />
           <ReferentialConstraint>
@@ -99,7 +99,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__imedosya__ogr_no__29572725">
+        <Association Name="FK__imedosya__ogr_no__4316F928">
           <End Role="uye" Type="Self.uye" Multiplicity="0..1" />
           <End Role="imedosya" Type="Self.imedosya" Multiplicity="*" />
           <ReferentialConstraint>
@@ -111,7 +111,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__staj_form__ogr_n__2C3393D0">
+        <Association Name="FK__staj_form__ogr_n__45F365D3">
           <End Role="uye" Type="Self.uye" Multiplicity="0..1" />
           <End Role="staj_formu" Type="Self.staj_formu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -123,7 +123,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__stajdosya__ogr_n__267ABA7A">
+        <Association Name="FK__stajdosya__ogr_n__403A8C7D">
           <End Role="uye" Type="Self.uye" Multiplicity="0..1" />
           <End Role="stajdosya" Type="Self.stajdosya" Multiplicity="*" />
           <ReferentialConstraint>
@@ -143,19 +143,19 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="uye" EntityType="Self.uye" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="yonetici" EntityType="Self.yonetici" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__IME_bilgi__ogr_n__2F10007B" Association="Self.FK__IME_bilgi__ogr_n__2F10007B">
+          <AssociationSet Name="FK__IME_bilgi__ogr_n__48CFD27E" Association="Self.FK__IME_bilgi__ogr_n__48CFD27E">
             <End Role="uye" EntitySet="uye" />
             <End Role="IME_bilgileri" EntitySet="IME_bilgileri" />
           </AssociationSet>
-          <AssociationSet Name="FK__imedosya__ogr_no__29572725" Association="Self.FK__imedosya__ogr_no__29572725">
+          <AssociationSet Name="FK__imedosya__ogr_no__4316F928" Association="Self.FK__imedosya__ogr_no__4316F928">
             <End Role="uye" EntitySet="uye" />
             <End Role="imedosya" EntitySet="imedosya" />
           </AssociationSet>
-          <AssociationSet Name="FK__staj_form__ogr_n__2C3393D0" Association="Self.FK__staj_form__ogr_n__2C3393D0">
+          <AssociationSet Name="FK__staj_form__ogr_n__45F365D3" Association="Self.FK__staj_form__ogr_n__45F365D3">
             <End Role="uye" EntitySet="uye" />
             <End Role="staj_formu" EntitySet="staj_formu" />
           </AssociationSet>
-          <AssociationSet Name="FK__stajdosya__ogr_n__267ABA7A" Association="Self.FK__stajdosya__ogr_n__267ABA7A">
+          <AssociationSet Name="FK__stajdosya__ogr_n__403A8C7D" Association="Self.FK__stajdosya__ogr_n__403A8C7D">
             <End Role="uye" EntitySet="uye" />
             <End Role="stajdosya" EntitySet="stajdosya" />
           </AssociationSet>
@@ -177,7 +177,7 @@
           <Property Name="IMENotu" Type="Int32" />
           <Property Name="IMEDonemiDonem" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="basvuruDurumu" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="uye" Relationship="Self.FK__IME_bilgi__ogr_n__2F10007B" FromRole="IME_bilgileri" ToRole="uye" />
+          <NavigationProperty Name="uye" Relationship="Self.FK__IME_bilgi__ogr_n__48CFD27E" FromRole="IME_bilgileri" ToRole="uye" />
         </EntityType>
         <EntityType Name="imedosya">
           <Key>
@@ -186,7 +186,7 @@
           <Property Name="dosya_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ogr_no" Type="Int32" />
           <Property Name="dosya_yolu" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="uye" Relationship="Self.FK__imedosya__ogr_no__29572725" FromRole="imedosya" ToRole="uye" />
+          <NavigationProperty Name="uye" Relationship="Self.FK__imedosya__ogr_no__4316F928" FromRole="imedosya" ToRole="uye" />
         </EntityType>
         <EntityType Name="staj_formu">
           <Key>
@@ -202,7 +202,7 @@
           <Property Name="stajDonemiYıl" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
           <Property Name="stajDonemiDonem" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="basvuruDurumu" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="uye" Relationship="Self.FK__staj_form__ogr_n__2C3393D0" FromRole="staj_formu" ToRole="uye" />
+          <NavigationProperty Name="uye" Relationship="Self.FK__staj_form__ogr_n__45F365D3" FromRole="staj_formu" ToRole="uye" />
         </EntityType>
         <EntityType Name="stajdosya">
           <Key>
@@ -212,7 +212,7 @@
           <Property Name="ogr_no" Type="Int32" />
           <Property Name="staj_no" Type="Int32" />
           <Property Name="dosya_yolu" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="uye" Relationship="Self.FK__stajdosya__ogr_n__267ABA7A" FromRole="stajdosya" ToRole="uye" />
+          <NavigationProperty Name="uye" Relationship="Self.FK__stajdosya__ogr_n__403A8C7D" FromRole="stajdosya" ToRole="uye" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -232,16 +232,16 @@
           <Property Name="uyeAd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="uyeSoyad" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="uyeEposta" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="uye_gsm" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="uye_tc" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="uye_gsm" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="uye_tc" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="uye_sifre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="uye_gorevi" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="uye_bolumAd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="IME_durumu" Type="Boolean" />
-          <NavigationProperty Name="IME_bilgileri" Relationship="Self.FK__IME_bilgi__ogr_n__2F10007B" FromRole="uye" ToRole="IME_bilgileri" />
-          <NavigationProperty Name="imedosya" Relationship="Self.FK__imedosya__ogr_no__29572725" FromRole="uye" ToRole="imedosya" />
-          <NavigationProperty Name="staj_formu" Relationship="Self.FK__staj_form__ogr_n__2C3393D0" FromRole="uye" ToRole="staj_formu" />
-          <NavigationProperty Name="stajdosya" Relationship="Self.FK__stajdosya__ogr_n__267ABA7A" FromRole="uye" ToRole="stajdosya" />
+          <NavigationProperty Name="IME_bilgileri" Relationship="Self.FK__IME_bilgi__ogr_n__48CFD27E" FromRole="uye" ToRole="IME_bilgileri" />
+          <NavigationProperty Name="imedosya" Relationship="Self.FK__imedosya__ogr_no__4316F928" FromRole="uye" ToRole="imedosya" />
+          <NavigationProperty Name="staj_formu" Relationship="Self.FK__staj_form__ogr_n__45F365D3" FromRole="uye" ToRole="staj_formu" />
+          <NavigationProperty Name="stajdosya" Relationship="Self.FK__stajdosya__ogr_n__403A8C7D" FromRole="uye" ToRole="stajdosya" />
         </EntityType>
         <EntityType Name="yonetici">
           <Key>
@@ -255,7 +255,7 @@
           <Property Name="yonetici_sifre" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="yonetici_mail" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
-        <Association Name="FK__IME_bilgi__ogr_n__2F10007B">
+        <Association Name="FK__IME_bilgi__ogr_n__48CFD27E">
           <End Role="uye" Type="Self.uye" Multiplicity="0..1" />
           <End Role="IME_bilgileri" Type="Self.IME_bilgileri" Multiplicity="*" />
           <ReferentialConstraint>
@@ -267,7 +267,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__imedosya__ogr_no__29572725">
+        <Association Name="FK__imedosya__ogr_no__4316F928">
           <End Role="uye" Type="Self.uye" Multiplicity="0..1" />
           <End Role="imedosya" Type="Self.imedosya" Multiplicity="*" />
           <ReferentialConstraint>
@@ -279,7 +279,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__staj_form__ogr_n__2C3393D0">
+        <Association Name="FK__staj_form__ogr_n__45F365D3">
           <End Role="uye" Type="Self.uye" Multiplicity="0..1" />
           <End Role="staj_formu" Type="Self.staj_formu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -291,7 +291,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__stajdosya__ogr_n__267ABA7A">
+        <Association Name="FK__stajdosya__ogr_n__403A8C7D">
           <End Role="uye" Type="Self.uye" Multiplicity="0..1" />
           <End Role="stajdosya" Type="Self.stajdosya" Multiplicity="*" />
           <ReferentialConstraint>
@@ -303,7 +303,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DBYazgelProjeEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DBYazgelProjeEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="IME_bilgileri" EntityType="Self.IME_bilgileri" />
           <EntitySet Name="imedosya" EntityType="Self.imedosya" />
           <EntitySet Name="staj_formu" EntityType="Self.staj_formu" />
@@ -311,19 +311,19 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="uye" EntityType="Self.uye" />
           <EntitySet Name="yonetici" EntityType="Self.yonetici" />
-          <AssociationSet Name="FK__IME_bilgi__ogr_n__2F10007B" Association="Self.FK__IME_bilgi__ogr_n__2F10007B">
+          <AssociationSet Name="FK__IME_bilgi__ogr_n__48CFD27E" Association="Self.FK__IME_bilgi__ogr_n__48CFD27E">
             <End Role="uye" EntitySet="uye" />
             <End Role="IME_bilgileri" EntitySet="IME_bilgileri" />
           </AssociationSet>
-          <AssociationSet Name="FK__imedosya__ogr_no__29572725" Association="Self.FK__imedosya__ogr_no__29572725">
+          <AssociationSet Name="FK__imedosya__ogr_no__4316F928" Association="Self.FK__imedosya__ogr_no__4316F928">
             <End Role="uye" EntitySet="uye" />
             <End Role="imedosya" EntitySet="imedosya" />
           </AssociationSet>
-          <AssociationSet Name="FK__staj_form__ogr_n__2C3393D0" Association="Self.FK__staj_form__ogr_n__2C3393D0">
+          <AssociationSet Name="FK__staj_form__ogr_n__45F365D3" Association="Self.FK__staj_form__ogr_n__45F365D3">
             <End Role="uye" EntitySet="uye" />
             <End Role="staj_formu" EntitySet="staj_formu" />
           </AssociationSet>
-          <AssociationSet Name="FK__stajdosya__ogr_n__267ABA7A" Association="Self.FK__stajdosya__ogr_n__267ABA7A">
+          <AssociationSet Name="FK__stajdosya__ogr_n__403A8C7D" Association="Self.FK__stajdosya__ogr_n__403A8C7D">
             <End Role="uye" EntitySet="uye" />
             <End Role="stajdosya" EntitySet="stajdosya" />
           </AssociationSet>
@@ -333,7 +333,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DBYazgelProjeModelStoreContainer" CdmEntityContainer="DBYazgelProjeEntities1">
+        <EntityContainerMapping StorageEntityContainer="DBYazgelProjeModelStoreContainer" CdmEntityContainer="DBYazgelProjeEntities2">
           <EntitySetMapping Name="IME_bilgileri">
             <EntityTypeMapping TypeName="DBYazgelProjeModel.IME_bilgileri">
               <MappingFragment StoreEntitySet="IME_bilgileri">

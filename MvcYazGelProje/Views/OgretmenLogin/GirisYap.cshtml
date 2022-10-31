@@ -26,9 +26,9 @@
         @using (Html.BeginForm("GirisYap", "OgretmenLogin", FormMethod.Post))
         {
             <p>Sicil Numarası</p>
-            <input type="text" class="form-control" required="required" name="uye_no" placeholder="Sicil Numarası">
+            <input type="text" class="form-control" required="required" placeholder="Öğrenci Numarası" name="uye_no">
             <p>Şifre</p>
-            <input type="password" class="form-control" required="required" name="sifre" placeholder="Şifre">
+            <input type="password" class="form-control" required="required" placeholder="Şifre" name="uye_sifre">
             <input type="submit" name="" value="Giriş">
             @ViewBag.Mesaj
         }

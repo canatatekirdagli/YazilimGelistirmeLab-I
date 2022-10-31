@@ -11,7 +11,7 @@ namespace MvcYazGelProje.Controllers
     public class OgrenciLoginController : Controller
     {
         // GET: OgrenciLogin
-        Models.Entity.DBYazgelProjeEntities1 db = new Models.Entity.DBYazgelProjeEntities1();
+        Models.Entity.DBYazgelProjeEntities2 db = new Models.Entity.DBYazgelProjeEntities2();
         [HttpGet]
         public ActionResult GirisYap()
         {
@@ -24,7 +24,7 @@ namespace MvcYazGelProje.Controllers
             if (bilgiler != null)
             {
                 
-                return RedirectToAction("Anasayfa", "OgrenciPaneli");
+                return RedirectToAction("Anasayfa", "OgrenciPanel");
             }
             else
             {
