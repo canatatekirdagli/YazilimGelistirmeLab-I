@@ -200,11 +200,7 @@
     <Content Include="css\ogretmengiris.css" />
     <Content Include="css\sifremiunuttum.css" />
     <Content Include="css\yoneticianasayfa.css" />
-    <Content Include="css\Yoneticibilgigoruntuleme.css" />
     <Content Include="css\yoneticigiris.css" />
-    <Content Include="css\Yoneticikullanicieklesil.css" />
-    <Content Include="css\Yoneticikullaniciguncelleme.css" />
-    <Content Include="css\Yoneticiroltanimlama.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -252,23 +248,31 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\YoneticiLogin\GirisYap.cshtml" />
-    <Content Include="Views\YoneticiPaneli\Index.cshtml" />
     <Content Include="Views\OgrenciLogin\SifremiUnuttum.cshtml" />
     <Content Include="Views\OgretmenLogin\SifremiUnuttum.cshtml" />
     <Content Include="Views\OgrenciLogin\GirisYap.cshtml" />
     <Content Include="Views\OgretmenLogin\GirisYap.cshtml" />
     <Content Include="Views\YoneticiLayout.cshtml" />
-    <Content Include="Views\YoneticiPaneli\BilgiGoruntuleme.cshtml" />
+    <Content Include="Views\YoneticiPaneli\Anasayfa.cshtml" />
     <Content Include="Views\YoneticiPaneli\KullaniciIslemleri.cshtml" />
-    <Content Include="Views\YoneticiPaneli\KullaniciGuncelleme.cshtml" />
+    <Content Include="Views\YoneticiPaneli\OgretmenIslemleri.cshtml" />
+    <Content Include="Views\YoneticiPaneli\YoneticiIslemleri.cshtml" />
+    <Content Include="Views\YoneticiPaneli\SıfreDegistir.cshtml" />
+    <Content Include="Views\YoneticiPaneli\KullaniciEkle.cshtml" />
+    <Content Include="Views\YoneticiPaneli\KullaniciSil.cshtml" />
     <Content Include="Views\YoneticiPaneli\RolTanimlama.cshtml" />
-    <Content Include="Views\YoneticiPaneli\StajYapanOgrenciler.cshtml" />
-    <Content Include="Views\OgretmenLayout.cshtml" />
-    <Content Include="Views\OgretmenPanel\BilgiGoruntule.cshtml" />
+    <Content Include="Views\YoneticiPaneli\YoneticiEkleme.cshtml" />
+    <Content Include="Views\YoneticiPaneli\YoneticiSilme.cshtml" />
+    <Content Include="Views\YoneticiPaneli\YoneticiGuncelleme.cshtml" />
+    <Content Include="Views\YoneticiPaneli\StajGoruntuleme.cshtml" />
+    <Content Include="Views\YoneticiPaneli\StajDegerlendirme.cshtml" />
+    <Content Include="Views\YoneticiPaneli\StajGoruntulemeDetay.cshtml" />
+    <Content Include="Views\YoneticiPaneli\StajDegerlendirmeDetay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\OgrenciPanel\" />
+    <Folder Include="Views\OgretmenPanel\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

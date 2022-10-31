@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "YoneticiIslemleri";
+    Layout = "~/Views/YoneticiLayout.cshtml";
+}
+
+<div class="yoneticiislemlerikutusu">
+    <h2>Yönetici İşlemleri</h2><br>
+    <div class="bilgiler">
+        <form action="YoneticiEkleme">
+            <!-- action özelliği tıklandığında yazılan adres sayfasına gitmesini sağlar -->
+            <input type="submit" name="" value="Yönetici Ekleme">
+        </form>
+        <br>
+        <form action="YoneticiSilme">
+            <!-- action özelliği tıklandığında yazılan adres sayfasına gitmesini sağlar -->
+            <input type="submit" name="" value="Yönetici Silme">
+        </form>
+        <br>
+        <form action="YoneticiGuncelleme">
+            <input type="submit" name="" value="Yönetici Güncelleme ">
+        </form>
+
+    </div>

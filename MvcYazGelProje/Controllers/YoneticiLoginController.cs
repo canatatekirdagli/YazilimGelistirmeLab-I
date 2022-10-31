@@ -24,7 +24,7 @@ namespace MvcYazGelProje.Controllers
             if (bilgiler!=null)
             {
                 FormsAuthentication.SetAuthCookie(bilgiler.yonetici_kullaniciAdi, false);
-                return RedirectToAction("Index", "YoneticiPaneli");
+                return RedirectToAction("Anasayfa", "YoneticiPaneli");
             }
             else
             {
