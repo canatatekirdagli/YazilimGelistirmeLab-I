@@ -9,19 +9,27 @@ namespace MvcYazGelProje.Controllers
     public class OgretmenPanelController : Controller
     {
         // GET: OgretmenPanel
-        public ActionResult Index()
+        public ActionResult AnaSayfa()
         {
             return View();
         }
-        public ActionResult BilgiGoruntule()
+        public ActionResult Goruntuleme()
         {
             return View();
         }
-        public ActionResult DosyaGoruntule()
+        public ActionResult StajDetay()
         {
             return View();
         }
-        public ActionResult DosyaDegerlendir()
+        public ActionResult Degerlendirme()
+        {
+            return View();
+        }
+        public ActionResult DegerlendirmeDetay()
+        {
+            return View();
+        }
+        public ActionResult SifreDegistir()
         {
             return View();
         }

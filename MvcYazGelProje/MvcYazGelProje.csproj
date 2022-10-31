@@ -197,6 +197,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="css\giris.css" />
     <Content Include="css\ogrencigiris.css" />
+    <Content Include="css\ogretmenanasayfa.css" />
     <Content Include="css\ogretmengiris.css" />
     <Content Include="css\sifremiunuttum.css" />
     <Content Include="css\yoneticianasayfa.css" />
@@ -243,16 +244,14 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\YoneticiLogin\GirisYap.cshtml" />
     <Content Include="Views\OgrenciLogin\SifremiUnuttum.cshtml" />
     <Content Include="Views\OgretmenLogin\SifremiUnuttum.cshtml" />
     <Content Include="Views\OgrenciLogin\GirisYap.cshtml" />
     <Content Include="Views\OgretmenLogin\GirisYap.cshtml" />
-    <Content Include="Views\YoneticiLayout.cshtml" />
+    <Content Include="Views\Shared\YoneticiLayout.cshtml" />
     <Content Include="Views\YoneticiPaneli\Anasayfa.cshtml" />
     <Content Include="Views\YoneticiPaneli\KullaniciIslemleri.cshtml" />
     <Content Include="Views\YoneticiPaneli\OgretmenIslemleri.cshtml" />
@@ -268,11 +267,18 @@
     <Content Include="Views\YoneticiPaneli\StajDegerlendirme.cshtml" />
     <Content Include="Views\YoneticiPaneli\StajGoruntulemeDetay.cshtml" />
     <Content Include="Views\YoneticiPaneli\StajDegerlendirmeDetay.cshtml" />
+    <Content Include="Views\Shared\OgretmenLayout.cshtml" />
+    <Content Include="Views\OgretmenPanel\AnaSayfa.cshtml" />
+    <Content Include="Views\OgretmenPanel\Goruntuleme.cshtml" />
+    <Content Include="Views\OgretmenPanel\StajDetay.cshtml" />
+    <Content Include="Views\OgretmenPanel\Degerlendirme.cshtml" />
+    <Content Include="Views\OgretmenPanel\DegerlendirmeDetay.cshtml" />
+    <Content Include="Views\OgretmenPanel\SifreDegistir.cshtml" />
+    <Content Include="Views\Home\Izlence.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\OgrenciPanel\" />
-    <Folder Include="Views\OgretmenPanel\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

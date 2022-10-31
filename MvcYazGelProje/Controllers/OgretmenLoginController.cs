@@ -22,7 +22,7 @@ namespace MvcYazGelProje.Controllers
             var bilgiler = db.uye.FirstOrDefault(x => x.uye_no == p.uye_no && x.uye_sifre == p.uye_sifre);
             if (bilgiler != null)
             {
-                return RedirectToAction("Index", "OgretmenPaneli");
+                return RedirectToAction("Anasayfa", "OgretmenPaneli");
             }
             else
             {

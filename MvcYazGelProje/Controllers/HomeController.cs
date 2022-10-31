@@ -13,5 +13,9 @@ namespace MvcYazGelProje.Controllers
         {
             return View();
         }
+        public ActionResult Izlence()
+        {
+            return View();
+        }
     }
 }
