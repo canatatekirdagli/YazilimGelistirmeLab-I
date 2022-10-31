@@ -12,18 +12,13 @@ namespace MvcYazGelProje.Models.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class bolum
+    public partial class stajdosya
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public bolum()
-        {
-            this.uye = new HashSet<uye>();
-        }
+        public int dosya_id { get; set; }
+        public Nullable<int> ogr_no { get; set; }
+        public Nullable<int> staj_no { get; set; }
+        public string dosya_yolu { get; set; }
     
-        public int bolum_id { get; set; }
-        public string bolum_adi { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<uye> uye { get; set; }
+        public virtual uye uye { get; set; }
     }
 }

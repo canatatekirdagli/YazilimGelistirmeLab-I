@@ -13,10 +13,10 @@ namespace MvcYazGelProje.Models.Entity
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DBYazgelProjeEntities : DbContext
+    public partial class DBYazgelProjeEntities1 : DbContext
     {
-        public DBYazgelProjeEntities()
-            : base("name=DBYazgelProjeEntities")
+        public DBYazgelProjeEntities1()
+            : base("name=DBYazgelProjeEntities1")
         {
         }
     
@@ -25,16 +25,11 @@ namespace MvcYazGelProje.Models.Entity
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<basvuruDurumu> basvuruDurumu { get; set; }
-        public virtual DbSet<bolum> bolum { get; set; }
-        public virtual DbSet<gorev> gorev { get; set; }
         public virtual DbSet<IME_bilgileri> IME_bilgileri { get; set; }
-        public virtual DbSet<il> il { get; set; }
-        public virtual DbSet<ilce> ilce { get; set; }
+        public virtual DbSet<imedosya> imedosya { get; set; }
         public virtual DbSet<staj_formu> staj_formu { get; set; }
-        public virtual DbSet<staj_yeri> staj_yeri { get; set; }
+        public virtual DbSet<stajdosya> stajdosya { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<unvan> unvan { get; set; }
         public virtual DbSet<uye> uye { get; set; }
         public virtual DbSet<yonetici> yonetici { get; set; }
     }

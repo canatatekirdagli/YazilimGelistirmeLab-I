@@ -17,9 +17,10 @@ namespace MvcYazGelProje.Models.Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public uye()
         {
-            this.basvuruDurumu = new HashSet<basvuruDurumu>();
             this.IME_bilgileri = new HashSet<IME_bilgileri>();
+            this.imedosya = new HashSet<imedosya>();
             this.staj_formu = new HashSet<staj_formu>();
+            this.stajdosya = new HashSet<stajdosya>();
         }
     
         public int uye_no { get; set; }
@@ -29,17 +30,17 @@ namespace MvcYazGelProje.Models.Entity
         public string uye_gsm { get; set; }
         public string uye_tc { get; set; }
         public string uye_sifre { get; set; }
-        public int uye_gorevi { get; set; }
-        public Nullable<int> uye_bolumID { get; set; }
+        public string uye_gorevi { get; set; }
+        public string uye_bolumAd { get; set; }
         public Nullable<bool> IME_durumu { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<basvuruDurumu> basvuruDurumu { get; set; }
-        public virtual bolum bolum { get; set; }
-        public virtual gorev gorev { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<IME_bilgileri> IME_bilgileri { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<imedosya> imedosya { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<staj_formu> staj_formu { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<stajdosya> stajdosya { get; set; }
     }
 }

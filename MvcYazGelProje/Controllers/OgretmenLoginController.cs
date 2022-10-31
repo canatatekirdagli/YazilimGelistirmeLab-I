@@ -10,7 +10,7 @@ namespace MvcYazGelProje.Controllers
     public class OgretmenLoginController : Controller
     {
         // GET: OgretmenLogin
-        Models.Entity.DBYazgelProjeEntities db = new Models.Entity.DBYazgelProjeEntities();
+        Models.Entity.DBYazgelProjeEntities1 db = new Models.Entity.DBYazgelProjeEntities1();
         [HttpGet]
         public ActionResult GirisYap()
         {
@@ -22,11 +22,12 @@ namespace MvcYazGelProje.Controllers
             var bilgiler = db.uye.FirstOrDefault(x => x.uye_no == p.uye_no && x.uye_sifre == p.uye_sifre);
             if (bilgiler != null)
             {
+
                 return RedirectToAction("Anasayfa", "OgretmenPaneli");
             }
             else
             {
-                ViewBag.Mesaj = "Geçersiz Sicil No ya da Şifre";
+                ViewBag.Mesaj = "Geçersiz Öğrenci No ya da Şifre";
                 return View();
             }
         }

@@ -15,9 +15,11 @@ namespace MvcYazGelProje.Models.Entity
     public partial class yonetici
     {
         public int yoneticiID { get; set; }
+        public string yonetici_TC { get; set; }
         public string yonetici_kullaniciAdi { get; set; }
         public string yonetici_Ad { get; set; }
         public string yonetici_Soyad { get; set; }
         public string yonetici_sifre { get; set; }
+        public string yonetici_mail { get; set; }
     }
 }
