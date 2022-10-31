@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "IMEIsleri";
+    Layout = "~/Views/Shared/OgrenciLayout.cshtml";
+}
+
+<div class="imekutusu">
+    <h2>İndirilecek Dosyalar</h2><br>
+    <div class="imebilgiler">
+        <form action="http://teknoloji.kocaeli.edu.tr/dosyalar/ime/ime_yonerge.doc">
+            <!-- action özelliği tıklandığında yazılan adres sayfasına gitmesini sağlar -->
+            <input type="submit" name="" value="Yönerge">
+        </form>
+        <br>
+        <form action="http://teknoloji.kocaeli.edu.tr/dosyalar/ime/Ek4-RaporYazimKurallari.doc">
+            <input type="submit" name="" value="Rapor Yazım Kuralları">
+        </form>
+        <br>
+        <form action="http://teknoloji.kocaeli.edu.tr/dosyalar/ime/ime_DegerlendirmeFormu.doc">
+            <input type="submit" name="" value="Değerlendirme Formu">
+        </form>
+        <br>
+        <form action="http://teknoloji.kocaeli.edu.tr/dosyalar/ime/ime_Denetim%20Formu.doc">
+            <input type="submit" name="" value="Denetim Formu">
+        </form>
+
+    </div>
+</div>
+
+<div class="imeyuklemekutusu">
+    <h2>Yükleme Alanı</h2>
+    <div class="imeyuklenecekler">
+        <h4 class="pb-2">
+            Sol taraftaki kısımdan indirdiğiniz dosyaları isterlere
+            uygun şekilde doldurduktan sonra aşağıda belirtilen alana yükleyiniz.
+        </h4><br>
+        <input type="file" />
+        <button style="width:100px;" class="pb-lg-1">Yükle</button>
+    </div>
+
+</div>
+

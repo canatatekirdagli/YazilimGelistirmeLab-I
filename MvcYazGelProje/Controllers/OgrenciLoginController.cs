@@ -24,7 +24,7 @@ namespace MvcYazGelProje.Controllers
             if (bilgiler != null)
             {
                 
-                return RedirectToAction("Index", "OgrenciPaneli");
+                return RedirectToAction("Anasayfa", "OgrenciPaneli");
             }
             else
             {

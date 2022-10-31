@@ -1,0 +1,421 @@
+* {
+    /* Önceden ayarlanmış ayarları sıfırlamak için */
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-size: cover;
+    background-position: center;
+    font-family: sans-serif;
+    background-image: linear-gradient(45deg, rgb(139, 129, 129), rgb(123, 189, 93));
+}
+
+.header {
+    background-color: #000;
+    height: 88px;
+}
+
+.header img {
+    padding-top: 1mm;
+    float: left;
+    margin-left: 20mm;
+    width: 80px;
+    height: 80px;
+}
+
+h1 {
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.header h2 {
+    padding-top: 2.9mm;
+    padding-left: 150px;
+    color: #fff;
+    position: absolute;
+    top: 18px;
+    left: 10px;
+}
+
+.header h3 {
+    padding-top: 2rem;
+    color: #fff;
+    position: relative;
+    padding-right: 60px;
+    text-align: right;
+}
+
+.center {
+    text-align: center;
+}
+
+/* NAVIGATION */
+nav {
+    width: 100%;
+    margin: 0 auto;
+    background: #f1f2f6;
+    padding: 2px 0;
+    box-shadow: 0px 5px 0px #dfe4ea;
+}
+
+nav ul {
+    list-style: none;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-weight: 800;
+    text-transform: uppercase;
+    margin: 0 10px;
+}
+
+nav ul li a,
+nav ul li a:after,
+nav ul li a:before {
+    transition: all .5s;
+}
+
+nav ul li a:hover {
+    color: #555;
+}
+
+.duyurukutusu {
+    width: 700px;
+    height: 550px;
+    background: #000;
+    color: #fff;
+    top: 62%;
+    left: 27%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    border-radius: 30px;
+    /* Köşelerin yuvarlak olması için*/
+    padding: 25px 20px;
+    text-align: center;
+}
+
+.bilgikutusu {
+    width: 600px;
+    height: 350px;
+    background: #000;
+    color: #fff;
+    top: 50%;
+    left: 74%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    border-radius: 30px;
+    /* Köşelerin yuvarlak olması için*/
+    padding: 25px 20px;
+    text-align: center;
+}
+
+.sosyalmedyakutusu {
+    width: 600px;
+    height: 165px;
+    background: #000;
+    color: #fff;
+    top: 85%;
+    left: 74%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    border-radius: 30px;
+    /* Köşelerin yuvarlak olması için*/
+    padding: 19px 12px;
+    text-align: center;
+}
+
+.bilgiler input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.bilgiler input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 50px;
+    background: green;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 30px;
+}
+
+
+.bilgiler input[type="submit"]:hover {
+    /*Fare üzerine geldiğinde olacak değişklikler için hover özelliğini kullanıyoruz.*/
+    cursor: pointer;
+    background: #fff;
+    color: #000;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+
+.social-links {
+    display:table;
+}
+
+
+.social-links img{
+    margin-left: 9%;
+    margin-right: 9%;
+    float:left;
+    padding: 1.5% ;
+    width: 14%;
+}
+
+.imekutusu{
+    width: 600px;
+    height: 450px;
+    background: #000;
+    color: #fff;
+    top: 55%;
+    left: 28%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    border-radius: 30px;
+    /* Köşelerin yuvarlak olması için*/
+    padding: 25px 20px;
+    text-align: center;
+}
+
+.imebilgiler input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.imebilgiler input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 50px;
+    background: green;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 30px;
+}
+
+
+.imebilgiler input[type="submit"]:hover {
+    /*Fare üzerine geldiğinde olacak değişklikler için hover özelliğini kullanıyoruz.*/
+    cursor: pointer;
+    background: #fff;
+    color: #000;
+}
+
+.ogrbilgikutusu{
+    width: 600px;
+    height: 300px;
+    background: #000;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    border-radius: 30px;
+    /* Köşelerin yuvarlak olması için*/
+    padding: 25px 20px;
+    text-align: center;
+}
+
+.sifrekutusu{
+    width: 320px;
+    height: 420px;
+    background: #000;
+    color: #fff;
+    top: 60%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    border-radius: 30px;
+    /* Köşelerin yuvarlak olması için*/
+    padding: 70px 30px;
+}
+
+
+.sifrekutusu p {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.sifrekutusu input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.sifrekutusu input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    background: green;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+.sifrekutusu input[type="submit"]:hover {
+    /*Fare üzerine geldiğinde olacak değişklikler için hover özelliğini kullanıyoruz.*/
+    cursor: pointer;
+    background: green;
+    color: #000;
+}
+
+.sifrekutusu input[type="text"]{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.sifrekutusu input[type="text"]{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.dosyakutusu{
+    width: 600px;
+    height: 230px;
+    background: #000;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    border-radius: 30px;
+    /* Köşelerin yuvarlak olması için*/
+    padding: 25px 20px;
+    text-align: center;
+}
+.dosyakutusu input {
+    width: 300px;
+    height: 200px;
+    opacity: 100;
+    cursor: pointer;
+    background-color: gray;
+}
+
+.dosyakutusu input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.dosyakutusu input[type="file"] {
+    border: none;
+    outline: none;
+    height: 32px;
+    background: green;
+    color: #fff;
+    font-size: 18px;
+
+}
+
+.dosyakutusu input[type="file"]:hover {
+    /*Fare üzerine geldiğinde olacak değişklikler için hover özelliğini kullanıyoruz.*/
+    cursor: pointer;
+    background: #fff;
+    color: #000;
+}
+.imeyuklemekutusu{
+    width: 600px;
+    height: 300px;
+    background: #000;
+    color: #fff;
+    top: 55%;
+    left: 72%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    border-radius: 30px;
+    /* Köşelerin yuvarlak olması için*/
+    padding: 25px 20px;
+    text-align: center;
+}
+
+.imeyuklemekutusu input {
+    width: 300px;
+    height: 200px;
+    opacity: 100;
+    cursor: pointer;
+    background-color: gray;
+}
+
+.imeyuklemekutusu input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.imeyuklemekutusu input[type="file"] {
+    border: none;
+    outline: none;
+    height: 32px;
+    background: green;
+    color: #fff;
+    font-size: 18px;
+
+}
+
+.imeyuklemekutusu input[type="file"]:hover {
+    /*Fare üzerine geldiğinde olacak değişklikler için hover özelliğini kullanıyoruz.*/
+    cursor: pointer;
+    background: #fff;
+    color: #000;
+}
+
+.stajbilgikutusu{
+    width: 1000px;
+    height: 250px;
+    background: #000;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    border-radius: 30px;
+    /* Köşelerin yuvarlak olması için*/
+    padding: 25px 20px;
+    text-align:left;
+}
+
+.imebilgikutusu{
+    width: 1000px;
+    height: 230px;
+    background: #000;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    border-radius: 30px;
+    /* Köşelerin yuvarlak olması için*/
+    padding: 25px 20px;
+    text-align:left;
+}

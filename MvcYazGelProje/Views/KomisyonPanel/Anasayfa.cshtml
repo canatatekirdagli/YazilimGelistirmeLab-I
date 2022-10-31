@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Anasayfa";
+    Layout = "~/Views/Shared/KomisyonLayout.cshtml";
+}
+
+<main>
+    <div class="duyurukutusu">
+        <h2>Yönetici Paneline Hoşgeldiniz</h2><br><br>
+        <div class="bilgiler">
+            <iframe src="https://www.kocaeli.edu.tr/duyurular.php" frameborder="0" width="100%" height="330"></iframe>
+
+
+        </div>
+
+    </div>
+
+    <div class="bilgikutusu">
+        <h2>Diğer Bilgiler</h2><br>
+        <div class="bilgiler">
+            <form action="http://odb.kocaeli.edu.tr/yonetmelik.php">
+                <!-- action özelliği tıklandığında yazılan adres sayfasına gitmesini sağlar -->
+                <input type="submit" name="" value="Yönetmelikler">
+            </form>
+            <br>
+            <form action="http://odb.kocaeli.edu.tr/akademik_takvim.php">
+                <input type="submit" name="" value="Akademik Takvim">
+            </form>
+            <br>
+            <form action="https://www.kocaeli.edu.tr/misyon-vizyon.php">
+                <input type="submit" name="" value="Amaç, Vizyon, Misyon">
+            </form>
+
+        </div>
+    </div>
+
+    <div class="sosyalmedyakutusu">
+        <h2>Sosyal Medya</h2>
+        <div class="social-links">
+            <a href="https://www.facebook.com/kou92official"> <img src="https://www.freepnglogos.com/uploads/facebook-logo-icon/facebook-logo-icon-facebook-icon-png-images-icons-and-png-backgrounds-1.png" alt=""></a>
+            <a href="https://twitter.com/kou92official"><img src="https://cdn.freebiesupply.com/logos/large/2x/twitter-3-logo-png-transparent.png" alt=""> </a>
+            <a href="https://www.youtube.com/c/kocaeliüniversitesi"><img src="https://www.freepnglogos.com/uploads/youtube-play-red-logo-png-transparent-background-6.png" alt=""> </a>
+        </div>
+    </div>
+</main>
+

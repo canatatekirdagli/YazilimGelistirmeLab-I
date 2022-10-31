@@ -6,30 +6,27 @@ using System.Web.Mvc;
 
 namespace MvcYazGelProje.Controllers
 {
-    public class OgrenciPanelController : Controller
+    public class KomisyonPanelController : Controller
     {
-        // GET: OgrenciPanel
+        // GET: KomisyonPanel
         public ActionResult Anasayfa()
         {
             return View();
         }
-        public ActionResult BilgiGoruntule()
+        public ActionResult DosyaGoruntule()
         {
             return View();
         }
-        public ActionResult StajBilgileri()
+        public ActionResult Detay()
         {
             return View();
         }
-        public ActionResult ImeBilgileri()
+
+        public ActionResult DosyaDegerlendir()
         {
             return View();
         }
-        public ActionResult Stajİsleri()
-        {
-            return View();
-        }
-        public ActionResult IMEIsleri()
+        public ActionResult DegerlendirDetay()
         {
             return View();
         }

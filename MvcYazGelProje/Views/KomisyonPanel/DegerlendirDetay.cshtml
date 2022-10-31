@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "DegerlendirDetay";
+    Layout = "~/Views/Shared/KomisyonLayout.cshtml";
+}
+
+<div class="container col-md-6 pt-3 text-center">
+    <h2 class="pb-2">Staj Güncelleme</h2>
+    <div class="card" style="background-color:green">
+        <div class="container col-md-13">
+            <div class="card-group">
+                <dl class="container text-center">
+
+                    <dt class="col-sm-6">Öğrenci Numarası:</dt>
+                    <input type="text" name="" placeholder="Öğrenci Numarası" size="52">
+                    <dt class="col-sm-5">Başarı Notu:</dt>
+                    <input class="col-sm-9" type="number" min="0" max="100" name="" placeholder="Başarı Notu">
+                    <dt class="col-sm-6">Değerlendirme:</dt>
+                    <select name="secenekler" id="Select1" size="2">
+
+                        <option value="1">Onay</option>
+
+                        <option value="2">Red</option>
+
+                    </select>
+                    <a class="btn btn-success" type="submit">Güncelle</a>
+                    <a class="btn btn-danger" onclick="return confirm('EVRAK SİLİNECEK ! Emin misin?')">Sil!</a>
+                    <a class="btn btn-primary" href="DosyaDegerlendir">Kapat</a>
+                </dl>
+            </div>
+
+        </div>
+    </div>
+</div>
+

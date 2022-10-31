@@ -128,6 +128,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KomisyonPanelController.cs" />
     <Compile Include="Controllers\OgrenciLoginController.cs" />
     <Compile Include="Controllers\OgrenciPanelController.cs" />
     <Compile Include="Controllers\OgretmenLoginController.cs" />
@@ -196,6 +197,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="css\giris.css" />
+    <Content Include="css\ogrencianasayfa.css" />
     <Content Include="css\ogrencigiris.css" />
     <Content Include="css\ogretmenanasayfa.css" />
     <Content Include="css\ogretmengiris.css" />
@@ -275,10 +277,24 @@
     <Content Include="Views\OgretmenPanel\DegerlendirmeDetay.cshtml" />
     <Content Include="Views\OgretmenPanel\SifreDegistir.cshtml" />
     <Content Include="Views\Home\Izlence.cshtml" />
+    <Content Include="Views\Shared\OgrenciLayout.cshtml" />
+    <Content Include="Views\Shared\KomisyonLayout.cshtml" />
+    <Content Include="Views\OgrenciPanel\Anasayfa.cshtml" />
+    <Content Include="Views\OgrenciPanel\BilgiGoruntule.cshtml" />
+    <Content Include="Views\OgrenciPanel\StajBilgileri.cshtml" />
+    <Content Include="Views\OgrenciPanel\ImeBilgileri.cshtml" />
+    <Content Include="Views\OgrenciPanel\Stajİsleri.cshtml" />
+    <Content Include="Views\OgrenciPanel\IMEIsleri.cshtml" />
+    <Content Include="Views\OgrenciPanel\SifreDegistir.cshtml" />
+    <Content Include="Views\KomisyonPanel\Anasayfa.cshtml" />
+    <Content Include="Views\KomisyonPanel\DosyaGoruntule.cshtml" />
+    <Content Include="Views\KomisyonPanel\Detay.cshtml" />
+    <Content Include="Views\KomisyonPanel\SifreDegistir.cshtml" />
+    <Content Include="Views\KomisyonPanel\DosyaDegerlendir.cshtml" />
+    <Content Include="Views\KomisyonPanel\DegerlendirDetay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\OgrenciPanel\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
