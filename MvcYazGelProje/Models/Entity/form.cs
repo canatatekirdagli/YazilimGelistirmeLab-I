@@ -12,18 +12,18 @@ namespace MvcYazGelProje.Models.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class staj_formu
+    public partial class form
     {
         public int staj_id { get; set; }
         public Nullable<int> ogr_no { get; set; }
         public string stajYeri_ad { get; set; }
         public Nullable<System.DateTime> staj_baslangic { get; set; }
         public Nullable<System.DateTime> staj_bitis { get; set; }
-        public Nullable<bool> staj_say { get; set; }
         public Nullable<int> stajNotu { get; set; }
         public string stajDonemiYıl { get; set; }
         public string stajDonemiDonem { get; set; }
         public string basvuruDurumu { get; set; }
+        public string stajIME { get; set; }
     
         public virtual uye uye { get; set; }
     }

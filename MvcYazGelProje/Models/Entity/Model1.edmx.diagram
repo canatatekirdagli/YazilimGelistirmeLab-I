@@ -4,18 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="df925b3665024e34accd776771c8249f" Name="Diagram1">
-        <EntityTypeShape EntityType="DBYazgelProjeModel.IME_bilgileri" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBYazgelProjeModel.imedosya" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBYazgelProjeModel.staj_formu" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBYazgelProjeModel.stajdosya" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBYazgelProjeModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBYazgelProjeModel.uye" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+      <Diagram DiagramId="507e4154aa99422c8ebc136c9abf3ce1" Name="Diagram1">
+        <EntityTypeShape EntityType="DBYazgelProjeModel.dosya" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBYazgelProjeModel.form" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBYazgelProjeModel.uye" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DBYazgelProjeModel.yonetici" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
-        <AssociationConnector Association="DBYazgelProjeModel.FK__IME_bilgi__ogr_n__48CFD27E" ManuallyRouted="false" />
-        <AssociationConnector Association="DBYazgelProjeModel.FK__imedosya__ogr_no__4316F928" ManuallyRouted="false" />
-        <AssociationConnector Association="DBYazgelProjeModel.FK__staj_form__ogr_n__45F365D3" ManuallyRouted="false" />
-        <AssociationConnector Association="DBYazgelProjeModel.FK__stajdosya__ogr_n__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="DBYazgelProjeModel.FK__dosya__ogr_no__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="DBYazgelProjeModel.FK__form__ogr_no__52593CB8" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

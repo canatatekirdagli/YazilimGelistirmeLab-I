@@ -5,43 +5,7 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="DBYazgelProjeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="IME_bilgileri">
-          <Key>
-            <PropertyRef Name="IME_id" />
-          </Key>
-          <Property Name="IME_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ogr_no" Type="int" />
-          <Property Name="IMEYeri_ad" Type="varchar" MaxLength="30" />
-          <Property Name="IME_baslangic" Type="date" />
-          <Property Name="IME_bitis" Type="date" />
-          <Property Name="IMENotu" Type="int" />
-          <Property Name="IMEDonemiDonem" Type="varchar" MaxLength="10" />
-          <Property Name="basvuruDurumu" Type="varchar" MaxLength="10" />
-        </EntityType>
-        <EntityType Name="imedosya">
-          <Key>
-            <PropertyRef Name="dosya_id" />
-          </Key>
-          <Property Name="dosya_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ogr_no" Type="int" />
-          <Property Name="dosya_yolu" Type="varchar" MaxLength="300" />
-        </EntityType>
-        <EntityType Name="staj_formu">
-          <Key>
-            <PropertyRef Name="staj_id" />
-          </Key>
-          <Property Name="staj_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ogr_no" Type="int" />
-          <Property Name="stajYeri_ad" Type="varchar" MaxLength="30" />
-          <Property Name="staj_baslangic" Type="date" />
-          <Property Name="staj_bitis" Type="date" />
-          <Property Name="staj_say" Type="bit" />
-          <Property Name="stajNotu" Type="int" />
-          <Property Name="stajDonemiYıl" Type="char" MaxLength="4" />
-          <Property Name="stajDonemiDonem" Type="varchar" MaxLength="10" />
-          <Property Name="basvuruDurumu" Type="varchar" MaxLength="10" />
-        </EntityType>
-        <EntityType Name="stajdosya">
+        <EntityType Name="dosya">
           <Key>
             <PropertyRef Name="dosya_id" />
           </Key>
@@ -50,15 +14,20 @@
           <Property Name="staj_no" Type="int" />
           <Property Name="dosya_yolu" Type="varchar" MaxLength="300" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
+        <EntityType Name="form">
           <Key>
-            <PropertyRef Name="diagram_id" />
+            <PropertyRef Name="staj_id" />
           </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
+          <Property Name="staj_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ogr_no" Type="int" />
+          <Property Name="stajYeri_ad" Type="varchar" MaxLength="30" />
+          <Property Name="staj_baslangic" Type="smalldatetime" />
+          <Property Name="staj_bitis" Type="smalldatetime" />
+          <Property Name="stajNotu" Type="int" />
+          <Property Name="stajDonemiYıl" Type="char" MaxLength="4" />
+          <Property Name="stajDonemiDonem" Type="varchar" MaxLength="10" />
+          <Property Name="basvuruDurumu" Type="varchar" MaxLength="10" />
+          <Property Name="stajIME" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="uye">
           <Key>
@@ -71,7 +40,7 @@
           <Property Name="uye_gsm" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="uye_tc" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="uye_sifre" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="uye_gorevi" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="uye_gorevi" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="uye_bolumAd" Type="varchar" MaxLength="20" />
           <Property Name="IME_durumu" Type="bit" />
         </EntityType>
@@ -82,82 +51,47 @@
           <Property Name="yoneticiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="yonetici_TC" Type="varchar" MaxLength="20" />
           <Property Name="yonetici_kullaniciAdi" Type="varchar" MaxLength="20" />
-          <Property Name="yonetici_Ad" Type="varchar" MaxLength="10" />
-          <Property Name="yonetici_Soyad" Type="varchar" MaxLength="10" />
-          <Property Name="yonetici_sifre" Type="varchar" MaxLength="10" />
+          <Property Name="yonetici_Ad" Type="varchar" MaxLength="20" />
+          <Property Name="yonetici_Soyad" Type="varchar" MaxLength="20" />
+          <Property Name="yonetici_sifre" Type="varchar" MaxLength="20" />
           <Property Name="yonetici_mail" Type="varchar" MaxLength="30" />
         </EntityType>
-        <Association Name="FK__IME_bilgi__ogr_n__48CFD27E">
+        <Association Name="FK__dosya__ogr_no__4F7CD00D">
           <End Role="uye" Type="Self.uye" Multiplicity="0..1" />
-          <End Role="IME_bilgileri" Type="Self.IME_bilgileri" Multiplicity="*" />
+          <End Role="dosya" Type="Self.dosya" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="uye">
               <PropertyRef Name="uye_no" />
             </Principal>
-            <Dependent Role="IME_bilgileri">
+            <Dependent Role="dosya">
               <PropertyRef Name="ogr_no" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__imedosya__ogr_no__4316F928">
+        <Association Name="FK__form__ogr_no__52593CB8">
           <End Role="uye" Type="Self.uye" Multiplicity="0..1" />
-          <End Role="imedosya" Type="Self.imedosya" Multiplicity="*" />
+          <End Role="form" Type="Self.form" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="uye">
               <PropertyRef Name="uye_no" />
             </Principal>
-            <Dependent Role="imedosya">
-              <PropertyRef Name="ogr_no" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__staj_form__ogr_n__45F365D3">
-          <End Role="uye" Type="Self.uye" Multiplicity="0..1" />
-          <End Role="staj_formu" Type="Self.staj_formu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="uye">
-              <PropertyRef Name="uye_no" />
-            </Principal>
-            <Dependent Role="staj_formu">
-              <PropertyRef Name="ogr_no" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__stajdosya__ogr_n__403A8C7D">
-          <End Role="uye" Type="Self.uye" Multiplicity="0..1" />
-          <End Role="stajdosya" Type="Self.stajdosya" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="uye">
-              <PropertyRef Name="uye_no" />
-            </Principal>
-            <Dependent Role="stajdosya">
+            <Dependent Role="form">
               <PropertyRef Name="ogr_no" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="DBYazgelProjeModelStoreContainer">
-          <EntitySet Name="IME_bilgileri" EntityType="Self.IME_bilgileri" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="imedosya" EntityType="Self.imedosya" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="staj_formu" EntityType="Self.staj_formu" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="stajdosya" EntityType="Self.stajdosya" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dosya" EntityType="Self.dosya" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="form" EntityType="Self.form" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="uye" EntityType="Self.uye" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="yonetici" EntityType="Self.yonetici" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__IME_bilgi__ogr_n__48CFD27E" Association="Self.FK__IME_bilgi__ogr_n__48CFD27E">
+          <AssociationSet Name="FK__dosya__ogr_no__4F7CD00D" Association="Self.FK__dosya__ogr_no__4F7CD00D">
             <End Role="uye" EntitySet="uye" />
-            <End Role="IME_bilgileri" EntitySet="IME_bilgileri" />
+            <End Role="dosya" EntitySet="dosya" />
           </AssociationSet>
-          <AssociationSet Name="FK__imedosya__ogr_no__4316F928" Association="Self.FK__imedosya__ogr_no__4316F928">
+          <AssociationSet Name="FK__form__ogr_no__52593CB8" Association="Self.FK__form__ogr_no__52593CB8">
             <End Role="uye" EntitySet="uye" />
-            <End Role="imedosya" EntitySet="imedosya" />
-          </AssociationSet>
-          <AssociationSet Name="FK__staj_form__ogr_n__45F365D3" Association="Self.FK__staj_form__ogr_n__45F365D3">
-            <End Role="uye" EntitySet="uye" />
-            <End Role="staj_formu" EntitySet="staj_formu" />
-          </AssociationSet>
-          <AssociationSet Name="FK__stajdosya__ogr_n__403A8C7D" Association="Self.FK__stajdosya__ogr_n__403A8C7D">
-            <End Role="uye" EntitySet="uye" />
-            <End Role="stajdosya" EntitySet="stajdosya" />
+            <End Role="form" EntitySet="form" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -165,30 +99,17 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DBYazgelProjeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="IME_bilgileri">
-          <Key>
-            <PropertyRef Name="IME_id" />
-          </Key>
-          <Property Name="IME_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ogr_no" Type="Int32" />
-          <Property Name="IMEYeri_ad" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="IME_baslangic" Type="DateTime" Precision="0" />
-          <Property Name="IME_bitis" Type="DateTime" Precision="0" />
-          <Property Name="IMENotu" Type="Int32" />
-          <Property Name="IMEDonemiDonem" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="basvuruDurumu" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="uye" Relationship="Self.FK__IME_bilgi__ogr_n__48CFD27E" FromRole="IME_bilgileri" ToRole="uye" />
-        </EntityType>
-        <EntityType Name="imedosya">
+        <EntityType Name="dosya">
           <Key>
             <PropertyRef Name="dosya_id" />
           </Key>
           <Property Name="dosya_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ogr_no" Type="Int32" />
+          <Property Name="staj_no" Type="Int32" />
           <Property Name="dosya_yolu" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="uye" Relationship="Self.FK__imedosya__ogr_no__4316F928" FromRole="imedosya" ToRole="uye" />
+          <NavigationProperty Name="uye" Relationship="Self.FK__dosya__ogr_no__4F7CD00D" FromRole="dosya" ToRole="uye" />
         </EntityType>
-        <EntityType Name="staj_formu">
+        <EntityType Name="form">
           <Key>
             <PropertyRef Name="staj_id" />
           </Key>
@@ -197,32 +118,12 @@
           <Property Name="stajYeri_ad" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="staj_baslangic" Type="DateTime" Precision="0" />
           <Property Name="staj_bitis" Type="DateTime" Precision="0" />
-          <Property Name="staj_say" Type="Boolean" />
           <Property Name="stajNotu" Type="Int32" />
           <Property Name="stajDonemiYıl" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
           <Property Name="stajDonemiDonem" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="basvuruDurumu" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="uye" Relationship="Self.FK__staj_form__ogr_n__45F365D3" FromRole="staj_formu" ToRole="uye" />
-        </EntityType>
-        <EntityType Name="stajdosya">
-          <Key>
-            <PropertyRef Name="dosya_id" />
-          </Key>
-          <Property Name="dosya_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ogr_no" Type="Int32" />
-          <Property Name="staj_no" Type="Int32" />
-          <Property Name="dosya_yolu" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="uye" Relationship="Self.FK__stajdosya__ogr_n__403A8C7D" FromRole="stajdosya" ToRole="uye" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="stajIME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="uye" Relationship="Self.FK__form__ogr_no__52593CB8" FromRole="form" ToRole="uye" />
         </EntityType>
         <EntityType Name="uye">
           <Key>
@@ -235,13 +136,11 @@
           <Property Name="uye_gsm" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="uye_tc" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="uye_sifre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="uye_gorevi" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="uye_gorevi" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="uye_bolumAd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="IME_durumu" Type="Boolean" />
-          <NavigationProperty Name="IME_bilgileri" Relationship="Self.FK__IME_bilgi__ogr_n__48CFD27E" FromRole="uye" ToRole="IME_bilgileri" />
-          <NavigationProperty Name="imedosya" Relationship="Self.FK__imedosya__ogr_no__4316F928" FromRole="uye" ToRole="imedosya" />
-          <NavigationProperty Name="staj_formu" Relationship="Self.FK__staj_form__ogr_n__45F365D3" FromRole="uye" ToRole="staj_formu" />
-          <NavigationProperty Name="stajdosya" Relationship="Self.FK__stajdosya__ogr_n__403A8C7D" FromRole="uye" ToRole="stajdosya" />
+          <NavigationProperty Name="dosya" Relationship="Self.FK__dosya__ogr_no__4F7CD00D" FromRole="uye" ToRole="dosya" />
+          <NavigationProperty Name="form" Relationship="Self.FK__form__ogr_no__52593CB8" FromRole="uye" ToRole="form" />
         </EntityType>
         <EntityType Name="yonetici">
           <Key>
@@ -250,82 +149,47 @@
           <Property Name="yoneticiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="yonetici_TC" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="yonetici_kullaniciAdi" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="yonetici_Ad" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="yonetici_Soyad" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="yonetici_sifre" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="yonetici_Ad" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="yonetici_Soyad" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="yonetici_sifre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="yonetici_mail" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
-        <Association Name="FK__IME_bilgi__ogr_n__48CFD27E">
+        <Association Name="FK__dosya__ogr_no__4F7CD00D">
           <End Role="uye" Type="Self.uye" Multiplicity="0..1" />
-          <End Role="IME_bilgileri" Type="Self.IME_bilgileri" Multiplicity="*" />
+          <End Role="dosya" Type="Self.dosya" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="uye">
               <PropertyRef Name="uye_no" />
             </Principal>
-            <Dependent Role="IME_bilgileri">
+            <Dependent Role="dosya">
               <PropertyRef Name="ogr_no" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__imedosya__ogr_no__4316F928">
+        <Association Name="FK__form__ogr_no__52593CB8">
           <End Role="uye" Type="Self.uye" Multiplicity="0..1" />
-          <End Role="imedosya" Type="Self.imedosya" Multiplicity="*" />
+          <End Role="form" Type="Self.form" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="uye">
               <PropertyRef Name="uye_no" />
             </Principal>
-            <Dependent Role="imedosya">
+            <Dependent Role="form">
               <PropertyRef Name="ogr_no" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__staj_form__ogr_n__45F365D3">
-          <End Role="uye" Type="Self.uye" Multiplicity="0..1" />
-          <End Role="staj_formu" Type="Self.staj_formu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="uye">
-              <PropertyRef Name="uye_no" />
-            </Principal>
-            <Dependent Role="staj_formu">
-              <PropertyRef Name="ogr_no" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__stajdosya__ogr_n__403A8C7D">
-          <End Role="uye" Type="Self.uye" Multiplicity="0..1" />
-          <End Role="stajdosya" Type="Self.stajdosya" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="uye">
-              <PropertyRef Name="uye_no" />
-            </Principal>
-            <Dependent Role="stajdosya">
-              <PropertyRef Name="ogr_no" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="DBYazgelProjeEntities2" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="IME_bilgileri" EntityType="Self.IME_bilgileri" />
-          <EntitySet Name="imedosya" EntityType="Self.imedosya" />
-          <EntitySet Name="staj_formu" EntityType="Self.staj_formu" />
-          <EntitySet Name="stajdosya" EntityType="Self.stajdosya" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+        <EntityContainer Name="DBYazgelProjeEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="dosya" EntityType="Self.dosya" />
+          <EntitySet Name="form" EntityType="Self.form" />
           <EntitySet Name="uye" EntityType="Self.uye" />
           <EntitySet Name="yonetici" EntityType="Self.yonetici" />
-          <AssociationSet Name="FK__IME_bilgi__ogr_n__48CFD27E" Association="Self.FK__IME_bilgi__ogr_n__48CFD27E">
+          <AssociationSet Name="FK__dosya__ogr_no__4F7CD00D" Association="Self.FK__dosya__ogr_no__4F7CD00D">
             <End Role="uye" EntitySet="uye" />
-            <End Role="IME_bilgileri" EntitySet="IME_bilgileri" />
+            <End Role="dosya" EntitySet="dosya" />
           </AssociationSet>
-          <AssociationSet Name="FK__imedosya__ogr_no__4316F928" Association="Self.FK__imedosya__ogr_no__4316F928">
+          <AssociationSet Name="FK__form__ogr_no__52593CB8" Association="Self.FK__form__ogr_no__52593CB8">
             <End Role="uye" EntitySet="uye" />
-            <End Role="imedosya" EntitySet="imedosya" />
-          </AssociationSet>
-          <AssociationSet Name="FK__staj_form__ogr_n__45F365D3" Association="Self.FK__staj_form__ogr_n__45F365D3">
-            <End Role="uye" EntitySet="uye" />
-            <End Role="staj_formu" EntitySet="staj_formu" />
-          </AssociationSet>
-          <AssociationSet Name="FK__stajdosya__ogr_n__403A8C7D" Association="Self.FK__stajdosya__ogr_n__403A8C7D">
-            <End Role="uye" EntitySet="uye" />
-            <End Role="stajdosya" EntitySet="stajdosya" />
+            <End Role="form" EntitySet="form" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -333,49 +197,10 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DBYazgelProjeModelStoreContainer" CdmEntityContainer="DBYazgelProjeEntities2">
-          <EntitySetMapping Name="IME_bilgileri">
-            <EntityTypeMapping TypeName="DBYazgelProjeModel.IME_bilgileri">
-              <MappingFragment StoreEntitySet="IME_bilgileri">
-                <ScalarProperty Name="IME_id" ColumnName="IME_id" />
-                <ScalarProperty Name="ogr_no" ColumnName="ogr_no" />
-                <ScalarProperty Name="IMEYeri_ad" ColumnName="IMEYeri_ad" />
-                <ScalarProperty Name="IME_baslangic" ColumnName="IME_baslangic" />
-                <ScalarProperty Name="IME_bitis" ColumnName="IME_bitis" />
-                <ScalarProperty Name="IMENotu" ColumnName="IMENotu" />
-                <ScalarProperty Name="IMEDonemiDonem" ColumnName="IMEDonemiDonem" />
-                <ScalarProperty Name="basvuruDurumu" ColumnName="basvuruDurumu" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="imedosya">
-            <EntityTypeMapping TypeName="DBYazgelProjeModel.imedosya">
-              <MappingFragment StoreEntitySet="imedosya">
-                <ScalarProperty Name="dosya_id" ColumnName="dosya_id" />
-                <ScalarProperty Name="ogr_no" ColumnName="ogr_no" />
-                <ScalarProperty Name="dosya_yolu" ColumnName="dosya_yolu" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="staj_formu">
-            <EntityTypeMapping TypeName="DBYazgelProjeModel.staj_formu">
-              <MappingFragment StoreEntitySet="staj_formu">
-                <ScalarProperty Name="staj_id" ColumnName="staj_id" />
-                <ScalarProperty Name="ogr_no" ColumnName="ogr_no" />
-                <ScalarProperty Name="stajYeri_ad" ColumnName="stajYeri_ad" />
-                <ScalarProperty Name="staj_baslangic" ColumnName="staj_baslangic" />
-                <ScalarProperty Name="staj_bitis" ColumnName="staj_bitis" />
-                <ScalarProperty Name="staj_say" ColumnName="staj_say" />
-                <ScalarProperty Name="stajNotu" ColumnName="stajNotu" />
-                <ScalarProperty Name="stajDonemiYıl" ColumnName="stajDonemiYıl" />
-                <ScalarProperty Name="stajDonemiDonem" ColumnName="stajDonemiDonem" />
-                <ScalarProperty Name="basvuruDurumu" ColumnName="basvuruDurumu" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="stajdosya">
-            <EntityTypeMapping TypeName="DBYazgelProjeModel.stajdosya">
-              <MappingFragment StoreEntitySet="stajdosya">
+        <EntityContainerMapping StorageEntityContainer="DBYazgelProjeModelStoreContainer" CdmEntityContainer="DBYazgelProjeEntities3">
+          <EntitySetMapping Name="dosya">
+            <EntityTypeMapping TypeName="DBYazgelProjeModel.dosya">
+              <MappingFragment StoreEntitySet="dosya">
                 <ScalarProperty Name="dosya_id" ColumnName="dosya_id" />
                 <ScalarProperty Name="ogr_no" ColumnName="ogr_no" />
                 <ScalarProperty Name="staj_no" ColumnName="staj_no" />
@@ -383,14 +208,19 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="DBYazgelProjeModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
+          <EntitySetMapping Name="form">
+            <EntityTypeMapping TypeName="DBYazgelProjeModel.form">
+              <MappingFragment StoreEntitySet="form">
+                <ScalarProperty Name="staj_id" ColumnName="staj_id" />
+                <ScalarProperty Name="ogr_no" ColumnName="ogr_no" />
+                <ScalarProperty Name="stajYeri_ad" ColumnName="stajYeri_ad" />
+                <ScalarProperty Name="staj_baslangic" ColumnName="staj_baslangic" />
+                <ScalarProperty Name="staj_bitis" ColumnName="staj_bitis" />
+                <ScalarProperty Name="stajNotu" ColumnName="stajNotu" />
+                <ScalarProperty Name="stajDonemiYıl" ColumnName="stajDonemiYıl" />
+                <ScalarProperty Name="stajDonemiDonem" ColumnName="stajDonemiDonem" />
+                <ScalarProperty Name="basvuruDurumu" ColumnName="basvuruDurumu" />
+                <ScalarProperty Name="stajIME" ColumnName="stajIME" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
