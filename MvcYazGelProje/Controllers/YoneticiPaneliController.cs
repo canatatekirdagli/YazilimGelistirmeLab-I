@@ -10,7 +10,7 @@ namespace MvcYazGelProje.Controllers
     public class YoneticiPaneliController : Controller
     {
         // GET: YoneticiPaneli
-       DBYazgelProjeEntities db = newDBYazgelProjeEntities();
+       DBYazgelProjeEntities db = new DBYazgelProjeEntities();
         public ActionResult Anasayfa()
         {
             return View();
