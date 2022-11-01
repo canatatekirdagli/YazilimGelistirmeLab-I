@@ -30,6 +30,14 @@ namespace MvcYazGelProje.Controllers
             uye uye = new uye();
             uye.uyeAd = form["uyeAd"];
             uye.uye_no = form["uye_no"];
+            uye.uyeSoyad= form["uyeSoyad"];
+            uye.uyeEposta= form["uyeEposta"];
+            uye.uye_tc = form["uye_tc"];
+            uye.uye_bolumAd = form["uye_bolumAd"];
+            uye.uye_gorevi = "Öğrenci";
+            uye.IME_durumu = false;
+            db.uye.Add(uye);
+            db.SaveChanges();
             return View();
         }
 

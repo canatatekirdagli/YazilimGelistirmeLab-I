@@ -11,7 +11,7 @@ namespace MvcYazGelProje.Controllers
     public class OgrenciLoginController : Controller
     {
         // GET: OgrenciLogin
-        Models.Entity.DBYazgelProjeEntities4 db = new Models.Entity.DBYazgelProjeEntities4();
+        Models.Entity.DBYazgelProjeEntities db = new Models.Entity.DBYazgelProjeEntities();
         [HttpGet]
         public ActionResult GirisYap()
         {

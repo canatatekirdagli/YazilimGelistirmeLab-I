@@ -28,6 +28,7 @@
           <Property Name="stajDonemiDonem" Type="varchar" MaxLength="10" />
           <Property Name="basvuruDurumu" Type="varchar" MaxLength="10" />
           <Property Name="stajIME" Type="varchar" MaxLength="20" />
+          <Property Name="sorumlu" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="uye">
           <Key>
@@ -123,6 +124,7 @@
           <Property Name="stajDonemiDonem" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="basvuruDurumu" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="stajIME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="sorumlu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="uye" Relationship="Self.FK__form__ogr_no__29572725" FromRole="form" ToRole="uye" />
         </EntityType>
         <EntityType Name="uye">
@@ -221,6 +223,7 @@
                 <ScalarProperty Name="stajDonemiDonem" ColumnName="stajDonemiDonem" />
                 <ScalarProperty Name="basvuruDurumu" ColumnName="basvuruDurumu" />
                 <ScalarProperty Name="stajIME" ColumnName="stajIME" />
+                <ScalarProperty Name="sorumlu" ColumnName="sorumlu" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
