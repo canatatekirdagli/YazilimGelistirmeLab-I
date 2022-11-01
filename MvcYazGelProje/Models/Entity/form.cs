@@ -24,6 +24,7 @@ namespace MvcYazGelProje.Models.Entity
         public string stajDonemiDonem { get; set; }
         public string basvuruDurumu { get; set; }
         public string stajIME { get; set; }
+        public string sorumlu { get; set; }
     
         public virtual uye uye { get; set; }
     }

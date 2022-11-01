@@ -10,7 +10,7 @@ namespace MvcYazGelProje.Controllers
     public class OgretmenPanelController : Controller
     {
         // GET: OgretmenPanel
-        DBYazgelProjeEntities3 db = new DBYazgelProjeEntities3();
+        DBYazgelProjeEntities4 db = new DBYazgelProjeEntities4();
         public ActionResult AnaSayfa()
         {
             return View();

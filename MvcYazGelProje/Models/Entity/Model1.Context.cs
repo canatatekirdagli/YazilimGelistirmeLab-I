@@ -13,10 +13,10 @@ namespace MvcYazGelProje.Models.Entity
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DBYazgelProjeEntities3 : DbContext
+    public partial class DBYazgelProjeEntities4 : DbContext
     {
-        public DBYazgelProjeEntities3()
-            : base("name=DBYazgelProjeEntities3")
+        public DBYazgelProjeEntities4()
+            : base("name=DBYazgelProjeEntities4")
         {
         }
     
@@ -27,6 +27,7 @@ namespace MvcYazGelProje.Models.Entity
     
         public virtual DbSet<dosya> dosya { get; set; }
         public virtual DbSet<form> form { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<uye> uye { get; set; }
         public virtual DbSet<yonetici> yonetici { get; set; }
     }

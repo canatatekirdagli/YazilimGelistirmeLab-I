@@ -28,6 +28,17 @@
           <Property Name="stajDonemiDonem" Type="varchar" MaxLength="10" />
           <Property Name="basvuruDurumu" Type="varchar" MaxLength="10" />
           <Property Name="stajIME" Type="varchar" MaxLength="20" />
+          <Property Name="sorumlu" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="uye">
           <Key>
@@ -83,6 +94,7 @@
         <EntityContainer Name="DBYazgelProjeModelStoreContainer">
           <EntitySet Name="dosya" EntityType="Self.dosya" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="form" EntityType="Self.form" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="uye" EntityType="Self.uye" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="yonetici" EntityType="Self.yonetici" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__dosya__ogr_no__4F7CD00D" Association="Self.FK__dosya__ogr_no__4F7CD00D">
@@ -123,7 +135,18 @@
           <Property Name="stajDonemiDonem" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="basvuruDurumu" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="stajIME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="sorumlu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="uye" Relationship="Self.FK__form__ogr_no__52593CB8" FromRole="form" ToRole="uye" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="uye">
           <Key>
@@ -178,9 +201,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DBYazgelProjeEntities3" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DBYazgelProjeEntities4" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="dosya" EntityType="Self.dosya" />
           <EntitySet Name="form" EntityType="Self.form" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="uye" EntityType="Self.uye" />
           <EntitySet Name="yonetici" EntityType="Self.yonetici" />
           <AssociationSet Name="FK__dosya__ogr_no__4F7CD00D" Association="Self.FK__dosya__ogr_no__4F7CD00D">
@@ -197,7 +221,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DBYazgelProjeModelStoreContainer" CdmEntityContainer="DBYazgelProjeEntities3">
+        <EntityContainerMapping StorageEntityContainer="DBYazgelProjeModelStoreContainer" CdmEntityContainer="DBYazgelProjeEntities4">
           <EntitySetMapping Name="dosya">
             <EntityTypeMapping TypeName="DBYazgelProjeModel.dosya">
               <MappingFragment StoreEntitySet="dosya">
@@ -221,6 +245,18 @@
                 <ScalarProperty Name="stajDonemiDonem" ColumnName="stajDonemiDonem" />
                 <ScalarProperty Name="basvuruDurumu" ColumnName="basvuruDurumu" />
                 <ScalarProperty Name="stajIME" ColumnName="stajIME" />
+                <ScalarProperty Name="sorumlu" ColumnName="sorumlu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DBYazgelProjeModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

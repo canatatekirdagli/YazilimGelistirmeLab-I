@@ -1,27 +1,25 @@
-﻿
+﻿@model MvcYazGelProje.Models.Entity.form
 @{
     ViewBag.Title = "Detay";
     Layout = "~/Views/Shared/KomisyonLayout.cshtml";
 }
 
-<div class="container col-md-6 pt-3 text-center">
-    <h2 class="pb-2">Staj Detayları</h2>
-    <div class="card" style="background-color:green">
-        <div class="container col-md-12">
-            <div class="card-group">
-                <dl class="row pt-3 ">
-                    <dt class="col-sm-6">Öğrenci No:</dt>
-                    <dd class="col-sm-6">Örnek1</dd>
-                    <br>
-                    <dt class="col-sm-6">Belge </dt>
-                    <dd class="col-sm-6"></dd>
+@using (Html.BeginForm("Detay", "KomisyonPanel", FormMethod.Post))
+{
+    <div class="container col-md-6 pt-3 text-center">
+        <h2 class="pb-2">Staj Detayları</h2>
+        <div class="card" style="background-color:green">
+            <div class="container col-md-12">
+                <div class="card-group">
+                    <dl class="row pt-3 ">
+                        <dt class="col-sm-6">Öğrenci No: @Html.TextBoxFor(m => m.ogr_no, new { @class = "form-control" })</dt>
+                        <br>
+                        <dt class="col-sm-6">Belge </dt>
+                        <dd class="col-sm-6"></dd>
 
-                </dl>
-            </div>
-            <div class="mb-2">
-                <a class="btn btn-primary" href="DosyaGoruntule">Kapat</a>
+                    </dl>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
+}

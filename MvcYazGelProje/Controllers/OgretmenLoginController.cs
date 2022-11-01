@@ -10,7 +10,7 @@ namespace MvcYazGelProje.Controllers
     public class OgretmenLoginController : Controller
     {
         // GET: OgretmenLogin
-        Models.Entity.DBYazgelProjeEntities3 db = new Models.Entity.DBYazgelProjeEntities3();
+        Models.Entity.DBYazgelProjeEntities4 db = new Models.Entity.DBYazgelProjeEntities4();
         [HttpGet]
         public ActionResult GirisYap()
         {
