@@ -48,13 +48,13 @@ namespace MvcYazGelProje.Controllers
         }
 
 
-        public ActionResult Guncelle(form p1)
+        public ActionResult Guncelle(form p)
         {
-            var dty = db.form.Find(p1.staj_id);
-            dty.stajNotu = p1.stajNotu;
-            dty.basvuruDurumu = p1.basvuruDurumu;
+            var bilgi = db.form.Find(p.staj_id);
+            bilgi.stajNotu = p.stajNotu;
+            bilgi.basvuruDurumu = p.basvuruDurumu;
             db.SaveChanges();
-            return RedirectToAction("StajDetay");
+            return RedirectToAction("Degerlendirme"); 
 
         }
 
