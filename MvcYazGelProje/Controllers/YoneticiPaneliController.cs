@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MvcYazGelProje.Models.Entity;
 
 namespace MvcYazGelProje.Controllers
 {
     public class YoneticiPaneliController : Controller
     {
         // GET: YoneticiPaneli
+        DBYazgelProjeEntities4 db = new DBYazgelProjeEntities4();
         public ActionResult Anasayfa()
         {
             return View();
@@ -21,6 +23,18 @@ namespace MvcYazGelProje.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult KullaniciEkle(FormCollection form)
+        {
+            uye uye = new uye();
+            uye.uyeAd = form["uyeAd"];
+            uye.uye_no = form[uye_no];
+            return View();
+        }
+
+
+
         public ActionResult KullaniciSil()
         {
             return View();
