@@ -15,6 +15,10 @@ namespace MvcYazGelProje.Controllers
         {
             return View();
         }
+
+
+
+
         public ActionResult Goruntuleme()
         {
             var stajbilgi = db.form.ToList();
@@ -22,18 +26,40 @@ namespace MvcYazGelProje.Controllers
         }
 
 
-        public ActionResult StajDetay()
+        public ActionResult StajDetay(int id)
         {
-            return View();
+            var bilgi = db.form.Find(id);
+            return View("StajDetay", bilgi);
         }
+
+
+
+
         public ActionResult Degerlendirme()
         {
-            return View();
+            var stajdegerlendirme = db.form.ToList();
+            return View(stajdegerlendirme);
+            
         }
-        public ActionResult DegerlendirmeDetay()
+        public ActionResult DegerlendirmeDetay(int id)
         {
-            return View();
+            var bilgi = db.form.Find(id);
+            return View("DegerlendirmeDetay", bilgi);
         }
+
+
+        public ActionResult Guncelle(form p1)
+        {
+            var dty = db.form.Find(p1.staj_id);
+            dty.stajNotu = p1.stajNotu;
+            dty.basvuruDurumu = p1.basvuruDurumu;
+            db.SaveChanges();
+            return RedirectToAction("StajDetay");
+
+        }
+
+
+
         public ActionResult SifreDegistir()
         {
             return View();

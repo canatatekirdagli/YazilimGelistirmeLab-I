@@ -15,8 +15,9 @@
                 <th>Bitiş Tarih</th>
                 <th>Dönem</th>
                 <th>Başarı Durumu</th>
-                
-                
+                <th>Staj/IME</th>
+
+
 
                 <th> </th>
 
@@ -32,10 +33,11 @@
                     <td>@k.staj_bitis</td>
                     <td>@k.stajDonemiYıl @k.stajDonemiDonem</td>
                     <td>@k.stajNotu</td>
+                    <td>@k.stajIME</td>
                     
 
 
-                    <td style="text-align:center"><a href="StajDetay" class="btn btn-sm btn-success">Detay</a></td>
+                    <td style="text-align:center"><a href="/OgretmenPanel/StajDetay/@k.staj_id" class="btn btn-sm btn-success">Detay</a></td>
                 </tr>
 
             }
