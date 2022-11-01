@@ -13,10 +13,10 @@ namespace MvcYazGelProje.Models.Entity
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DBYazgelProjeEntities4 : DbContext
+    public partial class DBYazgelProjeEntities : DbContext
     {
-        public DBYazgelProjeEntities4()
-            : base("name=DBYazgelProjeEntities4")
+        public DBYazgelProjeEntities()
+            : base("name=DBYazgelProjeEntities")
         {
         }
     

@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0c1d8a03a27f4eebbb16c0128617a3cb" Name="Diagram1">
+      <Diagram DiagramId="8721235b06e0422bb0dc40053eb45ff9" Name="Diagram1">
         <EntityTypeShape EntityType="DBYazgelProjeModel.dosya" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="DBYazgelProjeModel.form" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DBYazgelProjeModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />

@@ -10,7 +10,7 @@ namespace MvcYazGelProje.Controllers
     public class KomisyonPanelController : Controller
     {
         // GET: KomisyonPanel
-        DBYazgelProjeEntities4 db = new DBYazgelProjeEntities4();
+       DBYazgelProjeEntities db = newDBYazgelProjeEntities();
         public ActionResult Anasayfa()
         {
             return View();

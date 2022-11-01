@@ -201,7 +201,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DBYazgelProjeEntities4" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DBYazgelProjeEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="dosya" EntityType="Self.dosya" />
           <EntitySet Name="form" EntityType="Self.form" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
@@ -221,7 +221,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DBYazgelProjeModelStoreContainer" CdmEntityContainer="DBYazgelProjeEntities4">
+        <EntityContainerMapping StorageEntityContainer="DBYazgelProjeModelStoreContainer" CdmEntityContainer="DBYazgelProjeEntities">
           <EntitySetMapping Name="dosya">
             <EntityTypeMapping TypeName="DBYazgelProjeModel.dosya">
               <MappingFragment StoreEntitySet="dosya">

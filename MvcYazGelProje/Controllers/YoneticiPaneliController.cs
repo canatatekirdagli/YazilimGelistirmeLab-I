@@ -10,7 +10,7 @@ namespace MvcYazGelProje.Controllers
     public class YoneticiPaneliController : Controller
     {
         // GET: YoneticiPaneli
-        DBYazgelProjeEntities4 db = new DBYazgelProjeEntities4();
+       DBYazgelProjeEntities db = newDBYazgelProjeEntities();
         public ActionResult Anasayfa()
         {
             return View();
@@ -29,7 +29,7 @@ namespace MvcYazGelProje.Controllers
         {
             uye uye = new uye();
             uye.uyeAd = form["uyeAd"];
-            uye.uye_no = form[uye_no];
+            uye.uye_no = form["uye_no"];
             return View();
         }
 
