@@ -15,7 +15,7 @@ namespace MvcYazGelProje.Models.Entity
     public partial class form
     {
         public int staj_id { get; set; }
-        public Nullable<int> ogr_no { get; set; }
+        public string ogr_no { get; set; }
         public string stajYeri_ad { get; set; }
         public Nullable<System.DateTime> staj_baslangic { get; set; }
         public Nullable<System.DateTime> staj_bitis { get; set; }
@@ -24,7 +24,6 @@ namespace MvcYazGelProje.Models.Entity
         public string stajDonemiDonem { get; set; }
         public string basvuruDurumu { get; set; }
         public string stajIME { get; set; }
-        public string sorumlu { get; set; }
     
         public virtual uye uye { get; set; }
     }

@@ -15,7 +15,7 @@ namespace MvcYazGelProje.Models.Entity
     public partial class dosya
     {
         public int dosya_id { get; set; }
-        public Nullable<int> ogr_no { get; set; }
+        public string ogr_no { get; set; }
         public Nullable<int> staj_no { get; set; }
         public string dosya_yolu { get; set; }
     

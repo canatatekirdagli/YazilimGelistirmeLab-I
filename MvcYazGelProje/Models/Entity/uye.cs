@@ -21,7 +21,7 @@ namespace MvcYazGelProje.Models.Entity
             this.form = new HashSet<form>();
         }
     
-        public int uye_no { get; set; }
+        public string uye_no { get; set; }
         public string uyeAd { get; set; }
         public string uyeSoyad { get; set; }
         public string uyeEposta { get; set; }

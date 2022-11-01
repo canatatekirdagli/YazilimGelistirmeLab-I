@@ -27,7 +27,6 @@ namespace MvcYazGelProje.Models.Entity
     
         public virtual DbSet<dosya> dosya { get; set; }
         public virtual DbSet<form> form { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<uye> uye { get; set; }
         public virtual DbSet<yonetici> yonetici { get; set; }
     }
