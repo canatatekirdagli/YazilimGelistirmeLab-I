@@ -1,4 +1,5 @@
-﻿
+﻿@using MvcYazGelProje.Models.Entity
+@model List<form>
 @{
     ViewBag.Title = "StajDegerlendirme";
     Layout = "~/Views/Shared/YoneticiLayout.cshtml";
@@ -10,33 +11,41 @@
             <tr style="background-color:grey">
                 <th>Evrak No</th>
                 <th>Öğrenci Ad-Soyad</th>
-                <th>Dönem</th>
                 <th>Başlangıç Tarih</th>
                 <th>Bitiş Tarih</th>
-                <th>Başarı Durumu</th>
+                <th>Dönem</th>
                 <th>Değerlendirme</th>
-                <th>Değerlendiren Öğretmen</th>
                 <th>Staj/IME</th>
+                <th>Sorumlu Öğretmen</th>
+                <th>Başvuru Durumu</th>
 
 
                 <th> </th>
 
             </tr>
 
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+            @foreach (var k in Model)
+            {
+
+
+                <tr>
+                    <td>@k.staj_id</td>
+                    <td>@k.uye.uyeAd @k.uye.uyeSoyad </td>
+                    <td>@k.staj_baslangic</td>
+                    <td>@k.staj_bitis</td>
+                    <td>@k.stajDonemiYıl @k.stajDonemiDonem</td>
+                    <td>@k.stajNotu</td>
+                    <td>@k.stajIME</td>
+                    <td>@k.sorumlu</td>
+                    <td>@k.basvuruDurumu</td>
 
 
 
-                <td style="text-align:center"><a href="StajDegerlendirmeDetay" class="btn btn-sm btn-success">Güncelle</a></td>
-            </tr>
+
+                    <td style="text-align:center"><a href="/YoneticiPaneli/StajDegerlendirmeDetay/@k.staj_id" class="btn btn-sm btn-success">Detay</a></td>
+                </tr>
+
+            }
 
 
         </table>

@@ -40,7 +40,7 @@
           <Property Name="uyeEposta" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="uye_gsm" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="uye_tc" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="uye_sifre" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="uye_sifre" Type="varchar" MaxLength="20" />
           <Property Name="uye_gorevi" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="uye_bolumAd" Type="varchar" MaxLength="20" />
           <Property Name="IME_durumu" Type="bit" />
@@ -137,7 +137,7 @@
           <Property Name="uyeEposta" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="uye_gsm" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="uye_tc" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="uye_sifre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="uye_sifre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="uye_gorevi" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="uye_bolumAd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="IME_durumu" Type="Boolean" />

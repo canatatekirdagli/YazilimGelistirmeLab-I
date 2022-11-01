@@ -8,21 +8,20 @@
     <h2>Yönetici Bilgilerini Giriniz</h2>
     <div class="bilgiler">
 
-        <form>
-            <p>Sicil Numarası Giriniz</p>
-            <input type="number" name="" placeholder="Sicil Numarası">
+        <form action="/YoneticiPaneli/YoneticiEkleme" class="form-group" method="post">
 
             <p>Ad</p>
-            <input type="text" name="" placeholder="Ad">
+            <input type="text" name="yonetici_Ad" placeholder="Ad">
 
             <p>Soyad</p>
-            <input type="text" name="" placeholder="Soyad">
+            <input type="text" name="yonetici_Soyad" placeholder="Soyad">
 
             <p>TC Kimlik No</p>
-            <input type="number" name="" placeholder="TC Kimlik No">
-
+            <input type="text" name="yonetici_TC" placeholder="TC Kimlik No">
+            <p>Kullanıcı Adı</p>
+            <input type="text" name="yonetici_kullaniciAdi" placeholder="Kullanıcı Adı">
             <p>E-Mail</p>
-            <input type="email" name="" placeholder="E-Mail">
+            <input type="text" name="yonetici_mail" placeholder="E-Mail">
 
             <input type="submit" name="" value="Yönetici Ekle">
 

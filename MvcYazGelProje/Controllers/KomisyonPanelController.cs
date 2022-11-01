@@ -15,6 +15,8 @@ namespace MvcYazGelProje.Controllers
         {
             return View();
         }
+
+
         public ActionResult DosyaGoruntule()
         {
             var stajbilgi = db.form.ToList();

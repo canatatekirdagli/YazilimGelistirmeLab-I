@@ -1,4 +1,4 @@
-﻿
+﻿@model MvcYazGelProje.Models.Entity.form
 @{
     ViewBag.Title = "StajGoruntulemeDetay";
     Layout = "~/Views/Shared/YoneticiLayout.cshtml";
@@ -10,16 +10,13 @@
         <div class="container col-md-12">
             <div class="card-group">
                 <dl class="row pt-3 ">
-                    <dt class="col-sm-6">Öğrenci No:</dt>
-                    <dd class="col-sm-6">Örnek1</dd>
+                    <dt class="col-sm-6">Öğrenci No: @Html.TextBoxFor(m => m.ogr_no, new { @class = "form-control" })</dt>
                     <br>
                     <dt class="col-sm-6">Belge </dt>
                     <dd class="col-sm-6"></dd>
 
                 </dl>
             </div>
-            <div class="mb-2">
-                <a class="btn btn-primary" href="StajGoruntuleme">Kapat</a>
             </div>
         </div>
     </div>

@@ -1,4 +1,4 @@
-﻿
+﻿@model MvcYazGelProje.Models.Entity.form
 @{
     ViewBag.Title = "StajDegerlendirmeDetay";
     Layout = "~/Views/Shared/YoneticiLayout.cshtml";
@@ -12,10 +12,13 @@
                 <dl class="container text-center">
 
                     <dt class="col-sm-6">Öğrenci Numarası:</dt>
-                    <input type="text" name="" placeholder="Öğrenci Numarası" size="52">
+                    @Html.TextBoxFor(k => k.ogr_no, new { @class = "form-control" })
                     <dt class="col-sm-5">Başarı Notu:</dt>
-                    <input class="col-sm-9" type="number" min="0" max="100" name="" placeholder="Başarı Notu">
+                    @Html.TextBoxFor(k => k.stajNotu, new { @class = "form-control" })
+                    <dt class="col-sm-6">Sorumlu Öğretmen:</dt>
+                    @Html.TextBoxFor(k => k.sorumlu, new { @class = "form-control" })
                     <dt class="col-sm-6">Değerlendirme:</dt>
+                    @Html.TextBoxFor(k => k.basvuruDurumu, new { @class = "form-control" })
                     <select name="secenekler" id="Select1" size="2">
 
                         <option value="1">Onay</option>
@@ -25,7 +28,6 @@
                     </select>
                     <a class="btn btn-success" type="submit">Güncelle</a>
                     <a class="btn btn-danger" onclick="return confirm('EVRAK SİLİNECEK ! Emin misin?')">Sil!</a>
-                    <a class="btn btn-primary" href="stajDegerlendirme">Kapat</a>
                 </dl>
             </div>
 

@@ -5,32 +5,31 @@
 }
 <div class="kullanicieklemekutusu">
     <h2>Kullanıcı Bilgilerini Giriniz</h2>
-    <div class="bilgiler">
+        <div class="bilgiler">
 
-        <form action="/YoneticiPaneli/KullaniciEkle" method="post">
+        <form action="/YoneticiPaneli/KullaniciEkle" class="form-group" method="post">
             <p>Sicil/Öğrenci Numarası</p>
-            <input type="text" name="" placeholder="Sicil/Öğrenci Numarası">
+            <input type="text" name="uye_no" placeholder="Sicil/Öğrenci Numarası">
 
             <p>Ad</p>
-            <input type="text" name="" placeholder="Ad">
+            <input type="text" name="uyeAd" placeholder="Ad">
 
             <p>Soyad</p>
-            <input type="text" name="" placeholder="Soyad">
+            <input type="text" name="uyeSoyad" placeholder="Soyad">
 
             <p>TC Kimlik No</p>
-            <input type="number" name="" placeholder="TC">
+            <input type="number" name="uye_tc" placeholder="TC">
             <p>Telefon Numarası</p>
-            <input type="text" name="" placeholder="Telefon">
+            <input type="text" name="uye_gsm" placeholder="Telefon">
 
             <p>E-Mail</p>
-            <input type="text" name="" placeholder="Eposta">
+            <input type="text" name="uyeEposta" placeholder="Eposta">
 
             <p>Bölüm</p>
-            <input type="text" name="" placeholder="Bölüm">
+            <input type="text" name="uye_bolumAd" placeholder="Bölüm">
 
 
             <input type="submit" name="" value="Kullanıcı Ekle">
-            <input type="submit" name="" value="Kullanıcı Güncelle">
             <a href="KullaniciIslemleri" class="btn btn-light">Geri</a>
         </form>
     </div>
