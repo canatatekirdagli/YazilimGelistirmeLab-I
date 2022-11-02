@@ -32,19 +32,6 @@ namespace MvcYazGelProje.Controllers
         public ActionResult KullaniciEkle(FormCollection form)
         {
             string randomPassword = Membership.GeneratePassword(10, 2);
-            //SmtpClient client = new SmtpClient();
-            //client.Credentials = new NetworkCredential("canatatekirdagli30@gmail.com", "ŞİFRE");
-            //client.Port = 587;
-            //client.Host = "smtp.gmail.com";
-            //client.EnableSsl = true;
-            //MailMessage mail = new MailMessage();
-            //mail.To.Add("canata.coc@gmail.com");
-            //mail.From = new MailAddress("canatatekirdagli30@gmail.com","Şifre Gönderiminiz");
-            //mail.IsBodyHtml = true;
-            //mail.Subject = "Şifreniz";
-            //mail.Body += "Merhaba siteme hoş geldiniz :) <br/> Sisteme giriş yaparken kullanacağınız; <br/> Mail: " + /*form["uyeEposta"]+*/ "<br/> Şifre: "+randomPassword + "<br/> Sisteme girdikten sonra şifrenizi değiştirmeyi unutmayın!";
-
-            //    client.Send(mail);
             string sifre = Sifrele.MD5Olustur(randomPassword);
             uye uye = new uye();
             uye.uyeAd = form["uyeAd"];
@@ -64,11 +51,27 @@ namespace MvcYazGelProje.Controllers
 
 
 
+
+
         public ActionResult KullaniciSil()
         {
             var kullanicisil = db.uye.ToList();
             return View(kullanicisil);
         }
+        [HttpPost]
+        public ActionResult KullaniciSilme(string id)
+        {
+            var kullanici = db.uye.Find(id);
+            var kullanici1 = db.form.Where(k => k.ogr_no == id);
+            var kullanici2 = db.form.Find(kullanici1);
+            var kullanici3 = db.dosya.Where(k => k.ogr_no == id);
+            var kullanici4 = db.dosya.Find(kullanici3);
+            db.form.Remove(kullanici2);
+            db.uye.Remove(kullanici);
+            db.SaveChanges();
+            return RedirectToAction("KullaniciSil");
+        }
+
         public ActionResult KullaniciSilDetay(string id)
         {
             var bilgi = db.uye.Find(id);
@@ -184,6 +187,15 @@ namespace MvcYazGelProje.Controllers
             var kullanicisil = db.yonetici.ToList();
             return View(kullanicisil);
         }
+        public ActionResult YoneticiSil(int id)
+        {
+            var kullanici = db.yonetici.Find(id);
+            db.yonetici.Remove(kullanici);
+            db.SaveChanges();
+            return RedirectToAction("YoneticiSilme");
+        }
+
+
         public ActionResult YoneticiSilDetay(int id)
         {
             var bilgi = db.yonetici.Find(id);
@@ -203,6 +215,7 @@ namespace MvcYazGelProje.Controllers
             return RedirectToAction("YoneticiSilme");
 
         }
+
 
 
         public ActionResult SıfreDegistir()
