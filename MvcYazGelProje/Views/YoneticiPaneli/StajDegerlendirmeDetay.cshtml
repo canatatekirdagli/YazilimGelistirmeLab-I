@@ -3,35 +3,37 @@
     ViewBag.Title = "StajDegerlendirmeDetay";
     Layout = "~/Views/Shared/YoneticiLayout.cshtml";
 }
+@using (Html.BeginForm("Guncelle", "YoneticiPaneli", FormMethod.Post))
+{
+    <div class="container col-md-6 pt-3 text-center">
+        <h2 class="pb-2">Staj Güncelleme</h2>
+        <div class="card" style="background-color:green">
+            <div class="container col-md-13">
+                <div class="card-group">
+                    <dl class="container text-center">
 
-<div class="container col-md-6 pt-3 text-center">
-    <h2 class="pb-2">Staj Güncelleme</h2>
-    <div class="card" style="background-color:green">
-        <div class="container col-md-13">
-            <div class="card-group">
-                <dl class="container text-center">
+                        <dt class="col-sm-6">Öğrenci Numarası:</dt>
+                        @Html.TextBoxFor(k => k.ogr_no, new { @class = "form-control" })
+                        <dt class="col-sm-5">Başarı Notu:</dt>
+                        @Html.TextBoxFor(k => k.stajNotu, new { @class = "form-control" })
+                        <dt class="col-sm-6">Sorumlu Öğretmen:</dt>
+                        @Html.TextBoxFor(k => k.sorumlu, new { @class = "form-control" })
+                        <dt class="col-sm-6">Değerlendirme:</dt>
 
-                    <dt class="col-sm-6">Öğrenci Numarası:</dt>
-                    @Html.TextBoxFor(k => k.ogr_no, new { @class = "form-control" })
-                    <dt class="col-sm-5">Başarı Notu:</dt>
-                    @Html.TextBoxFor(k => k.stajNotu, new { @class = "form-control" })
-                    <dt class="col-sm-6">Sorumlu Öğretmen:</dt>
-                    @Html.TextBoxFor(k => k.sorumlu, new { @class = "form-control" })
-                    <dt class="col-sm-6">Değerlendirme:</dt>
-                    @Html.TextBoxFor(k => k.basvuruDurumu, new { @class = "form-control" })
-                    <select name="secenekler" id="Select1" size="2">
+                        <select name="basvuruDurumu" id="basvuruDurumu" size="2">
 
-                        <option value="1">Onay</option>
+                            <option value="1">Onay</option>
 
-                        <option value="2">Red</option>
+                            <option value="2">Red</option>
 
-                    </select>
-                    <a class="btn btn-success" type="submit">Güncelle</a>
-                    <a class="btn btn-danger" onclick="return confirm('EVRAK SİLİNECEK ! Emin misin?')">Sil!</a>
-                </dl>
+                        </select>
+                        <button class="btn btn-warning">Güncelle</button>
+                        <a class="btn btn-danger" onclick="return confirm('EVRAK SİLİNECEK ! Emin misin?')">Sil!</a>
+                    </dl>
+                </div>
+
             </div>
-
         </div>
     </div>
-</div>
 
+}

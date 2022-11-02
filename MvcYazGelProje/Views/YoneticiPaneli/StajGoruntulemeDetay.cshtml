@@ -3,21 +3,22 @@
     ViewBag.Title = "StajGoruntulemeDetay";
     Layout = "~/Views/Shared/YoneticiLayout.cshtml";
 }
+@using (Html.BeginForm("StajGoruntulemeDetay", "YoneticiPaneli", FormMethod.Post))
+{
+    <div class="container col-md-6 pt-3 text-center">
+        <h2 class="pb-2">Staj Detayları</h2>
+        <div class="card" style="background-color:green">
+            <div class="container col-md-12">
+                <div class="card-group">
+                    <dl class="row pt-3 ">
+                        <dt class="col-sm-6">Öğrenci No: @Html.TextBoxFor(m => m.ogr_no, new { @class = "form-control" })</dt>
+                        <br>
+                        <dt class="col-sm-6">Belge </dt>
+                        <dd class="col-sm-6"></dd>
 
-<div class="container col-md-6 pt-3 text-center">
-    <h2 class="pb-2">Staj Detayları</h2>
-    <div class="card" style="background-color:green">
-        <div class="container col-md-12">
-            <div class="card-group">
-                <dl class="row pt-3 ">
-                    <dt class="col-sm-6">Öğrenci No: @Html.TextBoxFor(m => m.ogr_no, new { @class = "form-control" })</dt>
-                    <br>
-                    <dt class="col-sm-6">Belge </dt>
-                    <dd class="col-sm-6"></dd>
-
-                </dl>
-            </div>
+                    </dl>
+                </div>
             </div>
         </div>
     </div>
-</div>
+}
