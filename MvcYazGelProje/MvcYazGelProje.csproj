@@ -257,9 +257,7 @@
     <Content Include="Views\Shared\OgrenciLayout.cshtml" />
     <Content Include="Views\Shared\KomisyonLayout.cshtml" />
     <Content Include="Views\OgrenciPanel\Anasayfa.cshtml" />
-    <Content Include="Views\OgrenciPanel\BilgiGoruntule.cshtml" />
     <Content Include="Views\OgrenciPanel\StajBilgileri.cshtml" />
-    <Content Include="Views\OgrenciPanel\ImeBilgileri.cshtml" />
     <Content Include="Views\OgrenciPanel\Stajİsleri.cshtml" />
     <Content Include="Views\OgrenciPanel\IMEIsleri.cshtml" />
     <Content Include="Views\OgrenciPanel\SifreDegistir.cshtml" />

@@ -10,22 +10,20 @@ namespace MvcYazGelProje.Controllers
     public class OgrenciPanelController : Controller
     {
         // GET: OgrenciPanel
+        Models.Entity.DBYazgelProjeEntities db = new Models.Entity.DBYazgelProjeEntities();
         public ActionResult Anasayfa()
         {
             return View();
         }
-        public ActionResult BilgiGoruntule()
-        {
-            return View();
-        }
+
         public ActionResult StajBilgileri()
         {
-            return View();
+            var ogrno = (string)Session["Ogrno"];
+            //var degerler = db.form.All(z => z.ogr_no == ogrno);
+            var stajbilgiler = db.form.Where(z => z.ogr_no == ogrno).ToList();
+            return View(stajbilgiler);
         }
-        public ActionResult ImeBilgileri()
-        {
-            return View();
-        }
+
         public ActionResult Stajİsleri()
         {
             string[] files = Directory.GetFiles(Server.MapPath("~/App_Data/uploads"));
