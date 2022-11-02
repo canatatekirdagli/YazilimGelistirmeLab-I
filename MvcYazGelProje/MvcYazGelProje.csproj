@@ -127,7 +127,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\Contact.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KomisyonPanelController.cs" />
     <Compile Include="Controllers\OgrenciLoginController.cs" />
@@ -167,7 +166,6 @@
     <Compile Include="Models\Entity\yonetici.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Mail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
