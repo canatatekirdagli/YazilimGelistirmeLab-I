@@ -180,6 +180,10 @@ namespace MvcYazGelProje.Controllers
             return View();
         }
 
+        public ActionResult StajSilmeDetay()
+        {
+            return View();
+        }
 
     }
 }

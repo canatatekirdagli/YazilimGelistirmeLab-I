@@ -270,6 +270,7 @@
     <Content Include="Views\KomisyonPanel\SifreDegistir.cshtml" />
     <Content Include="Views\KomisyonPanel\DosyaDegerlendir.cshtml" />
     <Content Include="Views\KomisyonPanel\DegerlendirDetay.cshtml" />
+    <Content Include="Views\YoneticiPaneli\StajSilmeDetay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Uploads\" />
