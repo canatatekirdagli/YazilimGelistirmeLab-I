@@ -46,7 +46,7 @@ namespace MvcYazGelProje.Controllers
             uye.uye_sifre = sifre;
             db.uye.Add(uye);
             db.SaveChanges();
-            return View();
+            return RedirectToAction("KullaniciEkle");
         }
 
 
@@ -83,9 +83,8 @@ namespace MvcYazGelProje.Controllers
             belge.uye_no = p.uye_no;
             belge.uyeAd = p.uyeAd;
             belge.uyeSoyad = p.uyeSoyad;
-            belge.uye_tc = p.uye_tc;
-            belge.uyeEposta = p.uyeEposta;
             belge.uye_gsm = p.uye_gsm;
+            belge.uyeEposta = p.uyeEposta;
             belge.uye_bolumAd = p.uye_bolumAd;
             belge.uye_gorevi = p.uye_gorevi;
             db.SaveChanges();
@@ -106,7 +105,7 @@ namespace MvcYazGelProje.Controllers
         public ActionResult RolTanimlamaDetay(string id)
         {
             var bilgi = db.uye.Find(id);
-            return View("StajDegerlendirmeDetay", bilgi);
+            return View("RolTanimlamaDetay", bilgi);
         }
 
         public ActionResult RolTanimlamaGuncelle(uye p)
@@ -155,9 +154,10 @@ namespace MvcYazGelProje.Controllers
         public ActionResult Guncelle(form p)
         {
             var belge = db.form.Find(p.staj_id);
+            belge.staj_id = p.staj_id;
             belge.stajNotu = p.stajNotu;
-            belge.sorumlu = p.sorumlu;
             belge.basvuruDurumu = p.basvuruDurumu;
+            belge.sorumlu = p.sorumlu;
             db.SaveChanges();
             return RedirectToAction("StajDegerlendirme");
         }
@@ -193,7 +193,7 @@ namespace MvcYazGelProje.Controllers
             yonetici.yonetici_sifre = sifre;
             db.yonetici.Add(yonetici);
             db.SaveChanges();
-            return View();
+            return RedirectToAction("YoneticiSilme");
         }
 
 

@@ -3,10 +3,11 @@
     ViewBag.Title = "RolTanimlamaDetay";
     Layout = "~/Views/Shared/YoneticiLayout.cshtml";
 }
-@using (Html.BeginForm("RolTanimlamaDetay", "YoneticiPaneli", FormMethod.Post))
+@using (Html.BeginForm("RolTanimlamaGuncelle", "YoneticiPaneli", FormMethod.Post))
 {
     <div class="container col-md-6 pt-3 text-center">
         <h2 class="pb-2">Staj Güncelleme</h2>
+        <h4>ÜYE NUMARASINI DEĞİŞTİRMEYİNİZ!</h4>
         <div class="card" style="background-color:green">
             <div class="container col-md-13">
                 <div class="card-group">
@@ -14,7 +15,7 @@
 
                         <dt class="col-sm-6">Öğrenci Numarası:</dt>
                         @Html.TextBoxFor(k => k.uye_no, new { @class = "form-control" })
-                        <dt class="col-sm-5">:</dt>
+                        <dt class="col-sm-5">Görevi:</dt>
                         @Html.TextBoxFor(k => k.uye_gorevi, new { @class = "form-control" })
                         <button class="btn btn-warning">Güncelle</button>
                         <a class="btn btn-danger" onclick="return confirm('EVRAK SİLİNECEK ! Emin misin?')">Sil!</a>

@@ -7,29 +7,22 @@
 {
     <div class="container col-md-6 pt-3 text-center">
         <h2 class="pb-2">Staj Güncelleme</h2>
+        <h4>Stah numarası değiştirilemez!!!</h4>
         <div class="card" style="background-color:green">
             <div class="container col-md-13">
                 <div class="card-group">
                     <dl class="container text-center">
 
-                        <dt class="col-sm-6">Öğrenci Numarası:</dt>
-                        @Html.TextBoxFor(k => k.ogr_no, new { @class = "form-control" })
+                        <dt class="col-sm-6">Staj ID:</dt>
+                        @Html.TextBoxFor(k => k.staj_id, new { @class = "form-control" })
                         <dt class="col-sm-5">Başarı Notu:</dt>
                         @Html.TextBoxFor(k => k.stajNotu, new { @class = "form-control" })
                         <dt class="col-sm-6">Sorumlu Öğretmen:</dt>
                         @Html.TextBoxFor(k => k.sorumlu, new { @class = "form-control" })
                         <dt class="col-sm-6">Değerlendirme:</dt>
+                        @Html.TextBoxFor(k => k.basvuruDurumu, new { @class = "form-control" })
 
-                        <select name="basvuruDurumu" id="basvuruDurumu" size="2">
-
-                            <option value="1">Onay</option>
-
-                            <option value="2">Red</option>
-
-                        </select>
-                        <br />
                         <button class="btn btn-warning">Güncelle</button>
-                        <a class="btn btn-danger" onclick="return confirm('EVRAK SİLİNECEK ! Emin misin?')">Sil!</a>
                     </dl>
                 </div>
 

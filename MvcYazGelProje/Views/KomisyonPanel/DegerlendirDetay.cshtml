@@ -20,14 +20,7 @@
                         @Html.TextBoxFor(k => k.sorumlu, new { @class = "form-control" })
                         <dt class="col-sm-6">Değerlendirme:</dt>
                         @Html.TextBoxFor(k => k.basvuruDurumu, new { @class = "form-control" })
-                        <select name="secenekler" id="Select1" size="2">
 
-                            <option value="1">Onay</option>
-
-                            <option value="2">Red</option>
-
-                        </select>
-                        <br />
                         <button class="btn btn-warning">Güncelle</button>
                         <a class="btn btn-danger" onclick="return confirm('EVRAK SİLİNECEK ! Emin misin?')">Sil!</a>
                     </dl>
