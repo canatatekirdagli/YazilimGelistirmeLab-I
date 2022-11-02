@@ -20,7 +20,8 @@ namespace MvcYazGelProje.Controllers
         [HttpPost]
         public ActionResult GirisYap(yonetici p)
         {
-            var bilgiler = db.yonetici.FirstOrDefault(x => x.yonetici_kullaniciAdi==p.yonetici_kullaniciAdi && x.yonetici_sifre == p.yonetici_sifre);
+            string sifre1 = Sifrele.MD5Olustur(p.yonetici_sifre);
+            var bilgiler = db.yonetici.FirstOrDefault(x => x.yonetici_kullaniciAdi==p.yonetici_kullaniciAdi && x.yonetici_sifre == sifre1);
             if (bilgiler!=null)
             {
                 FormsAuthentication.SetAuthCookie(bilgiler.yonetici_kullaniciAdi, false);

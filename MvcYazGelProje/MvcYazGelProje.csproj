@@ -127,12 +127,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\Contact.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KomisyonPanelController.cs" />
     <Compile Include="Controllers\OgrenciLoginController.cs" />
     <Compile Include="Controllers\OgrenciPanelController.cs" />
     <Compile Include="Controllers\OgretmenLoginController.cs" />
     <Compile Include="Controllers\OgretmenPanelController.cs" />
+    <Compile Include="Controllers\Sifrele.cs" />
     <Compile Include="Controllers\YoneticiLoginController.cs" />
     <Compile Include="Controllers\YoneticiPaneliController.cs" />
     <Compile Include="Global.asax.cs">
@@ -165,6 +167,7 @@
     <Compile Include="Models\Entity\yonetici.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Mail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -272,6 +275,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Uploads\" />
+    <Folder Include="Views\Şifrele\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

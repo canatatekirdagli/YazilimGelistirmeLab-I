@@ -40,7 +40,7 @@
           <Property Name="uyeEposta" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="uye_gsm" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="uye_tc" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="uye_sifre" Type="varchar" MaxLength="20" />
+          <Property Name="uye_sifre" Type="varchar" MaxLength="50" />
           <Property Name="uye_gorevi" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="uye_bolumAd" Type="varchar" MaxLength="20" />
           <Property Name="IME_durumu" Type="bit" />
@@ -54,7 +54,7 @@
           <Property Name="yonetici_kullaniciAdi" Type="varchar" MaxLength="20" />
           <Property Name="yonetici_Ad" Type="varchar" MaxLength="20" />
           <Property Name="yonetici_Soyad" Type="varchar" MaxLength="20" />
-          <Property Name="yonetici_sifre" Type="varchar" MaxLength="20" />
+          <Property Name="yonetici_sifre" Type="varchar" MaxLength="50" />
           <Property Name="yonetici_mail" Type="varchar" MaxLength="30" />
         </EntityType>
         <Association Name="FK__dosya__ogr_no__267ABA7A">
@@ -137,7 +137,7 @@
           <Property Name="uyeEposta" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="uye_gsm" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="uye_tc" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="uye_sifre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="uye_sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="uye_gorevi" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="uye_bolumAd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="IME_durumu" Type="Boolean" />
@@ -153,7 +153,7 @@
           <Property Name="yonetici_kullaniciAdi" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="yonetici_Ad" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="yonetici_Soyad" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="yonetici_sifre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="yonetici_sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="yonetici_mail" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK__dosya__ogr_no__267ABA7A">

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using MvcYazGelProje.Models.Entity;
 
 namespace MvcYazGelProje.Controllers
@@ -27,6 +29,8 @@ namespace MvcYazGelProje.Controllers
         [HttpPost]
         public ActionResult KullaniciEkle(FormCollection form)
         {
+            string randomPassword = Membership.GeneratePassword(10, 2);
+            string sifre = Sifrele.MD5Olustur(randomPassword);
             uye uye = new uye();
             uye.uyeAd = form["uyeAd"];
             uye.uye_no = form["uye_no"];
@@ -37,6 +41,7 @@ namespace MvcYazGelProje.Controllers
             uye.uye_bolumAd = form["uye_bolumAd"];
             uye.uye_gorevi = "Öğrenci";
             uye.IME_durumu = false;
+            uye.uye_sifre = sifre;
             db.uye.Add(uye);
             db.SaveChanges();
             return View();
@@ -107,12 +112,15 @@ namespace MvcYazGelProje.Controllers
         [HttpPost]
         public ActionResult YoneticiEkle(FormCollection form)
         {
+            string randomPassword = Membership.GeneratePassword(10, 2);
+            string sifre = Sifrele.MD5Olustur(randomPassword);
             yonetici yonetici = new yonetici();
             yonetici.yonetici_Ad = form["yonetici_Ad"];
             yonetici.yonetici_Soyad = form["yonetici_Soyad"];
             yonetici.yonetici_TC = form["yonetici_TC"];
             yonetici.yonetici_kullaniciAdi = form["yonetici_kullaniciAdi"];
             yonetici.yonetici_mail = form["yonetici_mail"];
+            yonetici.yonetici_sifre = sifre;    
             db.yonetici.Add(yonetici);
             db.SaveChanges();
             return View();
