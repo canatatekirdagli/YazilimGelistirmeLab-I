@@ -1,31 +1,49 @@
-﻿
+﻿@using MvcYazGelProje.Models.Entity
+@model List<uye>
 @{
     ViewBag.Title = "RolTanimlama";
     Layout = "~/Views/Shared/YoneticiLayout.cshtml";
 }
 
-<div class="kullaniciislemlerikutusu">
-    <h2>Rol Tanımlama</h2><br><br>
-    <div class="bilgiler">
 
-        <form>
-            <p>Tanımlanacak Rolu Seçiniz</p>
-            <select>
-                <option> </option>
-                <option> Yönetici </option>
-                <option> Komisyon Üyesi </option>
-                <option> Öğretmen </option>
-                <option> Öğrenci </option>
-            </select>
+<div class="container col-md-10 pt-5">
+    <div style="overflow-x:auto;">
+        <table class="table table-striped text-white ">
+            <tr style="background-color:grey">
+                <th>Uye No</th>
+                <th>Ad-Soyad</th>
+                <th>TC</th>
+                <th>Eposta</th>
+                <th>Telefon</th>
+                <th>Bölüm</th>
+                <th>Görevi</th>
 
-            <p>Atanacak Kişiyi Seçiniz</p>
-            <select>
-                <option> </option>
-            </select>
-        </form>
+                <th> </th>
+                <th> </th>
+
+            </tr>
+
+            @foreach (var k in Model)
+            {
+
+                <tr>
+                    <td>@k.uye_no</td>
+                    <td>@k.uyeAd @k.uyeSoyad </td>
+                    <td>@k.uye_tc</td>
+                    <td>@k.uyeEposta</td>
+                    <td>@k.uye_gsm</td>
+                    <td>@k.uye_bolumAd</td>
+                    <td>@k.uye_gorevi</td>
+
+                    <td style="text-align:center"><a href="/YoneticiPaneli/RolTanimlamaDetay/@k.uye_no" class="btn btn-sm btn-success">Güncelle</a></td>
+
+                </tr>
+
+            }
+
+
+        </table>
     </div>
-    <td colspan="2">
-        <button class="btn btn-info">Rol Ata</button>
-        <a href="KullaniciIslemleri" class="btn btn-light">Geri</a>
-    </td>
+</div>
+
 

@@ -271,6 +271,7 @@
     <Content Include="Views\KomisyonPanel\DegerlendirDetay.cshtml" />
     <Content Include="Views\YoneticiPaneli\KullaniciSilDetay.cshtml" />
     <Content Include="Views\YoneticiPaneli\YoneticiSilDetay.cshtml" />
+    <Content Include="Views\YoneticiPaneli\RolTanimlamaDetay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Uploads\" />

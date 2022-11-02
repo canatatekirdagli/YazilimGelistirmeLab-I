@@ -96,9 +96,26 @@ namespace MvcYazGelProje.Controllers
 
 
 
+
+
         public ActionResult RolTanimlama()
         {
-            return View();
+            var roltanimlama = db.uye.ToList();
+            return View(roltanimlama);
+        }
+        public ActionResult RolTanimlamaDetay(string id)
+        {
+            var bilgi = db.uye.Find(id);
+            return View("StajDegerlendirmeDetay", bilgi);
+        }
+
+        public ActionResult RolTanimlamaGuncelle(uye p)
+        {
+            var belge = db.uye.Find(p.uye_no);
+            belge.uye_no = p.uye_no;
+            belge.uye_gorevi = p.uye_gorevi;
+            db.SaveChanges();
+            return RedirectToAction("RolTanimlama");
         }
         public ActionResult OgretmenIslemleri()
         {
