@@ -1,0 +1,45 @@
+﻿@model MvcYazGelProje.Models.Entity.uye
+@{
+    ViewBag.Title = "KullaniciSilDetay";
+    Layout = "~/Views/Shared/YoneticiLayout.cshtml";
+}
+
+@using (Html.BeginForm("KullaniciGuncelle", "YoneticiPaneli", FormMethod.Post))
+{
+    <div class="container col-md-6 pt-3 text-center">
+        <h2 class="pb-2">Kullanıcı Güncelleme</h2>
+        <h4>ÜYE NUMARASI DEĞİŞTİRİLEMEZ!</h4>
+        <div class="card" style="background-color:green">
+            <div class="container col-md-13">
+                <div class="card-group">
+                    <dl class="container text-center">
+
+                        <dt class="col-sm-6">Uye No:</dt>
+                        @Html.TextBoxFor(k => k.uye_no, new { @class = "form-control"})
+                        <dt class="col-sm-5">Ad:</dt>
+                        @Html.TextBoxFor(k => k.uyeAd, new { @class = "form-control" })
+                        <dt class="col-sm-6">Soyad:</dt>
+                        @Html.TextBoxFor(k => k.uyeSoyad, new { @class = "form-control" })
+                        <dt class="col-sm-6">TC:</dt>
+                        @Html.TextBoxFor(k => k.uye_tc, new { @class = "form-control" })
+                        <dt class="col-sm-6">Eposta:</dt>
+                        @Html.TextBoxFor(k => k.uyeEposta, new { @class = "form-control" })
+                        <dt class="col-sm-6">Telefon:</dt>
+                        @Html.TextBoxFor(k => k.uye_gsm, new { @class = "form-control" })
+                        <dt class="col-sm-6">Bölüm:</dt>
+                        @Html.TextBoxFor(k => k.uye_bolumAd, new { @class = "form-control" })
+                        <dt class="col-sm-6">Görevi:</dt>
+                        @Html.TextBoxFor(k => k.uye_gorevi, new { @class = "form-control" })
+
+                        <br />
+                        <button class="btn btn-warning">Güncelle</button>
+                        <a class="btn btn-danger" onclick="return confirm('EVRAK SİLİNECEK ! Emin misin?')">Sil!</a>
+                    </dl>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+}
+

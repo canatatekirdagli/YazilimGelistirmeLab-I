@@ -1,4 +1,5 @@
-﻿
+﻿@using MvcYazGelProje.Models.Entity
+@model List<uye>
 @{
     ViewBag.Title = "KullaniciSil";
     Layout = "~/Views/Shared/YoneticiLayout.cshtml";
@@ -9,15 +10,13 @@
     <div style="overflow-x:auto;">
         <table class="table table-striped text-white ">
             <tr style="background-color:grey">
-                <th>Evrak No</th>
-                <th>Öğrenci Ad-Soyad</th>
-                <th>Başlangıç Tarih</th>
-                <th>Bitiş Tarih</th>
-                <th>Dönem</th>
-                <th>Değerlendirme</th>
-                <th>Staj/IME</th>
-                <th>Sorumlu Öğretmen</th>
-                <th>Başvuru Durumu</th>
+                <th>Uye No</th>
+                <th>Ad-Soyad</th>
+                <th>TC</th>
+                <th>Eposta</th>
+                <th>Telefon</th>
+                <th>Bölüm</th>
+                <th>Görevi</th>
 
                 <th> </th>
                 <th> </th>
@@ -28,25 +27,20 @@
             {
 
                 <tr>
-                    <td>@k.staj_id</td>
-                    <td>@k.uye.uyeAd @k.uye.uyeSoyad </td>
-                    <td>@k.staj_baslangic</td>
-                    <td>@k.staj_bitis</td>
-                    <td>@k.stajDonemiYıl @k.stajDonemiDonem</td>
-                    <td>@k.stajNotu</td>
-                    <td>@k.stajIME</td>
-                    <td>@k.sorumlu</td>
-                    <td>@k.basvuruDurumu</td>
+                    <td>@k.uye_no</td>
+                    <td>@k.uyeAd @k.uyeSoyad </td>
+                    <td>@k.uye_tc</td>
+                    <td>@k.uyeEposta</td>
+                    <td>@k.uye_gsm</td>
+                    <td>@k.uye_bolumAd</td>
+                    <td>@k.uye_gorevi</td>
 
-
-
-
-                    <td style="text-align:center"><a href="/YoneticiPaneli/StajDegerlendirmeDetay/@k.staj_id" class="btn btn-sm btn-success">Güncelle</a></td>
-                    <td style="text-align:center"><a href="/YoneticiPaneli/StajSilmeDetay/@k.staj_id" class="btn btn-sm btn-success">Sil</a></td>
+                    <td style="text-align:center"><a href="/YoneticiPaneli/KullaniciSilDetay/@k.uye_no" class="btn btn-sm btn-success">Güncelle</a></td>
+                    <td style="text-align:center"><a href="/YoneticiPaneli/StajSilmeDetay/@k.uye_no" class="btn btn-sm btn-success">Sil</a></td>
                 </tr>
 
-             }
-            
+            }
+
 
         </table>
     </div>

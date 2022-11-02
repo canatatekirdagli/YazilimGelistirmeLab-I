@@ -43,43 +43,53 @@ namespace MvcYazGelProje.Controllers
             //mail.IsBodyHtml = true;
             //mail.Subject = "Şifreniz";
             //mail.Body += "Merhaba siteme hoş geldiniz :) <br/> Sisteme giriş yaparken kullanacağınız; <br/> Mail: " + /*form["uyeEposta"]+*/ "<br/> Şifre: "+randomPassword + "<br/> Sisteme girdikten sonra şifrenizi değiştirmeyi unutmayın!";
-           
+
             //    client.Send(mail);
-                string sifre = Sifrele.MD5Olustur(randomPassword);
-                uye uye = new uye();
-                uye.uyeAd = form["uyeAd"];
-                uye.uye_no = form["uye_no"];
-                uye.uyeSoyad = form["uyeSoyad"];
-                uye.uyeEposta = form["uyeEposta"];
-                uye.uye_gsm = form["uye_gsm"];
-                uye.uye_tc = form["uye_tc"];
-                uye.uye_bolumAd = form["uye_bolumAd"];
-                uye.uye_gorevi = "Öğrenci";
-                uye.IME_durumu = false;
-                uye.uye_sifre = sifre;
-                db.uye.Add(uye);
-                db.SaveChanges();
-                return View();
+            string sifre = Sifrele.MD5Olustur(randomPassword);
+            uye uye = new uye();
+            uye.uyeAd = form["uyeAd"];
+            uye.uye_no = form["uye_no"];
+            uye.uyeSoyad = form["uyeSoyad"];
+            uye.uyeEposta = form["uyeEposta"];
+            uye.uye_gsm = form["uye_gsm"];
+            uye.uye_tc = form["uye_tc"];
+            uye.uye_bolumAd = form["uye_bolumAd"];
+            uye.uye_gorevi = "Öğrenci";
+            uye.IME_durumu = false;
+            uye.uye_sifre = sifre;
+            db.uye.Add(uye);
+            db.SaveChanges();
+            return View();
         }
 
 
 
         public ActionResult KullaniciSil()
         {
-            return View();
+            var kullanicisil = db.uye.ToList();
+            return View(kullanicisil);
         }
-        [HttpPost]
-        public ActionResult KullaniciSil(FormCollection form)
+        public ActionResult KullaniciSilDetay(string id)
         {
-            var kullanici1 = db.dosya.Find(form["id"]);
-            db.dosya.Remove(kullanici1);
-            var kullanici2 = db.form.Find(form["id"]);
-            db.form.Remove(kullanici2);
-            var kullanici = db.uye.Find(form["id"]);
-            db.uye.Remove(kullanici);
-            db.SaveChanges();
-            return RedirectToAction("KullaniciIslemleri");
+            var bilgi = db.uye.Find(id);
+            return View("KullaniciSilDetay", bilgi);
         }
+        public ActionResult KullaniciGuncelle(uye p)
+        {
+            var belge = db.uye.Find(p.uye_no);
+            belge.uye_no = p.uye_no;
+            belge.uyeAd = p.uyeAd;
+            belge.uyeSoyad = p.uyeSoyad;
+            belge.uye_tc = p.uye_tc;
+            belge.uyeEposta = p.uyeEposta;
+            belge.uye_gsm = p.uye_gsm;
+            belge.uye_bolumAd = p.uye_bolumAd;
+            belge.uye_gorevi = p.uye_gorevi;
+            db.SaveChanges();
+            return RedirectToAction("KullaniciSil");
+
+        }
+
 
 
 
@@ -150,7 +160,7 @@ namespace MvcYazGelProje.Controllers
         }
 
         [HttpPost]
-        public ActionResult YoneticiEkle(FormCollection form)
+        public ActionResult YoneticiEkleme(FormCollection form)
         {
             string randomPassword = Membership.GeneratePassword(10, 2);
             string sifre = Sifrele.MD5Olustur(randomPassword);
@@ -160,30 +170,47 @@ namespace MvcYazGelProje.Controllers
             yonetici.yonetici_TC = form["yonetici_TC"];
             yonetici.yonetici_kullaniciAdi = form["yonetici_kullaniciAdi"];
             yonetici.yonetici_mail = form["yonetici_mail"];
-            yonetici.yonetici_sifre = sifre;    
+            yonetici.yonetici_sifre = sifre;
             db.yonetici.Add(yonetici);
             db.SaveChanges();
             return View();
         }
+
+
+
+
         public ActionResult YoneticiSilme()
         {
-            return View();
+            var kullanicisil = db.yonetici.ToList();
+            return View(kullanicisil);
         }
-
-
-        public ActionResult YoneticiGuncelleme()
+        public ActionResult YoneticiSilDetay(int id)
         {
-            return View();
+            var bilgi = db.yonetici.Find(id);
+            return View("YoneticiSilDetay", bilgi);
         }
+
+        public ActionResult YoneticiGuncelle(yonetici p)
+        {
+            var belge = db.yonetici.Find(p.yoneticiID);
+            belge.yoneticiID= p.yoneticiID;
+            belge.yonetici_Ad = p.yonetici_Ad;
+            belge.yonetici_Soyad = p.yonetici_Soyad;
+            belge.yonetici_TC = p.yonetici_TC;
+            belge.yonetici_mail = p.yonetici_mail;
+            belge.yonetici_kullaniciAdi = p.yonetici_kullaniciAdi;
+            db.SaveChanges();
+            return RedirectToAction("YoneticiSilme");
+
+        }
+
+
         public ActionResult SıfreDegistir()
         {
             return View();
         }
 
-        public ActionResult StajSilmeDetay()
-        {
-            return View();
-        }
+
 
     }
 }

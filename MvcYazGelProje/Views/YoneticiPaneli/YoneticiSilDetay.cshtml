@@ -1,0 +1,42 @@
+﻿@model MvcYazGelProje.Models.Entity.yonetici
+@{
+    ViewBag.Title = "YoneticiSilDetay";
+    Layout = "~/Views/Shared/YoneticiLayout.cshtml";
+}
+
+@using (Html.BeginForm("YoneticiGuncelle", "YoneticiPaneli", FormMethod.Post))
+{
+    <div class="container col-md-6 pt-3 text-center">
+        <h2 class="pb-2">Yönetici Güncelleme</h2>
+        <h4>YÖNETİCİ ID DEĞİŞTİRİLEMEZ!</h4>
+        <div class="card" style="background-color:green">
+            <div class="container col-md-13">
+                <div class="card-group">
+                    <dl class="container text-center">
+
+                        <dt class="col-sm-6">Yonetici ID:</dt>
+                        @Html.TextBoxFor(k => k.yoneticiID, new { @class = "form-control" })
+                        <dt class="col-sm-5">Ad:</dt>
+                        @Html.TextBoxFor(k => k.yonetici_Ad, new { @class = "form-control" })
+                        <dt class="col-sm-6">Soyad:</dt>
+                        @Html.TextBoxFor(k => k.yonetici_Soyad, new { @class = "form-control" })
+                        <dt class="col-sm-6">TC:</dt>
+                        @Html.TextBoxFor(k => k.yonetici_TC, new { @class = "form-control" })
+                        <dt class="col-sm-6">Eposta:</dt>
+                        @Html.TextBoxFor(k => k.yonetici_mail, new { @class = "form-control" })
+                        <dt class="col-sm-6">Kullanıcı Adı:</dt>
+                        @Html.TextBoxFor(k => k.yonetici_kullaniciAdi, new { @class = "form-control" })
+
+                        <br />
+                        <button class="btn btn-warning">Güncelle</button>
+                        <a class="btn btn-danger" onclick="return confirm('EVRAK SİLİNECEK ! Emin misin?')">Sil!</a>
+                    </dl>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+
+
+

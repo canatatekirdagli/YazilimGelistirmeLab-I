@@ -1,20 +1,46 @@
-﻿
+﻿@using MvcYazGelProje.Models.Entity
+@model List<yonetici>
 @{
-    ViewBag.Title = "YoneticiSilme";
+    ViewBag.Title = "KullaniciSil";
     Layout = "~/Views/Shared/YoneticiLayout.cshtml";
 }
 
-<div class="yoneticisilmekutusu">
-    <h2>Yönetici Bilgilerini Giriniz</h2>
-    <div class="bilgiler">
 
-        <form action="/YoneticiPaneli/YoneticiIslemleri" class="form-group" method="post">
-            <p>Kullanıcı Adı</p>
-            <input type="text" name="id" placeholder="Kullanıcı Adı">
+<div class="container col-md-10 pt-5">
+    <div style="overflow-x:auto;">
+        <table class="table table-striped text-white ">
+            <tr style="background-color:grey">
+                <th>Yönetici ID</th>
+                <th>Ad-Soyad</th>
+                <th>TC</th>
+                <th>Eposta</th>
+                <th>Kullanıcı Adı</th>
 
-            <input type="submit" name="" value="Yönetici Sil">
-            <a href="YoneticiIslemleri" class="btn btn-light">Geri</a>
-        </form>
+                <th> </th>
+                <th> </th>
+
+            </tr>
+
+            @foreach (var k in Model)
+            {
+
+                <tr>
+                    <td>@k.yoneticiID</td>
+                    <td>@k.yonetici_Ad @k.yonetici_Soyad </td>
+                    <td>@k.yonetici_TC</td>
+                    <td>@k.yonetici_mail</td>
+                    <td>@k.yonetici_kullaniciAdi</td>
+
+
+                    <td style="text-align:center"><a href="/YoneticiPaneli/YoneticiSilDetay/@k.yoneticiID" class="btn btn-sm btn-success">Güncelle</a></td>
+                    <td style="text-align:center"><a href="/YoneticiPaneli/YoneticiSilmeDetay/@k.yoneticiID" class="btn btn-sm btn-success">Sil</a></td>
+                </tr>
+
+            }
+
+
+        </table>
     </div>
+</div>
 
 

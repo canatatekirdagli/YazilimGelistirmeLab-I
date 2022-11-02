@@ -242,7 +242,6 @@
     <Content Include="Views\YoneticiPaneli\RolTanimlama.cshtml" />
     <Content Include="Views\YoneticiPaneli\YoneticiEkleme.cshtml" />
     <Content Include="Views\YoneticiPaneli\YoneticiSilme.cshtml" />
-    <Content Include="Views\YoneticiPaneli\YoneticiGuncelleme.cshtml" />
     <Content Include="Views\YoneticiPaneli\StajGoruntuleme.cshtml" />
     <Content Include="Views\YoneticiPaneli\StajDegerlendirme.cshtml" />
     <Content Include="Views\YoneticiPaneli\StajGoruntulemeDetay.cshtml" />
@@ -270,7 +269,8 @@
     <Content Include="Views\KomisyonPanel\SifreDegistir.cshtml" />
     <Content Include="Views\KomisyonPanel\DosyaDegerlendir.cshtml" />
     <Content Include="Views\KomisyonPanel\DegerlendirDetay.cshtml" />
-    <Content Include="Views\YoneticiPaneli\StajSilmeDetay.cshtml" />
+    <Content Include="Views\YoneticiPaneli\KullaniciSilDetay.cshtml" />
+    <Content Include="Views\YoneticiPaneli\YoneticiSilDetay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Uploads\" />
