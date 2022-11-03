@@ -258,13 +258,11 @@ namespace MvcYazGelProje.Controllers
         }
 
 
-
-        public ActionResult SıfreDegistir()
+        public ActionResult SıfreDegistir(yonetici p)
         {
-            return View();
+            var yonetici = Session["id"];
+            var bilgi = db.yonetici.Find(yonetici);
+            return View("SıfreDegistir", bilgi);
         }
-
-
-
     }
 }

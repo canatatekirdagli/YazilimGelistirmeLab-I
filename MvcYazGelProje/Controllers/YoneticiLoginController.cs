@@ -24,6 +24,9 @@ namespace MvcYazGelProje.Controllers
             var bilgiler = db.yonetici.FirstOrDefault(x => x.yonetici_kullaniciAdi==p.yonetici_kullaniciAdi && x.yonetici_sifre == sifre1);
             if (bilgiler!=null)
             {
+                Session["kullaniciadi"] = bilgiler.yonetici_kullaniciAdi;
+                Session["sifre"] = bilgiler.yonetici_sifre;
+                Session["id"] = bilgiler.yoneticiID;
                 FormsAuthentication.SetAuthCookie(bilgiler.yonetici_kullaniciAdi, false);
                 return RedirectToAction("Anasayfa", "YoneticiPaneli");
             }

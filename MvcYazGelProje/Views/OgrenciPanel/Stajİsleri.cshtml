@@ -10,17 +10,11 @@
         Giriş sayfasındaki <a href="~/Home/Izlence">Staj İzlence</a> kısmından indirdiğiniz dosyaları isterlere
         uygun şekilde doldurduktan sonra aşağıda belirtilen alana yükleyiniz.
     </h4>
-    <form action="/OgrenciPanel/Stajİsleri" method="post" enctype="multipart/form-data">
-        <input type="file" name="files" id="file1" />
-        <button style="width:100px;" class="pb-lg-1" type="submit">Yükle</button>
-    </form>
-    @if (TempData["files"] != null)
+    @using (Html.BeginForm("Stajİsleri", "OgrenciPanel", FormMethod.Post, new { enctype = "multipart/from-data" }))
     {
-        <ul>
-            @foreach (string file in (string[])TempData["files"])
-            {
-                <li>@file</li>
-            }
-        </ul>
+        <form method="post" enctype="multipart/form-data">
+            <input type="file" name="files" id="file1" multiple />
+            <button style="width:100px;" class="pb-lg-1" type="submit">Yükle</button>
+        </form>
     }
 </div>
