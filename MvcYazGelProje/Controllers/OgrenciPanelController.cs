@@ -19,7 +19,6 @@ namespace MvcYazGelProje.Controllers
         public ActionResult StajBilgileri()
         {
             var ogrno = (string)Session["Ogrno"];
-            //var degerler = db.form.All(z => z.ogr_no == ogrno);
             var stajbilgiler = db.form.Where(z => z.ogr_no == ogrno).ToList();
             return View(stajbilgiler);
         }

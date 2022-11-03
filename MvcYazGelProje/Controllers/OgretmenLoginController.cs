@@ -24,6 +24,7 @@ namespace MvcYazGelProje.Controllers
             {
                 if (bilgiler.uye_gorevi=="Öğretmen")
                 {
+                    Session["AdSoyad"] = bilgiler.uyeAd+" "+bilgiler.uyeSoyad;
                     return RedirectToAction("Anasayfa", "OgretmenPanel");
                 }
                 else if (bilgiler.uye_gorevi == "Komisyon")

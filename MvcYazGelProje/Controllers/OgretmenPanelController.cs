@@ -21,8 +21,9 @@ namespace MvcYazGelProje.Controllers
 
         public ActionResult Goruntuleme()
         {
-            var stajbilgi = db.form.ToList();
-            return View(stajbilgi);
+            var adsoyad = (string)Session["AdSoyad"];
+            var goruntuleme = db.form.Where(z => z.sorumlu == adsoyad).ToList();
+            return View(goruntuleme);
         }
 
 
@@ -37,7 +38,8 @@ namespace MvcYazGelProje.Controllers
 
         public ActionResult Degerlendirme()
         {
-            var stajdegerlendirme = db.form.ToList();
+            var adsoyad = (string)Session["AdSoyad"];
+            var stajdegerlendirme = db.form.Where(z => z.sorumlu == adsoyad).ToList();
             return View(stajdegerlendirme);
             
         }
@@ -50,9 +52,11 @@ namespace MvcYazGelProje.Controllers
 
         public ActionResult Guncelle(form p)
         {
-            var bilgi = db.form.Find(p.staj_id);
-            bilgi.stajNotu = p.stajNotu;
-            bilgi.basvuruDurumu = p.basvuruDurumu;
+            var belge = db.form.Find(p.staj_id);
+            belge.staj_id = p.staj_id;
+            belge.stajNotu = p.stajNotu;
+            belge.basvuruDurumu = p.basvuruDurumu;
+            belge.sorumlu = p.sorumlu;
             db.SaveChanges();
             return RedirectToAction("Degerlendirme"); 
 
