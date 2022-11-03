@@ -42,8 +42,7 @@ namespace MvcYazGelProje.Controllers
             mail.From = new MailAddress("canatatekirdagli30@gmail.com", "Şifre Gönderiminiz");
             mail.IsBodyHtml = true;
             mail.Subject = "Şifreniz";
-            mail.Body += "Merhaba siteme hoş geldiniz :) <br/> Sisteme giriş yaparken kullanacağınız; <br/> Mail: " + form["uyeEposta"]+ "<br/> Şifre: " + randomPassword + "<br/> Sisteme girdikten sonra şifrenizi değiştirmeyi unutmayın!";
-
+            mail.Body += "Merhaba siteme hoş geldiniz :) <br/> Sisteme giriş yaparken kullanacağınız; <br/> Mail: " + form["uyeEposta"] + "<br/> Şifre: " + randomPassword + "<br/> Sisteme girdikten sonra şifrenizi değiştirmeyi unutmayın!";
             client.Send(mail);
             string sifre = Sifrele.MD5Olustur(randomPassword);
             uye uye = new uye();
@@ -196,6 +195,18 @@ namespace MvcYazGelProje.Controllers
         public ActionResult YoneticiEkleme(FormCollection form)
         {
             string randomPassword = Membership.GeneratePassword(10, 2);
+            SmtpClient client = new SmtpClient();
+            client.Credentials = new NetworkCredential("canatatekirdagli30@gmail.com", "zynwwuhkxotpokoy");
+            client.Port = 587;
+            client.Host = "smtp.gmail.com";
+            client.EnableSsl = true;
+            MailMessage mail = new MailMessage();
+            mail.To.Add(form["yonetici_mail"]);
+            mail.From = new MailAddress("canatatekirdagli30@gmail.com", "Şifre Gönderiminiz");
+            mail.IsBodyHtml = true;
+            mail.Subject = "Şifreniz";
+            mail.Body += "Merhaba siteme hoş geldiniz :) <br/> Sisteme giriş yaparken kullanacağınız; <br/> Kullanıcı Adı: " + form["yonetici_kullaniciAdi"] + "<br/> Şifre: " + randomPassword + "<br/> Sisteme girdikten sonra şifrenizi değiştirmeyi unutmayın!";
+            client.Send(mail);
             string sifre = Sifrele.MD5Olustur(randomPassword);
             yonetici yonetici = new yonetici();
             yonetici.yonetici_Ad = form["yonetici_Ad"];

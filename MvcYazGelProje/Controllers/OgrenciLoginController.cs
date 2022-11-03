@@ -20,7 +20,8 @@ namespace MvcYazGelProje.Controllers
         [HttpPost]
         public ActionResult GirisYap(uye p)
         {
-            var bilgiler = db.uye.FirstOrDefault(x => x.uye_no == p.uye_no && x.uye_sifre == p.uye_sifre);
+            string sifre = Sifrele.MD5Olustur(p.uye_sifre);
+            var bilgiler = db.uye.FirstOrDefault(x => x.uye_no == p.uye_no && x.uye_sifre == sifre);
             if (bilgiler != null)
             {
                 Session["Ogrno"] = bilgiler.uye_no;
