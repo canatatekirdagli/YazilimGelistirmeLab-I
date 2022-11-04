@@ -1,18 +1,49 @@
-﻿
+﻿@using MvcYazGelProje.Models.Entity
+@model List<uye>
 
 @{
     ViewBag.Title = "SifreDegistir";
     Layout = "~/Views/Shared/OgrenciLayout.cshtml";
 }
 
-<div class="sifrekutusu">
-    <h3>Şifre Yenileme</h3><br>
-    <form>
-        <p>Yeni Şifre:</p>
-        <input type="text" name="" placeholder="Yeni Şifre">
-        <p>Şifre Tekrar:</p>
-        <input type="text" placeholder="Şifre Tekrar">
-        <input id="sifreyenile" type="submit" name="" value="Güncelle">
-    </form>
+<div class="container col-md-10 pt-5">
+    <div style="overflow-x:auto;">
+        <table class="table table-striped text-white ">
+            <tr style="background-color:grey">
+                <th>Öğrenci Numarası</th>
+                <th>Ad-Soyad</th>
+                <th>TC</th>
+                <th>Eposta</th>
+                <th>Telefon</th>
+                <th>Bölüm</th>
+
+
+                <th> </th>
+                <th> </th>
+
+            </tr>
+
+            @foreach (var k in Model)
+            {
+
+                <tr>
+                    <td>@k.uye_no</td>
+                    <td>@k.uyeAd @k.uyeSoyad </td>
+                    <td>@k.uye_tc</td>
+                    <td>@k.uyeEposta</td>
+                    <td>@k.uye_gsm</td>
+                    <td>@k.uye_bolumAd</td>
+
+
+
+                    <td style="text-align:center"><a href="/OgrenciPanel/SıfreDegistirDetay/@k.uye_no" class="btn btn-sm btn-success">Şifre Değiştir</a></td>
+
+                </tr>
+
+            }
+
+
+        </table>
+    </div>
 </div>
 

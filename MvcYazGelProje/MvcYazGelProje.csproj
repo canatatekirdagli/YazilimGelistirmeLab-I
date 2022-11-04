@@ -270,6 +270,10 @@
     <Content Include="Views\YoneticiPaneli\KullaniciSilDetay.cshtml" />
     <Content Include="Views\YoneticiPaneli\YoneticiSilDetay.cshtml" />
     <Content Include="Views\YoneticiPaneli\RolTanimlamaDetay.cshtml" />
+    <Content Include="Views\YoneticiPaneli\SıfreDegistirDetay.cshtml" />
+    <Content Include="Views\OgretmenPanel\SıfreDegistirDetay.cshtml" />
+    <Content Include="Views\KomisyonPanel\SıfreDegistirDetay.cshtml" />
+    <Content Include="Views\OgrenciPanel\SıfreDegistirDetay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Uploads\" />

@@ -24,8 +24,17 @@ namespace MvcYazGelProje.Controllers
             var bilgiler = db.uye.FirstOrDefault(x => x.uye_no == p.uye_no && x.uye_sifre == sifre);
             if (bilgiler != null)
             {
-                Session["Ogrno"] = bilgiler.uye_no;
-                return RedirectToAction("Anasayfa", "OgrenciPanel");
+                if (bilgiler.uye_gorevi == "Öğrenci")
+                {
+                    Session["Ogrno"] = bilgiler.uye_no;
+                    return RedirectToAction("Anasayfa", "OgrenciPanel");
+                }
+                else
+                {
+                    ViewBag.Mesaj = "Geçersiz Öğrenci No ya da Şifre";
+                    return View();
+                }
+                
             }
             else
             {

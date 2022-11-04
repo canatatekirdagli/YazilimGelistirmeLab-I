@@ -66,7 +66,24 @@ namespace MvcYazGelProje.Controllers
 
         public ActionResult SifreDegistir()
         {
-            return View();
+            var no = (string)Session["no"];
+            var kullanici = db.uye.Where(z => z.uye_no == no).ToList();
+            return View(kullanici); ;
+        }
+        public ActionResult SıfreDegistirDetay(string id)
+        {
+            var bilgi = db.uye.Find(id);
+            return View("SıfreDegistirDetay", bilgi);
+        }
+        public ActionResult SıfreDegistirme(uye p)
+        {
+
+            var bilgi = db.uye.Find(p.uye_no);
+            bilgi.uye_no = p.uye_no;
+            string sifre = Sifrele.MD5Olustur(p.uye_sifre);
+            bilgi.uye_sifre = sifre;
+            db.SaveChanges();
+            return View("AnaSayfa", bilgi);
         }
     }
 }

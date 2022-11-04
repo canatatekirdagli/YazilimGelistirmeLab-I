@@ -1,0 +1,34 @@
+﻿@model MvcYazGelProje.Models.Entity.yonetici
+@{
+    ViewBag.Title = "SıfreDegistirDetay";
+    Layout = "~/Views/Shared/YoneticiLayout.cshtml";
+}
+
+@using (Html.BeginForm("SıfreDegistirme", "YoneticiPaneli", FormMethod.Post))
+{
+    <div class="container col-md-6 pt-3 text-center">
+        <h2 class="pb-2">Yönetici Güncelleme</h2>
+        <h4>YÖNETİCİ ID DEĞİŞTİRİLEMEZ!</h4>
+        <div class="card" style="background-color:green">
+            <div class="container col-md-13">
+                <div class="card-group">
+                    <dl class="container text-center">
+
+                        <dt class="col-sm-6">Yonetici ID:</dt>
+                        @Html.TextBoxFor(k => k.yoneticiID, new { @class = "form-control" })
+                        <dt class="col-sm-6">Şifreniz</dt>
+                        @Html.PasswordFor(k => k.yonetici_sifre, new { @class = "form-control" })
+
+
+
+                        <br />
+                        <button class="btn btn-warning">Şifre Değiştir</button>
+
+                    </dl>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+

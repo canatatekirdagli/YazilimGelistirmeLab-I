@@ -1,0 +1,35 @@
+﻿@model MvcYazGelProje.Models.Entity.uye
+
+@{
+    ViewBag.Title = "SıfreDegistirDetay";
+    Layout = "~/Views/Shared/OgretmenLayout.cshtml";
+}
+
+@using (Html.BeginForm("SıfreDegistirme", "OgretmenPanel", FormMethod.Post))
+{
+    <div class="container col-md-6 pt-3 text-center">
+        <h2 class="pb-2">Şifre Güncelleme</h2>
+        <h4>SİCİL NUMARASI DEĞİŞTİRİLEMEZ!</h4>
+        <div class="card" style="background-color:green">
+            <div class="container col-md-13">
+                <div class="card-group">
+                    <dl class="container text-center">
+
+                        <dt class="col-sm-6">Sicil Numarası:</dt>
+                        @Html.TextBoxFor(k => k.uye_no, new { @class = "form-control" })
+                        <dt class="col-sm-6">Şifreniz</dt>
+                        @Html.PasswordFor(k => k.uye_sifre, new { @class = "form-control" })
+
+
+
+                        <br />
+                        <button class="btn btn-warning">Şifre Değiştir</button>
+
+                    </dl>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+

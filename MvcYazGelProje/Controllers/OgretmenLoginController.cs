@@ -26,10 +26,13 @@ namespace MvcYazGelProje.Controllers
                 if (bilgiler.uye_gorevi=="Öğretmen")
                 {
                     Session["AdSoyad"] = bilgiler.uyeAd+" "+bilgiler.uyeSoyad;
+                    Session["no"] = bilgiler.uye_no;
                     return RedirectToAction("Anasayfa", "OgretmenPanel");
                 }
                 else if (bilgiler.uye_gorevi == "Komisyon")
                 {
+                    Session["AdSoyad"] = bilgiler.uyeAd + " " + bilgiler.uyeSoyad;
+                    Session["no"] = bilgiler.uye_no;
                     return RedirectToAction("Anasayfa", "KomisyonPanel");
                 }
                 else

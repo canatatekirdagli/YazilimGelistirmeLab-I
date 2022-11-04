@@ -268,11 +268,29 @@ namespace MvcYazGelProje.Controllers
         }
 
 
-        public ActionResult SıfreDegistir(yonetici p)
+        public ActionResult SıfreDegistir()
         {
-            var yonetici = Session["id"];
-            var bilgi = db.yonetici.Find(yonetici);
+            var id = (int)Session["id"];
+            var yonetici = db.yonetici.Where(z => z.yoneticiID == id).ToList();
+            return View(yonetici); ;
+        }
+        public ActionResult SıfreDegistirDetay(int id)
+        {
+            var bilgi = db.yonetici.Find(id);
+            return View("SıfreDegistirDetay", bilgi);
+        }
+        public ActionResult SıfreDegistirme(yonetici p)
+        {
+            
+            var bilgi = db.yonetici.Find(p.yoneticiID);
+            bilgi.yoneticiID = p.yoneticiID;
+            string sifre = Sifrele.MD5Olustur(p.yonetici_sifre);
+            bilgi.yonetici_sifre = sifre;
+            db.SaveChanges();
             return View("SıfreDegistir", bilgi);
         }
+
+
+
     }
 }
