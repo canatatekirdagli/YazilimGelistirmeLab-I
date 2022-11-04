@@ -42,7 +42,7 @@ namespace MvcYazGelProje.Controllers
             mail.From = new MailAddress("canatatekirdagli30@gmail.com", "Kocaeli Üniversitesi Staj/İME Takip ve Değerlendirme Sistemi");
             mail.IsBodyHtml = true;
             mail.Subject = "Şifreniz";
-            mail.Body += "Merhaba sisteme hoş geldiniz :) <br/> Sisteme giriş yaparken kullanacağınız; <br/> Mail: " + form["uyeEposta"] + "<br/> Şifre: " + randomPassword + "<br/> Sisteme girdikten sonra şifrenizi değiştirmeyi unutmayın!";
+            mail.Body += "Merhaba sisteme hoş geldiniz :) <br/> Sisteme giriş yaparken kullanacağınız; <br/> Sicil/Öğrenci Numarası: " + form["uye_no"] + "<br/> Şifre: " + randomPassword + "<br/> Sisteme girdikten sonra şifrenizi değiştirmeyi unutmayın!";
             client.Send(mail);
             string sifre = Sifrele.MD5Olustur(randomPassword);
             uye uye = new uye();
