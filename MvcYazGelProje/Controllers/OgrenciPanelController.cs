@@ -48,17 +48,42 @@ namespace MvcYazGelProje.Controllers
                     file.SaveAs(path);
                 }
             }
+            View.Message("Dosya başarıyla yüklenmiştir!");
             return RedirectToAction("Stajİsleri");
         }
 
 
-
-
-
         public ActionResult IMEIsleri()
         {
+            string[] files = Directory.GetFiles(Server.MapPath("~/StajImeDosyaları"));
+            string[] fileNames = new string[files.Count()];
+            for (int i = 0; i < files.Count(); i++)
+            {
+                fileNames[i] = files[i].Substring(files[i].IndexOf("StajImeDosyaları"));
+            }
+            TempData["files"] = fileNames;
             return View();
+
         }
+
+        [HttpPost]
+        public ActionResult IMEIsleri(IEnumerable<HttpPostedFileBase> imgFile)
+        {
+            foreach (var file in imgFile)
+            {
+                if (file != null && file.ContentLength > 0)
+                {
+                    var fileName =Path.GetFileName(file.FileName);
+                    var path = Path.Combine(Server.MapPath("~/StajImeDosyaları"), fileName);
+                    file.SaveAs(path);
+                }
+            }
+            View.Message("Dosya başarıyla yüklenmiştir!");
+            return RedirectToAction("IMEIsleri");
+        }
+
+
+       
         public ActionResult SifreDegistir()
         {
             return View();

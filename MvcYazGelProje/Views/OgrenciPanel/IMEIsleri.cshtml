@@ -34,8 +34,23 @@
             Sol taraftaki kısımdan indirdiğiniz dosyaları isterlere
             uygun şekilde doldurduktan sonra aşağıda belirtilen alana yükleyiniz.
         </h4><br>
-        <input type="file" />
-        <button style="width:100px;" class="pb-lg-1">Yükle</button>
+
+
+        <form action="/OgrenciPanel/IMEIsleri " method="post" enctype="multipart/form-data">
+            <input type="file" name="imgFile" id="imgFile" multiple />
+
+            <button style="width:100px;" class="pb-lg-1" type="submit">Yükle</button>
+        </form>
+
+    @if (TempData["imgFile"] != null)
+    {
+        <ul>
+        @foreach (string file in (string[])TempData["imgFile"])
+        {
+            <li>@file</li>
+        }
+        </ul>
+    }
     </div>
 
 </div>
