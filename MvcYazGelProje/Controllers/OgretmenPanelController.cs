@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using MvcYazGelProje.Models.Entity;
@@ -10,7 +12,7 @@ namespace MvcYazGelProje.Controllers
     public class OgretmenPanelController : Controller
     {
         // GET: OgretmenPanel
-       DBYazgelProjeEntities db = new DBYazgelProjeEntities();
+        DBYazgelProjeEntities db = new DBYazgelProjeEntities();
         public ActionResult AnaSayfa()
         {
             return View();
@@ -41,7 +43,7 @@ namespace MvcYazGelProje.Controllers
             var adsoyad = (string)Session["AdSoyad"];
             var stajdegerlendirme = db.form.Where(z => z.sorumlu == adsoyad).ToList();
             return View(stajdegerlendirme);
-            
+
         }
         public ActionResult DegerlendirmeDetay(int id)
         {
@@ -58,7 +60,21 @@ namespace MvcYazGelProje.Controllers
             belge.basvuruDurumu = p.basvuruDurumu;
             belge.sorumlu = p.sorumlu;
             db.SaveChanges();
-            return RedirectToAction("Degerlendirme"); 
+            string ogrno = p.ogr_no;
+            var a = db.uye.Where(k => p.ogr_no == ogrno).FirstOrDefault();
+            SmtpClient client = new SmtpClient();
+            client.Credentials = new NetworkCredential("kocaeli.uni92@gmail.com", "uvzsvgcvycteiuhi");
+            client.Port = 587;
+            client.Host = "smtp.gmail.com";
+            client.EnableSsl = true;
+            MailMessage mail = new MailMessage();
+            mail.To.Add(a.uyeEposta);
+            mail.From = new MailAddress("canatatekirdagli30@gmail.com", "Kocaeli Üniversitesi Staj/İME Takip ve Değerlendirme Sistemi");
+            mail.IsBodyHtml = true;
+            mail.Subject = "STAJ/IME DURUMUNUZ GÜNCELLENMİŞTİR.";
+            mail.Body += p.staj_id + " NOLU STAJ/IME DURUMUNUZ GÜNCELLENMİŞTİR! SAYFANIZDAN GİRİŞ YAPARAK GÜNCELLEMEYİ GÖREBİLİRSİNİZ! </br> İYİ GÜNLER :)";
+            client.Send(mail);
+            return RedirectToAction("Degerlendirme");
 
         }
 

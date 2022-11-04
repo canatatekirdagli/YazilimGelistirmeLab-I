@@ -1,4 +1,5 @@
-﻿@{
+﻿
+@{
     Layout = null;
 }
 
@@ -9,33 +10,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kocaeli Üniversitesi Staj/İME Takip ve Değerlendirme Sistemi</title>
-    <link href="~/css/yoneticigiris.css" rel="stylesheet" />
+    <link href="~/css/sifremiunuttum.css" rel="stylesheet" />
 </head>
 <body>
 
-
     <div class="header">
         <img src="https://www.freelogovectors.net/wp-content/uploads/2018/03/kocaeli-universitesi-logo.png">
-        <h2>Kocaeli Üniversitesi</h2>
+        <h2>Kocaeli Üniversitesi / Şifremi Unuttum</h2>
         <h3>Staj/İme Takip ve Değerlendirme Sistemi</h3>
     </div>
 
     <div class="giriskutusu">
         <img src="https://w7.pngwing.com/pngs/505/761/png-transparent-login-computer-icons-avatar-icon-monochrome-black-silhouette.png" class="avatar">
-        <h1>Yönetici Girişi</h1>
-        @using (Html.BeginForm("GirisYap", "YoneticiLogin", FormMethod.Post))
+        <h1>Şifre Yenileme</h1>
+        @using (Html.BeginForm("SifremiUnuttum", "YoneticiLogin", FormMethod.Post))
         {
-            <p>Kullanıcı Adı</p>
-            <input type="text" class="form-control" required="required" placeholder="Kullanıcı Adı" name="yonetici_kullaniciAdi">
-            <p>Şifre</p>
-            <input type="password" class="form-control" required="required" name="yonetici_sifre" placeholder="Şifre">
-            <input type="submit" class="form-control" required="required" name="" value="Giriş">
-
-            @ViewBag.Mesaj
+            <form>
+                <p>TC:</p>
+                <input type="text" name="yonetici_TC" placeholder="Öğrenci Numarası ">
+                <p>E-mail Adresinizi Giriniz:</p>
+                <input type="text" name="yonetici_mail" placeholder="E-Mail">
+                <input id="sifreunuttum" type="submit" name="" value="Gönder">
+                @ViewBag.Mesaj
+            </form>
         }
-        <a href="SifremiUnuttum">Şifremi Unuttum</a>
     </div>
-   
+
 
 </body>
 </html>

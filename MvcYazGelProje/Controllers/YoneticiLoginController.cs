@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using MvcYazGelProje.Models.Entity;
 using System.Web.Security;
+using System.Net.Mail;
+using System.Net;
 
 namespace MvcYazGelProje.Controllers
 {
@@ -36,6 +38,44 @@ namespace MvcYazGelProje.Controllers
                 return View();
             }
             
+            
+
+        }
+        public ActionResult SifremiUnuttum()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult SifremiUnuttum(yonetici p)
+        {
+            var bilgiler = db.yonetici.FirstOrDefault(x => x.yonetici_TC == p.yonetici_TC && x.yonetici_mail == p.yonetici_mail);
+            if (bilgiler != null)
+            {
+                string randomPassword = Membership.GeneratePassword(10, 2);
+                SmtpClient client = new SmtpClient();
+                client.Credentials = new NetworkCredential("kocaeli.uni92@gmail.com", "uvzsvgcvycteiuhi");
+                client.Port = 587;
+                client.Host = "smtp.gmail.com";
+                client.EnableSsl = true;
+                MailMessage mail = new MailMessage();
+                mail.To.Add(p.yonetici_mail);
+                mail.From = new MailAddress("canatatekirdagli30@gmail.com", "Kocaeli Üniversitesi Staj/İME Takip ve Değerlendirme Sistemi");
+                mail.IsBodyHtml = true;
+                mail.Subject = "YENİ ŞİFRENİZ";
+                mail.Body += "Sisteme giriş yaparken kullanacağınız; <br/> Yeni Şifreniz: " + randomPassword + "<br/> Sisteme girdikten sonra şifrenizi değiştirmeyi unutmayın!";
+                client.Send(mail);
+                string sifre = Sifrele.MD5Olustur(randomPassword);
+                string a = p.yonetici_TC;
+                var uye = db.yonetici.Where(z => z.yonetici_TC ==a).FirstOrDefault();
+                uye.yonetici_sifre = sifre;
+                db.SaveChanges();
+                return RedirectToAction("GirisYap");
+            }
+            else
+            {
+                ViewBag.Mesaj = "TC ya da Mail";
+                return View();
+            }
         }
 
     }

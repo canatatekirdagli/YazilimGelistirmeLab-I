@@ -277,6 +277,7 @@
     <Content Include="Views\OgretmenPanel\SıfreDegistirDetay.cshtml" />
     <Content Include="Views\KomisyonPanel\SıfreDegistirDetay.cshtml" />
     <Content Include="Views\OgrenciPanel\SıfreDegistirDetay.cshtml" />
+    <Content Include="Views\YoneticiLogin\SifremiUnuttum.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Uploads\" />

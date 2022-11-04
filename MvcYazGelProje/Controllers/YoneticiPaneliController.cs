@@ -33,7 +33,7 @@ namespace MvcYazGelProje.Controllers
         {
             string randomPassword = Membership.GeneratePassword(10, 2);
             SmtpClient client = new SmtpClient();
-            client.Credentials = new NetworkCredential("kocaeli.uni92@gmail.com", "ŞİFREMİ ÇALAN OROSPU ÇOCUĞUDUR");
+            client.Credentials = new NetworkCredential("kocaeli.uni92@gmail.com", "uvzsvgcvycteiuhi");
             client.Port = 587;
             client.Host = "smtp.gmail.com";
             client.EnableSsl = true;
@@ -181,6 +181,20 @@ namespace MvcYazGelProje.Controllers
             belge.basvuruDurumu = p.basvuruDurumu;
             belge.sorumlu = p.sorumlu;
             db.SaveChanges();
+            string ogrno = p.ogr_no;
+            var a = db.uye.Where(k => p.ogr_no == ogrno).FirstOrDefault();
+            SmtpClient client = new SmtpClient();
+            client.Credentials = new NetworkCredential("kocaeli.uni92@gmail.com", "uvzsvgcvycteiuhi");
+            client.Port = 587;
+            client.Host = "smtp.gmail.com";
+            client.EnableSsl = true;
+            MailMessage mail = new MailMessage();
+            mail.To.Add(a.uyeEposta);
+            mail.From = new MailAddress("canatatekirdagli30@gmail.com", "Kocaeli Üniversitesi Staj/İME Takip ve Değerlendirme Sistemi");
+            mail.IsBodyHtml = true;
+            mail.Subject = "STAJ/IME DURUMUNUZ GÜNCELLENMİŞTİR.";
+            mail.Body += p.staj_id + " NOLU STAJ/IME DURUMUNUZ GÜNCELLENMİŞTİR! SAYFANIZDAN GİRİŞ YAPARAK GÜNCELLEMEYİ GÖREBİLİRSİNİZ! </br> İYİ GÜNLER :)";
+            client.Send(mail);
             return RedirectToAction("StajDegerlendirme");
         }
 
@@ -202,7 +216,7 @@ namespace MvcYazGelProje.Controllers
         }
 
         [HttpPost]
-        public ActionResult YoneticiEkleme(FormCollection form,yonetici xd)
+        public ActionResult YoneticiEkleme(FormCollection form)
         {
             int a = db.yonetici.Count();
             if (a==4)
@@ -307,7 +321,7 @@ namespace MvcYazGelProje.Controllers
             string sifre = Sifrele.MD5Olustur(p.yonetici_sifre);
             bilgi.yonetici_sifre = sifre;
             db.SaveChanges();
-            return View("SıfreDegistir", bilgi);
+            return View("Anasayfa", bilgi);
         }
 
 
