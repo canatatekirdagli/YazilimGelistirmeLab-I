@@ -70,15 +70,25 @@ namespace MvcYazGelProje.Controllers
             var kullanicisil = db.uye.ToList();
             return View(kullanicisil);
         }
-        [HttpPost]
+
         public ActionResult KullaniciSilme(string id)
         {
             var kullanici = db.uye.Find(id);
-            var kullanici1 = db.form.Where(k => k.ogr_no == id);
-            var kullanici2 = db.form.Find(kullanici1);
-            var kullanici3 = db.dosya.Where(k => k.ogr_no == id);
-            var kullanici4 = db.dosya.Find(kullanici3);
-            db.form.Remove(kullanici2);
+            int formsay = db.form.Where(k => k.ogr_no == id).Count();
+            formsay++;
+            while (formsay>1)
+            {
+                var kullanici1 = db.form.Where(k => k.ogr_no == id).FirstOrDefault();
+                db.form.Remove(kullanici1);
+                db.SaveChanges();
+            }
+            int dosyasay = db.dosya.Where(k => k.ogr_no == id).Count();
+            while (dosyasay > 1)
+            {
+                var kullanici2 = db.form.Where(k => k.ogr_no == id).FirstOrDefault();
+                db.form.Remove(kullanici2);
+                db.SaveChanges();
+            }
             db.uye.Remove(kullanici);
             db.SaveChanges();
             return RedirectToAction("KullaniciSil");

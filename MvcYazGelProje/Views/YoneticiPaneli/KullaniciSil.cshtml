@@ -5,7 +5,6 @@
     Layout = "~/Views/Shared/YoneticiLayout.cshtml";
 }
 
-
 <div class="container col-md-10 pt-5">
     <div style="overflow-x:auto;">
         <table class="table table-striped text-white ">
@@ -35,7 +34,7 @@
                     <td>@k.uye_bolumAd</td>
                     <td>@k.uye_gorevi</td>
 
-                    <td style="text-align:center"><a href="/YoneticiPaneli/KullaniciSilme/@k.uye_no" class="btn btn-danger">Sil</a></td>
+                    <td style="text-align:center">@Html.ActionLink("Sil","KullaniciSilme",new {id=k.uye_no },new {@class="btn btn-danger",onclick="return confrim('Silmek İstiyor Musunuz?')" })
                     <td style="text-align:center"><a href="/YoneticiPaneli/KullaniciSilDetay/@k.uye_no" class="btn btn-sm btn-success">Güncelle</a></td>
 
                 </tr>

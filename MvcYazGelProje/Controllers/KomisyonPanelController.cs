@@ -47,11 +47,11 @@ namespace MvcYazGelProje.Controllers
         }
         public ActionResult Guncelle(form p)
         {
-            var bilgi = db.form.Find(p.staj_id);
-            bilgi.ogr_no = p.ogr_no;
-            bilgi.sorumlu = p.sorumlu;
-            bilgi.stajNotu = p.stajNotu;
-            bilgi.basvuruDurumu = p.basvuruDurumu; 
+            var belge = db.form.Find(p.staj_id);
+            belge.staj_id = p.staj_id;
+            belge.stajNotu = p.stajNotu;
+            belge.basvuruDurumu = p.basvuruDurumu;
+            belge.sorumlu = p.sorumlu;
             db.SaveChanges();
             return RedirectToAction("DosyaDegerlendir");
 
