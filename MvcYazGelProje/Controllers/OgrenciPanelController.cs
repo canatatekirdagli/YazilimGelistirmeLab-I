@@ -25,19 +25,32 @@ namespace MvcYazGelProje.Controllers
 
         public ActionResult Stajİsleri()
         {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult Stajİsleri(System.Web.HttpPostedFileBase yuklenecekDosya)
-        {
-            if (yuklenecekDosya != null)
+            string[] files = Directory.GetFiles(Server.MapPath("~/StajImeDosyaları"));
+            string[] fileNames = new string[files.Count()];
+            for (int i = 0; i < files.Count(); i++)
             {
-                string dosyaYolu = Path.GetFileName(yuklenecekDosya.FileName);
-                var yuklemeYeri = Path.Combine(Server.MapPath("~/Dosyalar/"), dosyaYolu);
-                yuklenecekDosya.SaveAs(yuklemeYeri);
+                fileNames[i] = files[i].Substring(files[i].IndexOf("StajImeDosyaları"));
             }
+            TempData["files"] = fileNames;
             return View();
+
         }
+
+        [HttpPost]
+        public ActionResult Stajİsleri(IEnumerable<HttpPostedFileBase> imgFile)
+        {
+            foreach (var file in imgFile)
+            {
+                if (file != null && file.ContentLength > 0)
+                {
+                    var fileName =Path.GetFileName(file.FileName);
+                    var path = Path.Combine(Server.MapPath("~/StajImeDosyaları"), fileName);
+                    file.SaveAs(path);
+                }
+            }
+            return RedirectToAction("Stajİsleri");
+        }
+
 
 
 
