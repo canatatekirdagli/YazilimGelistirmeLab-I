@@ -30,6 +30,7 @@ namespace MvcYazGelProje.Controllers
             for (int i = 0; i < files.Count(); i++)
             {
                 fileNames[i] = files[i].Substring(files[i].IndexOf("StajImeDosyaları"));
+                ViewBag.Mesaj = "DOSYA BAŞARIYLA YÜKLENDİ!";
             }
             TempData["files"] = fileNames;
             
@@ -61,8 +62,10 @@ namespace MvcYazGelProje.Controllers
             for (int i = 0; i < files.Count(); i++)
             {
                 fileNames[i] = files[i].Substring(files[i].IndexOf("StajImeDosyaları"));
+                ViewBag.Mesaj = "DOSYA BAŞARIYLA YÜKLENDİ!";
             }
             TempData["files"] = fileNames;
+
             return View();
 
         }
@@ -77,6 +80,7 @@ namespace MvcYazGelProje.Controllers
                     var fileName =Path.GetFileName(file.FileName);
                     var path = Path.Combine(Server.MapPath("~/StajImeDosyaları"), fileName);
                     file.SaveAs(path);
+                    
                 }
             }
             
