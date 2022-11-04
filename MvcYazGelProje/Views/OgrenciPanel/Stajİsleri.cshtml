@@ -20,14 +20,14 @@
     </form>
 
     @if (TempData["imgFile"] != null)
-        {
+    {
     <ul>
         @foreach (string file in (string[])TempData["imgFile"])
-                {
+        {
         <li>@file</li>
-                }
-    </ul>
         }
+    </ul>
+    }
 
 
 
