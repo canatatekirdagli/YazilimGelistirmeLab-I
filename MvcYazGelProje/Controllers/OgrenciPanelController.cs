@@ -32,6 +32,7 @@ namespace MvcYazGelProje.Controllers
                 fileNames[i] = files[i].Substring(files[i].IndexOf("StajImeDosyaları"));
             }
             TempData["files"] = fileNames;
+            
             return View();
 
         }
@@ -48,7 +49,7 @@ namespace MvcYazGelProje.Controllers
                     file.SaveAs(path);
                 }
             }
-            View.Message("Dosya başarıyla yüklenmiştir!");
+            
             return RedirectToAction("Stajİsleri");
         }
 
@@ -78,7 +79,7 @@ namespace MvcYazGelProje.Controllers
                     file.SaveAs(path);
                 }
             }
-            View.Message("Dosya başarıyla yüklenmiştir!");
+            
             return RedirectToAction("IMEIsleri");
         }
 
