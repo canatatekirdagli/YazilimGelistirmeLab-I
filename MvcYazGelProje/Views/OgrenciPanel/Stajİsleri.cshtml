@@ -3,7 +3,7 @@
     ViewBag.Title = "Stajİsleri";
     Layout = "~/Views/Shared/OgrenciLayout.cshtml";
 }
-
+<script src="~/Scripts/jquery-3.4.1.js"></script>
 <div class="dosyakutusu">
 
     <h4 class="pb-2">
@@ -15,18 +15,25 @@
 
     <form action="/OgrenciPanel/Stajİsleri " method="post" enctype="multipart/form-data">
         <input type="file" name="imgFile" id="imgFile" multiple />
-        @ViewBag.Mesaj
-        <button style="width:100px;" class="pb-lg-1" type="submit">Yükle</button>
+       
+        <button style="width:100px;" id="buton" class="pb-lg-1" type="submit">Yükle</button>
     </form>
+
+    <script>
+
+        $('#buton').click(function () {
+            alert('Dosyanız başarıyla kaydedilmiştir!');
+        });
+    </script>
 
     @if (TempData["imgFile"] != null)
     {
-    <ul>
-        @foreach (string file in (string[])TempData["imgFile"])
-        {
-        <li>@file</li>
-        }
-    </ul>
+        <ul>
+            @foreach (string file in (string[])TempData["imgFile"])
+            {
+                <li>@file</li>
+            }
+        </ul>
     }
 
 
