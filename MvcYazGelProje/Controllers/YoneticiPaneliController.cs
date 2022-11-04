@@ -202,32 +202,42 @@ namespace MvcYazGelProje.Controllers
         }
 
         [HttpPost]
-        public ActionResult YoneticiEkleme(FormCollection form)
+        public ActionResult YoneticiEkleme(FormCollection form,yonetici xd)
         {
-            string randomPassword = Membership.GeneratePassword(10, 2);
-            SmtpClient client = new SmtpClient();
-            client.Credentials = new NetworkCredential("kocaeli.uni92@gmail.com", "ŞİFREMİ ÇALAN OROSPU ÇOCUĞUDUR");
-            client.Port = 587;
-            client.Host = "smtp.gmail.com";
-            client.EnableSsl = true;
-            MailMessage mail = new MailMessage();
-            mail.To.Add(form["yonetici_mail"]);
-            mail.From = new MailAddress("canatatekirdagli30@gmail.com", "Kocaeli Üniversitesi Staj/İME Takip ve Değerlendirme Sistemi");
-            mail.IsBodyHtml = true;
-            mail.Subject = "Şifreniz";
-            mail.Body += "Merhaba siteme hoş geldiniz :) <br/> Sisteme giriş yaparken kullanacağınız; <br/> Kullanıcı Adı: " + form["yonetici_kullaniciAdi"] + "<br/> Şifre: " + randomPassword + "<br/> Sisteme girdikten sonra şifrenizi değiştirmeyi unutmayın!";
-            client.Send(mail);
-            string sifre = Sifrele.MD5Olustur(randomPassword);
-            yonetici yonetici = new yonetici();
-            yonetici.yonetici_Ad = form["yonetici_Ad"];
-            yonetici.yonetici_Soyad = form["yonetici_Soyad"];
-            yonetici.yonetici_TC = form["yonetici_TC"];
-            yonetici.yonetici_kullaniciAdi = form["yonetici_kullaniciAdi"];
-            yonetici.yonetici_mail = form["yonetici_mail"];
-            yonetici.yonetici_sifre = sifre;
-            db.yonetici.Add(yonetici);
-            db.SaveChanges();
-            return RedirectToAction("YoneticiSilme");
+            int a = db.yonetici.Count();
+            if (a==4)
+            {
+                ViewBag.mesaj= "MAKSİMUM SAYIDA YÖNETİCİ VARDIR! YENİ YÖNETİCİ EKLEMEK İÇİN BİR YÖNETİCİYİ SİLİN!"; 
+                return View();
+                
+            }
+            else
+            {
+                string randomPassword = Membership.GeneratePassword(10, 2);
+                SmtpClient client = new SmtpClient();
+                client.Credentials = new NetworkCredential("kocaeli.uni92@gmail.com", "XD");
+                client.Port = 587;
+                client.Host = "smtp.gmail.com";
+                client.EnableSsl = true;
+                MailMessage mail = new MailMessage();
+                mail.To.Add(form["yonetici_mail"]);
+                mail.From = new MailAddress("canatatekirdagli30@gmail.com", "Kocaeli Üniversitesi Staj/İME Takip ve Değerlendirme Sistemi");
+                mail.IsBodyHtml = true;
+                mail.Subject = "Şifreniz";
+                mail.Body += "Merhaba siteme hoş geldiniz :) <br/> Sisteme giriş yaparken kullanacağınız; <br/> Kullanıcı Adı: " + form["yonetici_kullaniciAdi"] + "<br/> Şifre: " + randomPassword + "<br/> Sisteme girdikten sonra şifrenizi değiştirmeyi unutmayın!";
+                client.Send(mail);
+                string sifre = Sifrele.MD5Olustur(randomPassword);
+                yonetici yonetici = new yonetici();
+                yonetici.yonetici_Ad = form["yonetici_Ad"];
+                yonetici.yonetici_Soyad = form["yonetici_Soyad"];
+                yonetici.yonetici_TC = form["yonetici_TC"];
+                yonetici.yonetici_kullaniciAdi = form["yonetici_kullaniciAdi"];
+                yonetici.yonetici_mail = form["yonetici_mail"];
+                yonetici.yonetici_sifre = sifre;
+                db.yonetici.Add(yonetici);
+                db.SaveChanges();
+                return RedirectToAction("YoneticiSilme");
+            }
         }
 
 
@@ -240,10 +250,20 @@ namespace MvcYazGelProje.Controllers
         }
         public ActionResult YoneticiSil(int id)
         {
-            var kullanici = db.yonetici.Find(id);
-            db.yonetici.Remove(kullanici);
-            db.SaveChanges();
-            return RedirectToAction("YoneticiSilme");
+            if (id==1)
+            {
+                ViewBag.mesaj = "SÜPER YÖNETİCİ SİLİNEMEZ!!";
+                return RedirectToAction("YoneticiSilme");
+                return View();
+            }
+            else
+            {
+                var kullanici = db.yonetici.Find(id);
+                db.yonetici.Remove(kullanici);
+                db.SaveChanges();
+                return RedirectToAction("YoneticiSilme");
+            }
+          
         }
 
 

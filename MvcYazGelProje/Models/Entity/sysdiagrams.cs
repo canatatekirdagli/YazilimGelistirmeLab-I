@@ -12,13 +12,12 @@ namespace MvcYazGelProje.Models.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class dosya
+    public partial class sysdiagrams
     {
-        public int dosya_id { get; set; }
-        public string ogr_no { get; set; }
-        public Nullable<int> staj_no { get; set; }
-        public byte[] dosya_yolu { get; set; }
-    
-        public virtual uye uye { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

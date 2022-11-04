@@ -12,7 +12,7 @@
           <Property Name="dosya_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ogr_no" Type="varchar" MaxLength="20" />
           <Property Name="staj_no" Type="int" />
-          <Property Name="dosya_yolu" Type="varchar" MaxLength="300" />
+          <Property Name="dosya_yolu" Type="varbinary" MaxLength="1" />
         </EntityType>
         <EntityType Name="form">
           <Key>
@@ -29,6 +29,16 @@
           <Property Name="basvuruDurumu" Type="varchar" MaxLength="10" />
           <Property Name="stajIME" Type="varchar" MaxLength="20" />
           <Property Name="sorumlu" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="uye">
           <Key>
@@ -57,7 +67,7 @@
           <Property Name="yonetici_sifre" Type="varchar" MaxLength="50" />
           <Property Name="yonetici_mail" Type="varchar" MaxLength="30" />
         </EntityType>
-        <Association Name="FK__dosya__ogr_no__267ABA7A">
+        <Association Name="FK__dosya__ogr_no__4BAC3F29">
           <End Role="uye" Type="Self.uye" Multiplicity="0..1" />
           <End Role="dosya" Type="Self.dosya" Multiplicity="*" />
           <ReferentialConstraint>
@@ -69,7 +79,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__form__ogr_no__29572725">
+        <Association Name="FK__form__ogr_no__4E88ABD4">
           <End Role="uye" Type="Self.uye" Multiplicity="0..1" />
           <End Role="form" Type="Self.form" Multiplicity="*" />
           <ReferentialConstraint>
@@ -84,13 +94,14 @@
         <EntityContainer Name="DBYazgelProjeModelStoreContainer">
           <EntitySet Name="dosya" EntityType="Self.dosya" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="form" EntityType="Self.form" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="uye" EntityType="Self.uye" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="yonetici" EntityType="Self.yonetici" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__dosya__ogr_no__267ABA7A" Association="Self.FK__dosya__ogr_no__267ABA7A">
+          <AssociationSet Name="FK__dosya__ogr_no__4BAC3F29" Association="Self.FK__dosya__ogr_no__4BAC3F29">
             <End Role="uye" EntitySet="uye" />
             <End Role="dosya" EntitySet="dosya" />
           </AssociationSet>
-          <AssociationSet Name="FK__form__ogr_no__29572725" Association="Self.FK__form__ogr_no__29572725">
+          <AssociationSet Name="FK__form__ogr_no__4E88ABD4" Association="Self.FK__form__ogr_no__4E88ABD4">
             <End Role="uye" EntitySet="uye" />
             <End Role="form" EntitySet="form" />
           </AssociationSet>
@@ -107,8 +118,8 @@
           <Property Name="dosya_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ogr_no" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="staj_no" Type="Int32" />
-          <Property Name="dosya_yolu" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="uye" Relationship="Self.FK__dosya__ogr_no__267ABA7A" FromRole="dosya" ToRole="uye" />
+          <Property Name="dosya_yolu" Type="Binary" MaxLength="1" FixedLength="false" />
+          <NavigationProperty Name="uye" Relationship="Self.FK__dosya__ogr_no__4BAC3F29" FromRole="dosya" ToRole="uye" />
         </EntityType>
         <EntityType Name="form">
           <Key>
@@ -125,7 +136,17 @@
           <Property Name="basvuruDurumu" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="stajIME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="sorumlu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="uye" Relationship="Self.FK__form__ogr_no__29572725" FromRole="form" ToRole="uye" />
+          <NavigationProperty Name="uye" Relationship="Self.FK__form__ogr_no__4E88ABD4" FromRole="form" ToRole="uye" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="uye">
           <Key>
@@ -141,8 +162,8 @@
           <Property Name="uye_gorevi" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="uye_bolumAd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="IME_durumu" Type="Boolean" />
-          <NavigationProperty Name="dosya" Relationship="Self.FK__dosya__ogr_no__267ABA7A" FromRole="uye" ToRole="dosya" />
-          <NavigationProperty Name="form" Relationship="Self.FK__form__ogr_no__29572725" FromRole="uye" ToRole="form" />
+          <NavigationProperty Name="dosya" Relationship="Self.FK__dosya__ogr_no__4BAC3F29" FromRole="uye" ToRole="dosya" />
+          <NavigationProperty Name="form" Relationship="Self.FK__form__ogr_no__4E88ABD4" FromRole="uye" ToRole="form" />
         </EntityType>
         <EntityType Name="yonetici">
           <Key>
@@ -156,7 +177,7 @@
           <Property Name="yonetici_sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="yonetici_mail" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
-        <Association Name="FK__dosya__ogr_no__267ABA7A">
+        <Association Name="FK__dosya__ogr_no__4BAC3F29">
           <End Role="uye" Type="Self.uye" Multiplicity="0..1" />
           <End Role="dosya" Type="Self.dosya" Multiplicity="*" />
           <ReferentialConstraint>
@@ -168,7 +189,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__form__ogr_no__29572725">
+        <Association Name="FK__form__ogr_no__4E88ABD4">
           <End Role="uye" Type="Self.uye" Multiplicity="0..1" />
           <End Role="form" Type="Self.form" Multiplicity="*" />
           <ReferentialConstraint>
@@ -183,13 +204,14 @@
         <EntityContainer Name="DBYazgelProjeEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="dosya" EntityType="Self.dosya" />
           <EntitySet Name="form" EntityType="Self.form" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="uye" EntityType="Self.uye" />
           <EntitySet Name="yonetici" EntityType="Self.yonetici" />
-          <AssociationSet Name="FK__dosya__ogr_no__267ABA7A" Association="Self.FK__dosya__ogr_no__267ABA7A">
+          <AssociationSet Name="FK__dosya__ogr_no__4BAC3F29" Association="Self.FK__dosya__ogr_no__4BAC3F29">
             <End Role="uye" EntitySet="uye" />
             <End Role="dosya" EntitySet="dosya" />
           </AssociationSet>
-          <AssociationSet Name="FK__form__ogr_no__29572725" Association="Self.FK__form__ogr_no__29572725">
+          <AssociationSet Name="FK__form__ogr_no__4E88ABD4" Association="Self.FK__form__ogr_no__4E88ABD4">
             <End Role="uye" EntitySet="uye" />
             <End Role="form" EntitySet="form" />
           </AssociationSet>
@@ -224,6 +246,17 @@
                 <ScalarProperty Name="basvuruDurumu" ColumnName="basvuruDurumu" />
                 <ScalarProperty Name="stajIME" ColumnName="stajIME" />
                 <ScalarProperty Name="sorumlu" ColumnName="sorumlu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DBYazgelProjeModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

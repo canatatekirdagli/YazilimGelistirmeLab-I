@@ -5,11 +5,12 @@
     Layout = "~/Views/Shared/YoneticiLayout.cshtml";
 }
 
-
+@ViewBag.mesaj
 <div class="container col-md-10 pt-5">
     <div style="overflow-x:auto;">
         <table class="table table-striped text-white ">
             <tr style="background-color:grey">
+
                 <th>Yönetici ID</th>
                 <th>Ad-Soyad</th>
                 <th>TC</th>
@@ -24,20 +25,20 @@
             @foreach (var k in Model)
             {
 
-                <tr>
-                    <td>@k.yoneticiID</td>
-                    <td>@k.yonetici_Ad @k.yonetici_Soyad </td>
-                    <td>@k.yonetici_TC</td>
-                    <td>@k.yonetici_mail</td>
-                    <td>@k.yonetici_kullaniciAdi</td>
+        <tr>
+            <td>@k.yoneticiID</td>
+            <td>@k.yonetici_Ad @k.yonetici_Soyad </td>
+            <td>@k.yonetici_TC</td>
+            <td>@k.yonetici_mail</td>
+            <td>@k.yonetici_kullaniciAdi</td>
 
 
 
 
-                    
-                    <td style="text-align:center"><a href="/YoneticiPaneli/SıfreDegistirDetay/@k.yoneticiID" class="btn btn-sm btn-success">Güncelle</a></td>
+            <td style="text-align:center">@Html.ActionLink("Sil", "YoneticiSil", new { id = k.yoneticiID }, new { @class = "btn btn-danger", onclick = "return confrim('Silmek İstiyor Musunuz?')" })
+            <td style="text-align:center"><a href="/YoneticiPaneli/SıfreDegistirDetay/@k.yoneticiID" class="btn btn-sm btn-success">Güncelle</a></td>
 
-                </tr>
+        </tr>
 
             }
 
