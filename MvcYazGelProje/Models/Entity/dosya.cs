@@ -17,7 +17,7 @@ namespace MvcYazGelProje.Models.Entity
         public int dosya_id { get; set; }
         public string ogr_no { get; set; }
         public Nullable<int> staj_no { get; set; }
-        public byte[] dosya_yolu { get; set; }
+        public string dosya_yolu { get; set; }
     
         public virtual uye uye { get; set; }
     }

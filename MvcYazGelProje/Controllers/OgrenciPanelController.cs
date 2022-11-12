@@ -74,6 +74,7 @@ namespace MvcYazGelProje.Controllers
         [HttpPost]
         public ActionResult IMEIsleri(IEnumerable<HttpPostedFileBase> imgFile)
         {
+            var ogrno = (string)Session["Ogrno"];
             foreach (var file in imgFile)
             {
                 if (file != null && file.ContentLength > 0)
@@ -81,10 +82,15 @@ namespace MvcYazGelProje.Controllers
                     var fileName =Path.GetFileName(file.FileName);
                     var path = Path.Combine(Server.MapPath("~/StajImeDosyaları"), fileName);
                     file.SaveAs(path);
-                    
+                    dosya dosya = new dosya();
+                    dosya.ogr_no = ogrno;
+                    dosya.staj_no = 1;
+                    dosya.dosya_yolu = path;
+                    db.SaveChanges();
                 }
             }
-            
+          
+
             return RedirectToAction("IMEIsleri");
         }
 

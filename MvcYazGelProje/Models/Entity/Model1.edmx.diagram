@@ -4,13 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="503456bc2e7244f9a7db16092c035e0f" Name="Diagram1">
+      <Diagram DiagramId="af075cb7236146fea815488e18a09785" Name="Diagram1">
         <EntityTypeShape EntityType="DBYazgelProjeModel.dosya" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="DBYazgelProjeModel.form" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DBYazgelProjeModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBYazgelProjeModel.uye" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DBYazgelProjeModel.yonetici" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
-        <AssociationConnector Association="DBYazgelProjeModel.FK__dosya__ogr_no__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="DBYazgelProjeModel.FK__dosya__ogr_no__628FA481" ManuallyRouted="false" />
         <AssociationConnector Association="DBYazgelProjeModel.FK__form__ogr_no__4E88ABD4" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>

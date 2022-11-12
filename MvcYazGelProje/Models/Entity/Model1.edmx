@@ -12,7 +12,7 @@
           <Property Name="dosya_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ogr_no" Type="varchar" MaxLength="20" />
           <Property Name="staj_no" Type="int" />
-          <Property Name="dosya_yolu" Type="varbinary" MaxLength="1" />
+          <Property Name="dosya_yolu" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="form">
           <Key>
@@ -67,7 +67,7 @@
           <Property Name="yonetici_sifre" Type="varchar" MaxLength="50" />
           <Property Name="yonetici_mail" Type="varchar" MaxLength="30" />
         </EntityType>
-        <Association Name="FK__dosya__ogr_no__4BAC3F29">
+        <Association Name="FK__dosya__ogr_no__628FA481">
           <End Role="uye" Type="Self.uye" Multiplicity="0..1" />
           <End Role="dosya" Type="Self.dosya" Multiplicity="*" />
           <ReferentialConstraint>
@@ -97,7 +97,7 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="uye" EntityType="Self.uye" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="yonetici" EntityType="Self.yonetici" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__dosya__ogr_no__4BAC3F29" Association="Self.FK__dosya__ogr_no__4BAC3F29">
+          <AssociationSet Name="FK__dosya__ogr_no__628FA481" Association="Self.FK__dosya__ogr_no__628FA481">
             <End Role="uye" EntitySet="uye" />
             <End Role="dosya" EntitySet="dosya" />
           </AssociationSet>
@@ -118,8 +118,8 @@
           <Property Name="dosya_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ogr_no" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="staj_no" Type="Int32" />
-          <Property Name="dosya_yolu" Type="Binary" MaxLength="1" FixedLength="false" />
-          <NavigationProperty Name="uye" Relationship="Self.FK__dosya__ogr_no__4BAC3F29" FromRole="dosya" ToRole="uye" />
+          <Property Name="dosya_yolu" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="uye" Relationship="Self.FK__dosya__ogr_no__628FA481" FromRole="dosya" ToRole="uye" />
         </EntityType>
         <EntityType Name="form">
           <Key>
@@ -162,7 +162,7 @@
           <Property Name="uye_gorevi" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="uye_bolumAd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="IME_durumu" Type="Boolean" />
-          <NavigationProperty Name="dosya" Relationship="Self.FK__dosya__ogr_no__4BAC3F29" FromRole="uye" ToRole="dosya" />
+          <NavigationProperty Name="dosya" Relationship="Self.FK__dosya__ogr_no__628FA481" FromRole="uye" ToRole="dosya" />
           <NavigationProperty Name="form" Relationship="Self.FK__form__ogr_no__4E88ABD4" FromRole="uye" ToRole="form" />
         </EntityType>
         <EntityType Name="yonetici">
@@ -177,7 +177,7 @@
           <Property Name="yonetici_sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="yonetici_mail" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
-        <Association Name="FK__dosya__ogr_no__4BAC3F29">
+        <Association Name="FK__dosya__ogr_no__628FA481">
           <End Role="uye" Type="Self.uye" Multiplicity="0..1" />
           <End Role="dosya" Type="Self.dosya" Multiplicity="*" />
           <ReferentialConstraint>
@@ -207,7 +207,7 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="uye" EntityType="Self.uye" />
           <EntitySet Name="yonetici" EntityType="Self.yonetici" />
-          <AssociationSet Name="FK__dosya__ogr_no__4BAC3F29" Association="Self.FK__dosya__ogr_no__4BAC3F29">
+          <AssociationSet Name="FK__dosya__ogr_no__628FA481" Association="Self.FK__dosya__ogr_no__628FA481">
             <End Role="uye" EntitySet="uye" />
             <End Role="dosya" EntitySet="dosya" />
           </AssociationSet>
