@@ -58,12 +58,13 @@ namespace MvcYazGelProje.Controllers
 
         public ActionResult IMEIsleri()
         {
+
             string[] files = Directory.GetFiles(Server.MapPath("~/StajImeDosyaları"));
             string[] fileNames = new string[files.Count()];
             for (int i = 0; i < files.Count(); i++)
             {
                 fileNames[i] = files[i].Substring(files[i].IndexOf("StajImeDosyaları"));
-                ViewBag.Mesaj = "DOSYA BAŞARIYLA YÜKLENDİ!";
+                
             }
             TempData["files"] = fileNames;
 
@@ -75,23 +76,34 @@ namespace MvcYazGelProje.Controllers
         public ActionResult IMEIsleri(IEnumerable<HttpPostedFileBase> imgFile)
         {
             var ogrno = (string)Session["Ogrno"];
-            foreach (var file in imgFile)
+            var bilgiler = db.uye.FirstOrDefault(x => x.uye_no == ogrno);
+            bool a = (bool)bilgiler.IME_durumu;
+            if (a!=true)
             {
-                if (file != null && file.ContentLength > 0)
+                ViewBag.Mesaj = "IME BAŞVURUSU YAPMAK İÇİN YETKİNİZ YOKTUR! LÜTFEN ÖĞRETMENİNİZLE İLETİŞİME GEÇİNİZ!";
+                return View();
+            }
+            else
+            {
+                foreach (var file in imgFile)
                 {
-                    var fileName =Path.GetFileName(file.FileName);
-                    var path = Path.Combine(Server.MapPath("~/StajImeDosyaları"), fileName);
-                    file.SaveAs(path);
-                    dosya dosya = new dosya();
-                    dosya.ogr_no = ogrno;
-                    dosya.staj_no = 1;
-                    dosya.dosya_yolu = path;
-                    db.SaveChanges();
+                    if (file != null && file.ContentLength > 0)
+                    {
+                        var fileName = Path.GetFileName(file.FileName);
+                        var path = Path.Combine(Server.MapPath("~/StajImeDosyaları"), fileName);
+                        file.SaveAs(path);
+                        dosya dosya = new dosya();
+                        dosya.ogr_no = ogrno;
+                        dosya.staj_no = 1;
+                        dosya.dosya_yolu = path;
+                        db.SaveChanges();
+                    }
                 }
+
+
+                return RedirectToAction("IMEIsleri");
             }
           
-
-            return RedirectToAction("IMEIsleri");
         }
 
 

@@ -58,7 +58,7 @@ namespace MvcYazGelProje.Controllers
             string ogrno = p.ogr_no;
             var a = db.uye.Where(k => p.ogr_no == ogrno).FirstOrDefault();
             SmtpClient client = new SmtpClient();
-            client.Credentials = new NetworkCredential("kocaeli.uni92@gmail.com", "uvzsvgcvycteiuhi");
+            client.Credentials = new NetworkCredential("kocaeli.uni92@gmail.com", "ywlepghzixrrpvtl");
             client.Port = 587;
             client.Host = "smtp.gmail.com";
             client.EnableSsl = true;

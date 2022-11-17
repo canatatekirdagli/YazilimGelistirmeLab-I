@@ -32,21 +32,17 @@
     <div class="imeyuklenecekler">
         <h4 class="pb-2">
             Sol taraftaki kısımdan indirdiğiniz dosyaları isterlere
-            uygun şekilde doldurduktan sonra aşağıda belirtilen alana yükleyiniz.
-        </h4><br>
+            uygun şekilde doldurduktan sonra aşağıda belirtilen alana yükleyiniz. </br>
+        </h4>
+        <h6> @ViewBag.Mesaj</h6>
+
 
 
         <form action="/OgrenciPanel/IMEIsleri " method="post" enctype="multipart/form-data">
             <input type="file" name="imgFile" id="imgFile" multiple />
-           
+
             <button style="width:100px;" id="buton" class="pb-lg-1" type="submit">Yükle</button>
         </form>
-        <script>
-
-            $('#buton').click(function () {
-                alert('Dosyanız başarıyla kaydedilmiştir!');
-            });
-        </script>
 
         @if (TempData["imgFile"] != null)
         {

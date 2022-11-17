@@ -63,13 +63,13 @@ namespace MvcYazGelProje.Controllers
             {
                 string randomPassword = Membership.GeneratePassword(10, 2);
                 SmtpClient client = new SmtpClient();
-                client.Credentials = new NetworkCredential("kocaeli.uni92@gmail.com", "uvzsvgcvycteiuhi");
+                client.Credentials = new NetworkCredential("kocaeli.uni92@gmail.com", "ywlepghzixrrpvtl");
                 client.Port = 587;
                 client.Host = "smtp.gmail.com";
                 client.EnableSsl = true;
                 MailMessage mail = new MailMessage();
                 mail.To.Add(p.uyeEposta);
-                mail.From = new MailAddress("canatatekirdagli30@gmail.com", "Kocaeli Üniversitesi Staj/İME Takip ve Değerlendirme Sistemi");
+                mail.From = new MailAddress("kocaeli.uni92@gmail.com", "Kocaeli Üniversitesi Staj/İME Takip ve Değerlendirme Sistemi");
                 mail.IsBodyHtml = true;
                 mail.Subject = "YENİ ŞİFRENİZ";
                 mail.Body += "Sisteme giriş yaparken kullanacağınız; <br/> Sicil/Öğrenci Numarası: " + p.uye_no + "<br/> Şifre: " + randomPassword + "<br/> Sisteme girdikten sonra şifrenizi değiştirmeyi unutmayın!";

@@ -33,13 +33,13 @@ namespace MvcYazGelProje.Controllers
         {
             string randomPassword = Membership.GeneratePassword(10, 2);
             SmtpClient client = new SmtpClient();
-            client.Credentials = new NetworkCredential("kocaeli.uni92@gmail.com", "uvzsvgcvycteiuhi");
+            client.Credentials = new NetworkCredential("kocaeli.uni92@gmail.com", "ywlepghzixrrpvtl");
             client.Port = 587;
             client.Host = "smtp.gmail.com";
             client.EnableSsl = true;
             MailMessage mail = new MailMessage();
             mail.To.Add(form["uyeEposta"]);
-            mail.From = new MailAddress("canatatekirdagli30@gmail.com", "Kocaeli Üniversitesi Staj/İME Takip ve Değerlendirme Sistemi");
+            mail.From = new MailAddress("kocaeli.uni92@gmail.com", "Kocaeli Üniversitesi Staj/İME Takip ve Değerlendirme Sistemi");
             mail.IsBodyHtml = true;
             mail.Subject = "Şifreniz";
             mail.Body += "Merhaba sisteme hoş geldiniz :) <br/> Sisteme giriş yaparken kullanacağınız; <br/> Sicil/Öğrenci Numarası: " + form["uye_no"] + "<br/> Şifre: " + randomPassword + "<br/> Sisteme girdikten sonra şifrenizi değiştirmeyi unutmayın!";
@@ -108,7 +108,6 @@ namespace MvcYazGelProje.Controllers
             belge.uye_gsm = p.uye_gsm;
             belge.uyeEposta = p.uyeEposta;
             belge.uye_bolumAd = p.uye_bolumAd;
-            belge.uye_gorevi = p.uye_gorevi;
             db.SaveChanges();
             return RedirectToAction("KullaniciSil");
 
@@ -184,13 +183,13 @@ namespace MvcYazGelProje.Controllers
             string ogrno = p.ogr_no;
             var a = db.uye.Where(k => p.ogr_no == ogrno).FirstOrDefault();
             SmtpClient client = new SmtpClient();
-            client.Credentials = new NetworkCredential("kocaeli.uni92@gmail.com", "uvzsvgcvycteiuhi");
+            client.Credentials = new NetworkCredential("kocaeli.uni92@gmail.com", "ywlepghzixrrpvtl");
             client.Port = 587;
             client.Host = "smtp.gmail.com";
             client.EnableSsl = true;
             MailMessage mail = new MailMessage();
             mail.To.Add(a.uyeEposta);
-            mail.From = new MailAddress("canatatekirdagli30@gmail.com", "Kocaeli Üniversitesi Staj/İME Takip ve Değerlendirme Sistemi");
+            mail.From = new MailAddress("kocaeli.uni92@gmail.com", "Kocaeli Üniversitesi Staj/İME Takip ve Değerlendirme Sistemi");
             mail.IsBodyHtml = true;
             mail.Subject = "STAJ/IME DURUMUNUZ GÜNCELLENMİŞTİR.";
             mail.Body += p.staj_id + " NOLU STAJ/IME DURUMUNUZ GÜNCELLENMİŞTİR! SAYFANIZDAN GİRİŞ YAPARAK GÜNCELLEMEYİ GÖREBİLİRSİNİZ! </br> İYİ GÜNLER :)";
@@ -229,16 +228,16 @@ namespace MvcYazGelProje.Controllers
             {
                 string randomPassword = Membership.GeneratePassword(10, 2);
                 SmtpClient client = new SmtpClient();
-                client.Credentials = new NetworkCredential("kocaeli.uni92@gmail.com", "XD");
+                client.Credentials = new NetworkCredential("kocaeli.uni92@gmail.com", "ywlepghzixrrpvtl");
                 client.Port = 587;
                 client.Host = "smtp.gmail.com";
                 client.EnableSsl = true;
                 MailMessage mail = new MailMessage();
                 mail.To.Add(form["yonetici_mail"]);
-                mail.From = new MailAddress("canatatekirdagli30@gmail.com", "Kocaeli Üniversitesi Staj/İME Takip ve Değerlendirme Sistemi");
+                mail.From = new MailAddress("kocaeli.uni92@gmail.com", "Kocaeli Üniversitesi Staj/İME Takip ve Değerlendirme Sistemi");
                 mail.IsBodyHtml = true;
                 mail.Subject = "Şifreniz";
-                mail.Body += "Merhaba siteme hoş geldiniz :) <br/> Sisteme giriş yaparken kullanacağınız; <br/> Kullanıcı Adı: " + form["yonetici_kullaniciAdi"] + "<br/> Şifre: " + randomPassword + "<br/> Sisteme girdikten sonra şifrenizi değiştirmeyi unutmayın!";
+                mail.Body += "Merhaba sisteme hoş geldiniz :) <br/> Sisteme giriş yaparken kullanacağınız; <br/> Kullanıcı Adı: " + form["yonetici_kullaniciAdi"] + "<br/> Şifre: " + randomPassword + "<br/> Sisteme girdikten sonra şifrenizi değiştirmeyi unutmayın!";
                 client.Send(mail);
                 string sifre = Sifrele.MD5Olustur(randomPassword);
                 yonetici yonetici = new yonetici();
