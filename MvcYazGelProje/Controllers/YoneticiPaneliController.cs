@@ -31,7 +31,7 @@ namespace MvcYazGelProje.Controllers
         [HttpPost]
         public ActionResult KullaniciEkle(FormCollection form)
         {
-            string randomPassword = Membership.GeneratePassword(10, 2);
+            string sifre = form["uyeAd"] + form["uyeSoyad"];
             SmtpClient client = new SmtpClient();
             client.Credentials = new NetworkCredential("kocaeli.uni92@gmail.com", "ywlepghzixrrpvtl");
             client.Port = 587;
@@ -42,9 +42,9 @@ namespace MvcYazGelProje.Controllers
             mail.From = new MailAddress("kocaeli.uni92@gmail.com", "Kocaeli Üniversitesi Staj/İME Takip ve Değerlendirme Sistemi");
             mail.IsBodyHtml = true;
             mail.Subject = "Şifreniz";
-            mail.Body += "Merhaba sisteme hoş geldiniz :) <br/> Sisteme giriş yaparken kullanacağınız; <br/> Sicil/Öğrenci Numarası: " + form["uye_no"] + "<br/> Şifre: " + randomPassword + "<br/> Sisteme girdikten sonra şifrenizi değiştirmeyi unutmayın!";
+            mail.Body += "Merhaba sisteme hoş geldiniz :) <br/> Sisteme giriş yaparken kullanacağınız; <br/> Sicil/Öğrenci Numarası: " + form["uye_no"] + "<br/> Şifre: " + sifre + "<br/> Sisteme girdikten sonra şifrenizi değiştirmeyi unutmayın!";
             client.Send(mail);
-            string sifre = Sifrele.MD5Olustur(randomPassword);
+            string sifre1 = Sifrele.MD5Olustur(sifre);
             uye uye = new uye();
             uye.uyeAd = form["uyeAd"];
             uye.uye_no = form["uye_no"];
@@ -55,7 +55,7 @@ namespace MvcYazGelProje.Controllers
             uye.uye_bolumAd = form["uye_bolumAd"];
             uye.uye_gorevi = "Öğrenci";
             uye.IME_durumu = false;
-            uye.uye_sifre = sifre;
+            uye.uye_sifre = sifre1;
             db.uye.Add(uye);
             db.SaveChanges();
             return RedirectToAction("KullaniciEkle");
@@ -226,7 +226,7 @@ namespace MvcYazGelProje.Controllers
             }
             else
             {
-                string randomPassword = Membership.GeneratePassword(10, 2);
+                string sifre = form["yonetici_Ad"] + form["yonetici_Soyad"];
                 SmtpClient client = new SmtpClient();
                 client.Credentials = new NetworkCredential("kocaeli.uni92@gmail.com", "ywlepghzixrrpvtl");
                 client.Port = 587;
@@ -237,16 +237,16 @@ namespace MvcYazGelProje.Controllers
                 mail.From = new MailAddress("kocaeli.uni92@gmail.com", "Kocaeli Üniversitesi Staj/İME Takip ve Değerlendirme Sistemi");
                 mail.IsBodyHtml = true;
                 mail.Subject = "Şifreniz";
-                mail.Body += "Merhaba sisteme hoş geldiniz :) <br/> Sisteme giriş yaparken kullanacağınız; <br/> Kullanıcı Adı: " + form["yonetici_kullaniciAdi"] + "<br/> Şifre: " + randomPassword + "<br/> Sisteme girdikten sonra şifrenizi değiştirmeyi unutmayın!";
+                mail.Body += "Merhaba sisteme hoş geldiniz :) <br/> Sisteme giriş yaparken kullanacağınız; <br/> Kullanıcı Adı: " + form["yonetici_kullaniciAdi"] + "<br/> Şifre: " + sifre + "<br/> Sisteme girdikten sonra şifrenizi değiştirmeyi unutmayın!";
                 client.Send(mail);
-                string sifre = Sifrele.MD5Olustur(randomPassword);
+                string sifre1 = Sifrele.MD5Olustur(sifre);
                 yonetici yonetici = new yonetici();
                 yonetici.yonetici_Ad = form["yonetici_Ad"];
                 yonetici.yonetici_Soyad = form["yonetici_Soyad"];
                 yonetici.yonetici_TC = form["yonetici_TC"];
                 yonetici.yonetici_kullaniciAdi = form["yonetici_kullaniciAdi"];
                 yonetici.yonetici_mail = form["yonetici_mail"];
-                yonetici.yonetici_sifre = sifre;
+                yonetici.yonetici_sifre = sifre1;
                 db.yonetici.Add(yonetici);
                 db.SaveChanges();
                 return RedirectToAction("YoneticiSilme");
