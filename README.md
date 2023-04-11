@@ -12,20 +12,6 @@ The Internship Tracking System for Universities is a web application that helps 
 
 
   
-## Installation
-
-To run the Internship Tracking System for Universities locally, follow these steps:
-
-1) Clone the repository: git clone https://github.com/canatatekirdagli/Internship-Tracking-System-for-Universities.git
-
-2) Install dependencies for both the frontend and backend: cd client && npm install and cd server && npm install
-
-3) Create a .env file in the server directory and add the required environment variables. You can refer to the .env.example file for the list of environment variables.
-
-4) Start the frontend and backend servers concurrently: npm run dev
-
-Note: You will need to set up a MongoDB database, account to fully use the system. Refer to the documentation for detailed instructions.
-  
 ## Contributing
 
 Contributions to the Internship Tracking System for Universities project are welcome! If you have suggestions for new features, bug fixes, or other improvements, please submit a pull request or open an issue.
